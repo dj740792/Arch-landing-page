@@ -1,9 +1,9 @@
-import { Geist, Geist_Mono, DynaPuff, Roboto } from "next/font/google";
+import { Cormorant_Garamond, DynaPuff  } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/_components/Navbar";
 
-const roboto = Roboto({
-  variable: "--font-geist-sans",
+const cormorant = Cormorant_Garamond({
+  variable: "--font-cormorant-sans",
   subsets: ["latin"],
 });
 
@@ -11,10 +11,6 @@ const dynapuff = DynaPuff({
   subsets: ["latin"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
 
 export const metadata = {
   title: "Create Next App",
@@ -25,12 +21,16 @@ export default function RootLayout({ children }) {
   return (
     <html
       lang="en"
-      className={`${roboto.variable} ${geistMono.variable} ${dynapuff.variable} h-full antialiased`}
+      className={`${cormorant.variable}  ${dynapuff.variable} h-full antialiased`}
     >
       <body
-        className={`min-h-full flex flex-col items-center py-4 ${roboto.className} `}
+        className={`min-h-full flex  flex-col items-center w-full bg-zinc-950 text-white ${cormorant.className} font-semibold`}
       >
-        <Navbar />
+       <div className="fixed top-0 left-0 w-full z-50 pointer-events-none flex justify-center pt-4 px-4">
+          <div className="pointer-events-auto flex justify-center items-center w-full ">
+            <Navbar />
+          </div>
+        </div>
         {children}
       </body>
     </html>

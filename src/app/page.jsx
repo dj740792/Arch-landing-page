@@ -1,10 +1,13 @@
-"use client"
-import Hero from "@/_components/Hero"
+"use client";
+import About from "@/_components/About";
+import Hero from "@/_components/Hero";
 
 export default function page() {
   return (
-    <div className="text-6xl flex justify-center px-4 md:px-8 lg:px-10 xl:px-12 ">
+    
+    <main className="w-full min-h-screen">
       <Hero />
-    </div>
-  )
+      <About />
+    </main>
+  );
 }

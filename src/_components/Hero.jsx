@@ -6,8 +6,8 @@ const containerVariants = {
   hidden: {},
   visible: {
     transition: {
-      staggerChildren: 0.12,
-      delayChildren: 0.2,
+      staggerChildren: 1.5,
+      delayChildren: 1.2,
     },
   },
 };
@@ -21,7 +21,7 @@ const itemVariants = {
     y: 0,
     opacity: 1,
     transition: {
-      duration: 0.8,
+      duration: 3,
       ease: [0.23, 1, 0.32, 1],
     },
   },
@@ -70,7 +70,7 @@ const Hero = () => {
           ))}
         </div>
 
-        <div className="max-w-sm lg:max-w-md overflow-hidden self-start md:self-end">
+        <div className="max-w-sm lg:max-w-md overflow-hidden self-start md:self-end ">
           {mounted ? (
             <motion.p
               variants={itemVariants}
@@ -142,17 +142,8 @@ const Hero = () => {
   );
 
   return (
-    <section className="relative min-h-screen px-4 md:px-8 lg:px-12 pt-55 md:pt-60 lg:pt-55 2xl:pt-52 flex flex-col overflow-hidden text-white">
-      <video
-        className="absolute inset-0 h-full w-full object-cover"
-        autoPlay
-        loop
-        muted
-        playsInline
-       
-        src="hero.mp4"
-      />
-      
+    <section className="relative min-h-screen px-4 md:px-8 lg:px-12 pt-55 md:pt-60 lg:pt-55 2xl:pt-52 flex flex-col overflow-hidden ">
+    
       {mounted ? (
         <motion.div
           variants={containerVariants}
