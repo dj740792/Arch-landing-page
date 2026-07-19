@@ -1,4 +1,4 @@
-import { Cormorant_Garamond, DynaPuff, Archivo_Black } from "next/font/google";
+import { Cormorant_Garamond, Archivo_Black,Lexend_Deca } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/_components/Navbar";
 
@@ -7,7 +7,7 @@ const cormorant = Cormorant_Garamond({
   subsets: ["latin"],
 });
 
-const dynapuff = DynaPuff({
+const lexend = Lexend_Deca({
   subsets: ["latin"],
 });
 const archivo = Archivo_Black({
@@ -25,10 +25,10 @@ export default function RootLayout({ children }) {
   return (
     <html
       lang="en"
-      className={`${cormorant.variable}  ${dynapuff.variable}  ${archivo.variable} h-full antialiased`}
+      className={`${cormorant.variable}  ${lexend.variable}  ${archivo.variable} h-full antialiased`}
     >
       <body
-        className={`min-h-full flex  flex-col items-center w-full bg-zinc-950 text-white ${cormorant.className} font-semibold`}
+        className={`min-h-full flex  flex-col items-center w-full bg-zinc-950 text-white ${lexend.className} font-semibold`}
       >
         <div className="fixed top-0 left-0 w-full z-50 pointer-events-none flex justify-center pt-4 px-4">
           <div className="pointer-events-auto flex justify-center items-center w-full ">
