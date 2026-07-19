@@ -22,14 +22,7 @@ export default function Navbar() {
     },
   };
 
-  const centerVariant = {
-    closed: {
-      opacity: 1,
-    },
-    opened: {
-      opacity: 0,
-    },
-  };
+
   const bottomVariant = {
     closed: {
       rotate: 0,
@@ -41,10 +34,10 @@ export default function Navbar() {
   };
   const listVarient = {
     closed: {
-      x: "100vw",
+      y: "-100vw",
     },
     opened: {
-      x: 0,
+      y: "0vw",
       transition: {
         ease: "easeIn",
         when: "beforeChildren",
@@ -54,31 +47,31 @@ export default function Navbar() {
   };
   const listItemVariant = {
     closed: {
-      x: -10,
+      y: 0,
       opacity: 0,
     },
     opened: {
-      x: 0,
+      y: 10,
       opacity: 1,
     },
   };
   return (
-    <nav className="w-2/3 md:w-1/3 h-15 z-50">
-      <div className="relative flex h-full items-center justify-between px-4 rounded-2xl border border-white/30 bg-white/10  shadow-[0_4px_22px_rgba(0,0,0,0.2)] backdrop-blur-md">
+    <nav className="w-full  h-15 z-50">
+      <div className="relative flex h-full items-center justify-between px-4 rounded-2xl ">
         {/* LOGO */}
-        <Link href="/" className=" lg:flex text-xl uppercase font-bold mr-4">
-          arch.
+        <Link href="/" className="text-3xl md:text-4xl   font-bold mr-4">
+         Oasis.
         </Link>
 
-        {/* LINKS */}
+        {/* LINKS
         <div className="hidden md:flex items-center gap-4 text-lg">
           {links.map((link) => (
             <NavLink link={link} key={link.title} />
           ))}
-        </div>
+        </div> */}
 
         {/* Responsive menu */}
-        <div className="md:hidden ml-auto">
+        <div className=" ml-auto ">
           <button
             className="w-7 h-5 flex flex-col justify-between cursor-pointer z-50 relative"
             onClick={() => setOpen((prev) => !prev)}
@@ -86,17 +79,13 @@ export default function Navbar() {
             <motion.div
               animate={open ? "opened" : "closed"}
               variants={topVarient}
-              className="w-7 h-1 rounded origin-left bg-white"
+              className="w-7 h-1 rounded origin-left bg-black"
             ></motion.div>
-            <motion.div
-              animate={open ? "opened" : "closed"}
-              variants={centerVariant}
-              className="w-7 h-1 rounded bg-white"
-            ></motion.div>
+
             <motion.div
               animate={open ? "opened" : "closed"}
               variants={bottomVariant}
-              className="w-7 h-1 rounded bg-white origin-left"
+              className="w-7 h-1 rounded bg-black origin-left"
             ></motion.div>
           </button>
           {/* menu list */}

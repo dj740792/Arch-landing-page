@@ -1,31 +1,36 @@
 "use client";
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
+import Image from "next/image";
 
+// Staggered orchestrator for the text grid elements
 const containerVariants = {
   hidden: {},
   visible: {
     transition: {
-      staggerChildren: 1.5,
-      delayChildren: 1.2,
+      staggerChildren: 0.08,
     },
   },
 };
 
-const itemVariants = {
-  hidden: {
-    y: 40,
-    opacity: 0,
-  },
+const maskRevealVariants = {
+  hidden: { y: "110%" },
   visible: {
-    y: 0,
-    opacity: 1,
+    y: "0%",
     transition: {
-      duration: 3,
+      duration: 1.2,
       ease: [0.23, 1, 0.32, 1],
     },
   },
 };
+
+const images = [
+  { src: "/heroImgs/img1.jpg", height: "h-[50vh] md:h-[50vh]" },
+  { src: "/heroImgs/img2.jpg", height: "h-[42vh] md:h-[45vh]" },
+  { src: "/heroImgs/img3.jpg", height: "h-[46vh] md:h-[42vh]" },
+  { src: "/heroImgs/img4.jpg", height: "h-[40vh] md:h-[49vh]" },
+  { src: "/heroImgs/img5.jpg", height: "h-[49vh] md:h-[40vh]" },
+];
 
 const Hero = () => {
   const [mounted, setMounted] = useState(false);
@@ -34,130 +39,68 @@ const Hero = () => {
     setMounted(true);
   }, []);
 
-  const heroText = [
-    "WE ARE",
-    "PHOTOGRAPHY &",
-    "FILM",
-    "STUDIO CREATING",
-    "TIMELESS VISUALS",
-    "FOR MODERN",
-    "BRANDS",
-  ];
-
-  const logo = "ARCH.";
-
-  const heroContent = (
-    <>
-      <div className="flex flex-col md:flex-row justify-between lg:justify-around xl:justify-around md:justify-between 2xl:justify-around gap-12">
-        <div className="uppercase">
-          {heroText.map((line, index) => (
-            <div key={index} className="overflow-hidden">
-              {mounted ? (
-                <motion.p
-                  variants={itemVariants}
-                  initial="hidden"
-                  animate="visible"
-                  className="text-xl md:text-xl lg:text-2xl 2xl:text-3xl leading-[1.05]"
-                >
-                  {line}
-                </motion.p>
-              ) : (
-                <p className="text-xl md:text-xl lg:text-2xl 2xl:text-3xl leading-[1.05]">
-                  {line}
-                </p>
-              )}
-            </div>
-          ))}
-        </div>
-
-        <div className="max-w-sm lg:max-w-md overflow-hidden self-start md:self-end ">
-          {mounted ? (
-            <motion.p
-              variants={itemVariants}
-              initial="hidden"
-              animate="visible"
-              className="text-md md:text-base lg:text-lg 2xl:text-2xl leading-relaxed font-Clash-light"
-            >
-              Visual storytelling studio crafting cinematic imagery, creative
-              direction, and emotionally driven brand experiences.
-            </motion.p>
-          ) : (
-            <p className="text-md md:text-base lg:text-lg 2xl:text-2xl leading-relaxed font-Clash-light">
-              Visual storytelling studio crafting cinematic imagery, creative
-              direction, and emotionally driven brand experiences.
-            </p>
-          )}
-        </div>
-      </div>
-
-      <div className="flex-1 flex items-end justify-center">
-        <div className="overflow-hidden w-full">
-          <h1 className="flex justify-center items-end font-Satoshi-black tracking-tight leading-none whitespace-nowrap">
-            {logo.split("").map((letter, index) => (
-              <span key={index} className="overflow-hidden inline-block">
-                {mounted ? (
-                  <motion.span
-                    initial="hidden"
-                    animate="visible"
-                    variants={{
-                      hidden: { y: "110%" },
-                      visible: {
-                        y: "0%",
-                        transition: {
-                          duration: 0.9,
-                          ease: [0.23, 1, 0.32, 1],
-                        },
-                      },
-                    }}
-                    className="inline-block text-[7rem] sm:text-[8rem] md:text-[13rem] lg:text-[17rem] xl:text-[22rem] 2xl:text-[28rem]"
-                  >
-                    {letter}
-                  </motion.span>
-                ) : (
-                  <span className="inline-block text-[7rem] sm:text-[8rem] md:text-[13rem] lg:text-[17rem] xl:text-[22rem] 2xl:text-[28rem]">
-                    {letter}
-                  </span>
-                )}
-              </span>
-            ))}
-
-            {mounted ? (
-              <motion.span
-                variants={itemVariants}
-                initial="hidden"
-                animate="visible"
-                className="text-lg sm:text-2xl md:text-4xl lg:text-6xl xl:text-7xl self-start"
-              >
-                ®
-              </motion.span>
-            ) : (
-              <span className="text-lg sm:text-2xl md:text-4xl lg:text-6xl xl:text-7xl self-start">
-                ®
-              </span>
-            )}
-          </h1>
-        </div>
-      </div>
-    </>
-  );
+  const logo = "Studio OASIS.";
+  const duplicatedImages = [...images, ...images];
 
   return (
-    <section className="relative min-h-screen px-4 md:px-8 lg:px-12 pt-55 md:pt-60 lg:pt-55 2xl:pt-52 flex flex-col overflow-hidden ">
-    
-      {mounted ? (
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          animate="visible"
-          className="flex flex-col gap-20 xl:gap-2 2xl:gap-15 md:gap-20 relative z-10"
-        >
-          {heroContent}
-        </motion.div>
-      ) : (
-        <div className="relative flex flex-col z-20 gap-20 xl:gap-2 2xl:gap-15 md:gap-20">
-          {heroContent}
-        </div>
-      )}
+    <section className="w-full  text-black min-h-screen h-[105vh] flex flex-col justify-between pt-28 md:pt-36 overflow-hidden">
+      
+      {/* 1. TOP SECTION: GIANT LOGO TYPE WITH LETTER SPLITTING */}
+      <div className="w-full text-center mt-15 md:mt-8 lg:mt-5 md:pb-6 overflow-hidden">
+        <h1 className="flex justify-center items-center tracking-tighter uppercase leading-none select-none whitespace-nowrap text-[12vw]  md:text-[10vw]">
+          {logo.split("").map((letter, index) => (
+            <span key={index} className="overflow-hidden inline-block">
+              {mounted ? (
+                <motion.span
+                  initial={{ y: "140%" }}
+                  animate={{ y: "0%" }}
+                  transition={{
+                    duration: 1.2,
+                    ease: [0.23, 1, 0.32, 1],
+                    delay: index * 0.03, // Cascades across characters smoothly
+                  }}
+                  className="inline-block"
+                >
+                  {letter === " " ? "\u00A0" : letter}
+                </motion.span>
+              ) : (
+                <span className="inline-block">{letter === " " ? "\u00A0" : letter}</span>
+              )}
+            </span>
+          ))}
+        </h1>
+      </div>
+
+      {/* 3. BOTTOM SECTION: IMAGE CAROUSEL */}
+      <div className="relative w-full flex overflow-hidden pb-10 mask-gradient">
+        {mounted && (
+          <motion.div
+            className="flex gap-3 shrink-0 pr-6 items-end"
+            animate={{ x: [0, "-50%"] }}
+            transition={{
+              ease: "linear",
+              duration: 40,
+              repeat: Infinity,
+            }}
+          >
+            {duplicatedImages.map((img, index) => (
+              <div
+                key={index}
+                className={`relative shrink-0 w-55 sm:w-70 md:w-85 overflow-hidden ${img.height}`}
+              >
+                <Image
+                  src={img.src}
+                  alt="Studio Oasis interior layout creation"
+                  fill
+                  sizes="(max-w-768px) 280px, 340px"
+                  priority={index < 5}
+                  className="object-cover select-none pointer-events-none"
+                />
+              </div>
+            ))}
+          </motion.div>
+        )}
+      </div>
     </section>
   );
 };
