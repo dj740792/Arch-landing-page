@@ -29,3 +29,7 @@ body {
   mask-image: linear-gradient(to right,ransparent, white 8%, white 92%,   transparent);
   -webkit-mask-image: linear-gradient(to right, transparent, white 8%, white 92%, transparent);
 } */
+
+body::-webkit-scrollbar {
+  display: none;
+}

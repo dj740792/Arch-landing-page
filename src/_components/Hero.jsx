@@ -38,7 +38,7 @@ const Hero = () => {
                   transition={{
                     duration: 1.2,
                     ease: [0.23, 1, 0.32, 1],
-                    delay: index * 0.03, // Cascades across characters smoothly
+                    delay: index * 0.03, 
                   }}
                   className="inline-block"
                 >
@@ -56,7 +56,7 @@ const Hero = () => {
       <div className="relative w-full flex overflow-hidden pb-10 mask-gradient">
         {mounted && (
           <motion.div
-            className="flex gap-3 shrink-0 pr-6 items-end"
+            className="flex gap-2 shrink-0 pr-6 items-end"
             animate={{ x: [0, "-50%"] }}
             transition={{
               ease: "linear",
