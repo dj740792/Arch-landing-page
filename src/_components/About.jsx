@@ -4,36 +4,7 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 
-const containerVariants = {
-  hidden: {},
-  visible: {
-    transition: {
-      staggerChildren: 0.08,
-    },
-  },
-};
 
-const lineVariants = {
-  hidden: { y: 24 },
-  visible: {
-    y: 0,
-    transition: {
-      duration: 0.8,
-      ease: [0.23, 1, 0.32, 1],
-    },
-  },
-};
-
-const maskRevealVariants = {
-  hidden: { y: "130%" },
-  visible: {
-    y: "0%",
-    transition: {
-      duration: 1.2,
-      ease: [0.23, 1, 0.32, 1],
-    },
-  },
-};
 
 export default function About() {
   const heading = [

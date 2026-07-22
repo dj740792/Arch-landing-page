@@ -2,8 +2,8 @@
 
 export default function Works() {
   return (
-    <div>
-      
+    <div className="h-screen w-full">
+      Works
     </div>
   )
 }

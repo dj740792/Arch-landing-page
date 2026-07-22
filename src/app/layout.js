@@ -1,6 +1,10 @@
-import { Cormorant_Garamond, Archivo_Black,Lexend_Deca } from "next/font/google";
+import SmoothScroll from "@/_components/smoothScroll";
+import {
+  Cormorant_Garamond,
+  Archivo_Black,
+  Lexend_Deca,
+} from "next/font/google";
 import "./globals.css";
-
 
 const cormorant = Cormorant_Garamond({
   variable: "--font-cormorant-sans",
@@ -30,12 +34,12 @@ export default function RootLayout({ children }) {
       <body
         className={`min-h-full flex  flex-col items-center w-full bg-zinc-950 text-white ${lexend.className} font-semibold`}
       >
-        <div className="fixed top-0 left-0 w-full z-50 pointer-events-none flex justify-center pt-4 px-4">
-          <div className="pointer-events-auto flex justify-center items-center w-full ">
-            
+        <SmoothScroll>
+          <div className="fixed top-0 left-0 w-full z-50 pointer-events-none flex justify-center pt-4 px-4">
+            <div className="pointer-events-auto flex justify-center items-center w-full "></div>
           </div>
-        </div>
-        {children}
+          {children}
+        </SmoothScroll>
       </body>
     </html>
   );
