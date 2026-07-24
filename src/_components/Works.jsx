@@ -87,10 +87,10 @@ export default function Works() {
   return (
     <section
       ref={sectionRef}
-      className="w-full bg-red-400 flex flex-col  py-28 md:py-36 px-6 md:px-12 overflow-hidden gap-12"
+      className="w-full  flex flex-col  py-28 md:py-36 px-6 md:px-12 overflow-hidden gap-4"
     >
       {/* SECTION HEADER */}
-      <div className="flex justify-center items-end  pb-6 mb-16 md:mb-24">
+      <div className="flex justify-center items-end  pb-6 mb-16 md:mb-24 bg-amber-500">
         <div className="flex flex-col items-center gap-3">
           <motion.h1
             initial={{ y: "110%" }}
@@ -108,11 +108,11 @@ export default function Works() {
       </div>
 
       {/* COLUMN GRID */}
-      <div className="grid grid-cols-1 md:grid-cols-12 gap-9 md:gap-16 items-start">
+      <div className="grid grid-cols-1 md:grid-cols-12 gap-9 md:gap-12 items-start ">
         {/* LEFT COLUMN */}
         <motion.div
-          style={{ y: isMobile ? 0 : yLeftScroll, opacity,scale }}
-          className="md:col-span-6 flex flex-col gap-20 md:gap-32"
+          style={{ y: isMobile ? 0 : yLeftScroll, opacity, scale }}
+          className="md:col-span-6 flex flex-col gap-12 md:gap-22"
         >
           <WorkCard project={featuredWorks[0]} isMobile={isMobile} />
           <WorkCard project={featuredWorks[2]} isMobile={isMobile} />
@@ -121,14 +121,48 @@ export default function Works() {
 
         {/* RIGHT COLUMN */}
         <motion.div
-          style={{ y: isMobile ? 0 : yRightScroll, opacity ,scale}}
-          className="md:col-span-6 flex flex-col gap-20 md:gap-32 md:pt-36"
+          style={{ y: isMobile ? 0 : yRightScroll, opacity, scale }}
+          className="md:col-span-6 flex flex-col gap-12 md:gap-22 md:pt-36"
         >
           <WorkCard project={featuredWorks[1]} isMobile={isMobile} />
           <WorkCard project={featuredWorks[3]} isMobile={isMobile} />
           <WorkCard project={featuredWorks[4]} isMobile={isMobile} />
         </motion.div>
       </div>
+      <Link
+        href="/work"
+        className="flex justify-end text-2xl mt-12 md:text-3xl font-serif tracking-tight group-hover:translate-x-2 transition-transform duration-300"
+      >
+        <motion.div
+          className="flex items-center gap-3 cursor-pointer"
+          initial="rest"
+          whileHover="hovered"
+          animate="rest"
+        >
+          <motion.div
+            className="w-8 h-8 rounded-full bg-[#361e13] flex items-center justify-center"
+            variants={{
+              rest: { scale: 0, opacity: 0 },
+              hovered: { scale: 1, opacity: 1 },
+            }}
+            transition={{ duration: 0.25, ease: "easeOut" }}
+          >
+            <span className="text-white text-sm ">↗</span>
+          </motion.div>
+
+          <span className="font-Clash-light text-sm md:text-lg  tracking-wide relative">
+            More of our works
+            <motion.span
+              className="absolute left-0 -bottom-1 h-0.5 bg-[#361e13]"
+              variants={{
+                rest: { width: "100%" },
+                hovered: { width: "0%" },
+              }}
+              transition={{ duration: 0.3, ease: "easeOut" }}
+            />
+          </span>
+        </motion.div>
+      </Link>
     </section>
   );
 }
@@ -149,8 +183,7 @@ function WorkCard({ project, isMobile }) {
           src={project.src}
           alt={project.title}
           fill
-          sizes="(max-width: 768px) 100vw, 50vw"
-          className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+          className="object-cover transition-transform duration-700 ease-out group-hover:scale-105 "
         />
       </div>
       {/* Meta Bar */}
