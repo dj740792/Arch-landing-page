@@ -52,7 +52,7 @@ const Hero = () => {
         </h1>
       </div>
 
-      {/* 3. BOTTOM SECTION: IMAGE CAROUSEL */}
+      {/* BOTTOM SECTION IMAGE CAROUSEL */}
       <div className="relative w-full flex overflow-hidden pb-10 mask-gradient">
         {mounted && (
           <motion.div
