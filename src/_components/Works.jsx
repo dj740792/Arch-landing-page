@@ -76,21 +76,33 @@ export default function Works() {
 
   const { scrollYProgress } = useScroll({
     target: sectionRef,
-    offset: ["start start", "end start"],
+    offset: ["start 0.25", "end 0.25"],
   });
 
   const yLeftScroll = useTransform(scrollYProgress, [0, 1], ["0px", "290px"]);
   const yRightScroll = useTransform(scrollYProgress, [0, 1], ["0px", "-120px"]);
   const opacity = useTransform(scrollYProgress, [0.85, 1], [1, 0]);
   const scale = useTransform(scrollYProgress, [0.75, 1], [1, 0.85]);
+  const sectionBackground = useTransform(
+    scrollYProgress,
+    [0, 0.2, 0.8, 0.9],
+    ["#ffffff", "#3c302a", "#3c302a", "#ffffff"]
+  );
+  const sectionTextColor = useTransform(
+    scrollYProgress,
+    [0, 0.1, 0.8, 1],
+    ["#3c302a", "#ffffff", "#ffffff", "#3c302a"]
+  );
 
   return (
-    <section
+    <motion.section
       ref={sectionRef}
-      className="w-full  flex flex-col  py-28 md:py-36 px-6 md:px-12 overflow-hidden gap-4"
+      style={{ backgroundColor: sectionBackground, color: sectionTextColor }}
+      
+      className="w-full flex flex-col py-28 md:py-36 px-6 md:px-12 overflow-hidden gap-4"
     >
       {/* SECTION HEADER */}
-      <div className="flex justify-center items-end  pb-6 mb-16 md:mb-24 bg-amber-500">
+      <div className="flex justify-center items-end  pb-6 mb-16 md:mb-24 ">
         <div className="flex flex-col items-center gap-3">
           <motion.h1
             initial={{ y: "110%" }}
@@ -99,11 +111,14 @@ export default function Works() {
               duration: 1.2,
               ease: [0.23, 1, 0.32, 1],
             }}
-            className="text-[clamp(4.5rem,8vw,9.5rem)]"
+            className="text-[clamp(3.5rem,8vw,9.5rem)]"
           >
-            Our works
+            Selected Work
           </motion.h1>
-          <span className=""></span>
+          <p className="w-full text-inherit text-sm md:text-base leading-relaxed text-center">
+            A look at the people, places, and ideas we've had the privilege to
+            shape.
+          </p>
         </div>
       </div>
 
@@ -116,7 +131,6 @@ export default function Works() {
         >
           <WorkCard project={featuredWorks[0]} isMobile={isMobile} />
           <WorkCard project={featuredWorks[2]} isMobile={isMobile} />
-          <WorkCard project={featuredWorks[5]} isMobile={isMobile} />
         </motion.div>
 
         {/* RIGHT COLUMN */}
@@ -126,7 +140,6 @@ export default function Works() {
         >
           <WorkCard project={featuredWorks[1]} isMobile={isMobile} />
           <WorkCard project={featuredWorks[3]} isMobile={isMobile} />
-          <WorkCard project={featuredWorks[4]} isMobile={isMobile} />
         </motion.div>
       </div>
       <Link
@@ -151,7 +164,7 @@ export default function Works() {
           </motion.div>
 
           <span className="font-Clash-light text-sm md:text-lg  tracking-wide relative">
-            More of our works
+            Explore our works
             <motion.span
               className="absolute left-0 -bottom-1 h-0.5 bg-[#361e13]"
               variants={{
@@ -163,7 +176,7 @@ export default function Works() {
           </span>
         </motion.div>
       </Link>
-    </section>
+    </motion.section>
   );
 }
 
@@ -193,7 +206,7 @@ function WorkCard({ project, isMobile }) {
             {project.title}
           </h3>
         </div>
-        <span className="text-xs md:text-sm font-semibold uppercase tracking-wider text-zinc-500">
+        <span className="text-xs md:text-sm font-semibold uppercase tracking-wider opacity-80">
           {project.year}
         </span>
       </div>

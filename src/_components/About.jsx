@@ -4,8 +4,6 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 
-
-
 export default function About() {
   const heading = [
     "We design atmospheres, not just buildings our work is defined by material honesty and a deep respect for nature.",
@@ -18,7 +16,6 @@ export default function About() {
           {heading.map((line, index) => (
             <motion.h2
               key={index}
-           
               className="text-[clamp(2.5rem,5vw,4.5rem)]  font-semibold "
             >
               {line.split(" ").map((word, wordIndex) => {
@@ -37,10 +34,12 @@ export default function About() {
               In a world overwhelmed by noise, we believe in the power of quiet
               architecture. Raw textures, sun-washed surfaces, and sculptural
               geometry create calm environments that feel thoughtful, elevated,
-              and enduring.
+              and enduring span
+              Every great build begins with understanding
             </motion.p>
-            <Link className="w-2/3 md:w-1/3" href="/about">
-              Our journey
+            <Link className="w-full mt-4" href="/about">
+          
+             Our approach
             </Link>
           </div>
 

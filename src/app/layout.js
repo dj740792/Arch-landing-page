@@ -5,6 +5,7 @@ import {
   Lexend_Deca,
 } from "next/font/google";
 import "./globals.css";
+import Navbar from "@/_components/Navbar";
 
 const cormorant = Cormorant_Garamond({
   variable: "--font-cormorant-sans",
