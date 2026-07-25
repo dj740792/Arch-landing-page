@@ -6,11 +6,11 @@ import Image from "next/image";
 
 
 const images = [
-  { src: "/heroImgs/img1.jpg", height: "h-[40vh] md:h-[40vh]" },
-  { src: "/heroImgs/img2.jpg", height: "h-[36vh] md:h-[36vh]" },
+  { src: "/heroImgs/img1.jpg", height: "h-[40vh] md:h-[30vh]" },
+  { src: "/heroImgs/img2.jpg", height: "h-[36vh] md:h-[26vh]" },
   { src: "/heroImgs/img3.jpg", height: "h-[32vh] md:h-[32vh]" },
-  { src: "/heroImgs/img4.jpg", height: "h-[39vh] md:h-[39vh]" },
-  { src: "/heroImgs/img5.jpg", height: "h-[37vh] md:h-[37vh]" },
+  { src: "/heroImgs/img4.jpg", height: "h-[39vh] md:h-[29vh]" },
+  { src: "/heroImgs/img5.jpg", height: "h-[37vh] md:h-[27vh]" },
 ];
 
 const Hero = () => {
@@ -67,7 +67,7 @@ const Hero = () => {
             {duplicatedImages.map((img, index) => (
               <div
                 key={index}
-                className={`relative shrink-0 w-55 sm:w-70 md:w-85 overflow-hidden ${img.height}`}
+                className={`relative shrink-0 w-55  md:w-55 overflow-hidden ${img.height}`}
               >
                 <Image
                   src={img.src}

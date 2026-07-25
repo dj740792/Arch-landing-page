@@ -33,7 +33,7 @@ const featuredWorks = [
     width: "2/4vw",
   },
   {
-    slug: "",
+    slug: "Solām Villa",
     title: "Solām Villa",
     category: "Spatial Masterplan",
     year: "2025",
@@ -42,7 +42,7 @@ const featuredWorks = [
     width: "1/4vw",
   },
   {
-    slug: "",
+    slug: "Solām Villa",
     title: "Solām Villa",
     category: "Spatial Masterplan",
     year: "2025",
@@ -51,7 +51,7 @@ const featuredWorks = [
     width: "1/4vw",
   },
   {
-    slug: "",
+    slug: "Solām Villa",
     title: "Solām Villa",
     category: "Spatial Masterplan",
     year: "2025",
@@ -83,23 +83,13 @@ export default function Works() {
   const yRightScroll = useTransform(scrollYProgress, [0, 1], ["0px", "-120px"]);
   const opacity = useTransform(scrollYProgress, [0.85, 1], [1, 0]);
   const scale = useTransform(scrollYProgress, [0.75, 1], [1, 0.85]);
-  const sectionBackground = useTransform(
-    scrollYProgress,
-    [0, 0.2, 0.8, 0.9],
-    ["#ffffff", "#3c302a", "#3c302a", "#ffffff"]
-  );
-  const sectionTextColor = useTransform(
-    scrollYProgress,
-    [0, 0.1, 0.8, 1],
-    ["#3c302a", "#ffffff", "#ffffff", "#3c302a"]
-  );
+ 
 
   return (
     <motion.section
       ref={sectionRef}
-      style={{ backgroundColor: sectionBackground, color: sectionTextColor }}
       
-      className="w-full flex flex-col py-28 md:py-36 px-6 md:px-12 overflow-hidden gap-4"
+      className="w-full flex flex-col py-14 md:py-28 px-6 md:px-12 overflow-hidden gap-4"
     >
       {/* SECTION HEADER */}
       <div className="flex justify-center items-end  pb-6 mb-16 md:mb-24 ">
@@ -127,19 +117,21 @@ export default function Works() {
         {/* LEFT COLUMN */}
         <motion.div
           style={{ y: isMobile ? 0 : yLeftScroll, opacity, scale }}
-          className="md:col-span-6 flex flex-col gap-12 md:gap-22"
+          className="md:col-span-6 flex flex-col gap-12 md:gap-43"
         >
           <WorkCard project={featuredWorks[0]} isMobile={isMobile} />
           <WorkCard project={featuredWorks[2]} isMobile={isMobile} />
+          <WorkCard project={featuredWorks[4]} isMobile={isMobile} />
         </motion.div>
 
         {/* RIGHT COLUMN */}
         <motion.div
           style={{ y: isMobile ? 0 : yRightScroll, opacity, scale }}
-          className="md:col-span-6 flex flex-col gap-12 md:gap-22 md:pt-36"
+          className="md:col-span-6 flex flex-col gap-12 md:gap-39 md:pt-36"
         >
           <WorkCard project={featuredWorks[1]} isMobile={isMobile} />
           <WorkCard project={featuredWorks[3]} isMobile={isMobile} />
+          <WorkCard project={featuredWorks[5]} isMobile={isMobile} />
         </motion.div>
       </div>
       <Link
@@ -181,6 +173,8 @@ export default function Works() {
 }
 
 function WorkCard({ project, isMobile }) {
+  if (!project) return null;
+
   return (
     <Link href={`/work/${project.slug}`} className="group w-full">
       {/* Image Card */}
