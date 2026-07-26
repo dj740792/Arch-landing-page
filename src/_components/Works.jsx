@@ -11,7 +11,7 @@ const featuredWorks = [
     category: "Hospitality Architecture",
     year: "2026",
     src: "/WorkImgs/img6.jpg",
-    height: "500px",
+    height: "700px",
     width: "2/4vw",
   },
   {
@@ -20,7 +20,7 @@ const featuredWorks = [
     category: "Residential Design",
     year: "2025",
     src: "/WorkImgs/img1.jpg",
-    height: "500px",
+    height: "600px",
     width: "1/4vw",
   },
   {
@@ -38,27 +38,10 @@ const featuredWorks = [
     category: "Spatial Masterplan",
     year: "2025",
     src: "/WorkImgs/img4.jpg",
-    height: "500px",
+    height: "700px",
     width: "1/4vw",
   },
-  {
-    slug: "Solām Villa",
-    title: "Solām Villa",
-    category: "Spatial Masterplan",
-    year: "2025",
-    src: "/WorkImgs/img4.jpg",
-    height: "500px",
-    width: "1/4vw",
-  },
-  {
-    slug: "Solām Villa",
-    title: "Solām Villa",
-    category: "Spatial Masterplan",
-    year: "2025",
-    src: "/WorkImgs/img4.jpg",
-    height: "500px",
-    width: "1/4vw",
-  },
+ 
 ];
 
 export default function Works() {
@@ -101,11 +84,11 @@ export default function Works() {
               duration: 1.2,
               ease: [0.23, 1, 0.32, 1],
             }}
-            className="text-[clamp(3.5rem,8vw,9.5rem)]"
+            className="text-[clamp(3.5rem,8vw,9.5rem)] font-bold"
           >
             Selected Work
           </motion.h1>
-          <p className="w-full text-inherit text-sm md:text-base leading-relaxed text-center">
+          <p className="w-full  text-sm md:text-md lg:text-lg xl:text-xl leading-relaxed text-center text-[#483b35]">
             A look at the people, places, and ideas we've had the privilege to
             shape.
           </p>
@@ -117,11 +100,11 @@ export default function Works() {
         {/* LEFT COLUMN */}
         <motion.div
           style={{ y: isMobile ? 0 : yLeftScroll, opacity, scale }}
-          className="md:col-span-6 flex flex-col gap-12 md:gap-43"
+          className="md:col-span-6 flex flex-col gap-12 md:gap-33"
         >
           <WorkCard project={featuredWorks[0]} isMobile={isMobile} />
           <WorkCard project={featuredWorks[2]} isMobile={isMobile} />
-          <WorkCard project={featuredWorks[4]} isMobile={isMobile} />
+       
         </motion.div>
 
         {/* RIGHT COLUMN */}
@@ -131,12 +114,13 @@ export default function Works() {
         >
           <WorkCard project={featuredWorks[1]} isMobile={isMobile} />
           <WorkCard project={featuredWorks[3]} isMobile={isMobile} />
-          <WorkCard project={featuredWorks[5]} isMobile={isMobile} />
+          
         </motion.div>
       </div>
+      {/* work page nav button */}
       <Link
         href="/work"
-        className="flex justify-end text-2xl mt-12 md:text-3xl font-serif tracking-tight group-hover:translate-x-2 transition-transform duration-300"
+        className="flex justify-center  text-2xl mt-4 md:text-3xl font-serif tracking-tight group-hover:translate-x-2 transition-transform duration-300 "
       >
         <motion.div
           className="flex items-center gap-3 cursor-pointer"

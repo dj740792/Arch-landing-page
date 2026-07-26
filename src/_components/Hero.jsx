@@ -11,6 +11,9 @@ const images = [
   { src: "/heroImgs/img3.jpg", height: "h-[32vh] md:h-[32vh]" },
   { src: "/heroImgs/img4.jpg", height: "h-[39vh] md:h-[29vh]" },
   { src: "/heroImgs/img5.jpg", height: "h-[37vh] md:h-[27vh]" },
+  { src: "/heroImgs/img3.jpg", height: "h-[32vh] md:h-[32vh]" },
+  { src: "/heroImgs/img4.jpg", height: "h-[39vh] md:h-[29vh]" },
+  { src: "/heroImgs/img5.jpg", height: "h-[37vh] md:h-[27vh]" },
 ];
 
 const Hero = () => {
@@ -28,7 +31,7 @@ const Hero = () => {
       
       {/* TOP SECTION*/}
       <div className="w-full text-center mt-15 md:mt-8 lg:mt-5 md:pb-6 overflow-hidden">
-        <h1 className="flex justify-center items-center tracking-tight  leading-none select-none whitespace-nowrap text-[12vw]  md:text-[10vw]">
+        <h1 className="flex justify-center md:justify-start  items-center tracking-tight  leading-none select-none whitespace-nowrap text-[12vw]  md:text-[10vw] md:mx-8 font-bold">
           {logo.split("").map((letter, index) => (
             <span key={index} className="overflow-hidden inline-block">
               {mounted ? (

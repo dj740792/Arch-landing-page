@@ -3,6 +3,7 @@ import {
   Cormorant_Garamond,
   Archivo_Black,
   Lexend_Deca,
+  Cinzel
 } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/_components/Navbar";
@@ -20,6 +21,11 @@ const archivo = Archivo_Black({
   variable: "--font-archivo-sans",
   subsets: ["latin"],
 });
+const cinzel = Cinzel({
+  weight: "400",
+  variable: "--font-archivo-sans",
+  subsets: ["latin"],
+});
 
 export const metadata = {
   title: "Create Next App",
@@ -30,10 +36,10 @@ export default function RootLayout({ children }) {
   return (
     <html
       lang="en"
-      className={`${cormorant.variable}  ${lexend.variable}  ${archivo.variable} h-full antialiased`}
+      className={`${cormorant.variable}  ${lexend.variable}  ${archivo.variable}  ${cinzel.variable} h-full antialiased`}
     >
       <body
-        className={`min-h-full flex  flex-col items-center w-full bg-zinc-950 text-white ${lexend.className} font-semibold`}
+        className={`min-h-full flex  flex-col items-center w-full bg-zinc-950 text-white ${lexend.className}`}
       >
         <SmoothScroll>
           <div className="fixed top-0 left-0 w-full z-50 pointer-events-none flex justify-center pt-4 px-4">

@@ -10,13 +10,13 @@ export default function About() {
   ];
 
   return (
-    <section className="w-full h-screen flex items-center justify-center py-24 px-6">
+    <section className="w-full h-screen flex items-center justify-center py-16 px-6">
       <motion.div className=" w-full flex flex-col gap-12">
         <div className="md:w-3/4 leading-[1.1] md:px-12">
           {heading.map((line, index) => (
             <motion.h2
               key={index}
-              className="text-[clamp(2.5rem,5vw,4.5rem)]  font-semibold "
+              className="text-[clamp(2.5rem,5vw,4.5rem)] font-bold  "
             >
               {line.split(" ").map((word, wordIndex) => {
                 return (
@@ -30,7 +30,7 @@ export default function About() {
         </div>
         <div className="flex justify-around md:gap-4  md:items-center">
           <div className="w-2/3 md:w-1/3 flex flex-col gap-9">
-            <motion.p className=" text-md  md:text-lg lg:text-xl xl:text-2xl 2xl:text-2xl leading-8 font-light">
+            <motion.p className=" text-md  md:text-lg lg:text-xl xl:text-2xl 2xl:text-3xl leading-8 font-light">
               In a world overwhelmed by noise, we believe in the power of quiet
               architecture. Raw textures, sun-washed surfaces, and sculptural
               geometry create calm environments that feel thoughtful, elevated,
@@ -43,7 +43,7 @@ export default function About() {
             </Link>
           </div>
 
-          <motion.div className="relative overflow-hidden h-70 w-60 xl:w-80 xl:h-80 2xl:h-100 2xl:w-90 ">
+          <motion.div className="relative overflow-hidden h-70 w-60 xl:w-80 xl:h-80 2xl:h-120 2xl:w-110 ">
             <Image
               src="/heroImgs/img4.jpg"
               alt="Interior architecture with warm light and calm materials"
