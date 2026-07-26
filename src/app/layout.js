@@ -1,10 +1,5 @@
 import SmoothScroll from "@/_components/smoothScroll";
-import {
-  Cormorant_Garamond,
-  Archivo_Black,
-  Lexend_Deca,
-  Cinzel
-} from "next/font/google";
+import { Cormorant_Garamond, Lexend_Deca } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/_components/Navbar";
 
@@ -16,16 +11,8 @@ const cormorant = Cormorant_Garamond({
 const lexend = Lexend_Deca({
   subsets: ["latin"],
 });
-const archivo = Archivo_Black({
-  weight: "400",
-  variable: "--font-archivo-sans",
-  subsets: ["latin"],
-});
-const cinzel = Cinzel({
-  weight: "400",
-  variable: "--font-archivo-sans",
-  subsets: ["latin"],
-});
+
+
 
 export const metadata = {
   title: "Create Next App",
@@ -36,7 +23,7 @@ export default function RootLayout({ children }) {
   return (
     <html
       lang="en"
-      className={`${cormorant.variable}  ${lexend.variable}  ${archivo.variable}  ${cinzel.variable} h-full antialiased`}
+      className={`${cormorant.variable}  ${lexend.variable}  h-full antialiased`}
     >
       <body
         className={`min-h-full flex  flex-col items-center w-full bg-zinc-950 text-white ${lexend.className}`}

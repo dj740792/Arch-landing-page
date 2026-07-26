@@ -7,21 +7,18 @@ export default function Services() {
   const services = [
     {
       num: "01",
-
       title: "Architecture & Masterplanning",
-      image: "/WorkImgs/img6.jpg",
+      image: "/serviceImgs/serviceImg1.jpg",
     },
     {
       num: "02",
-
       title: "Interior Architecture",
-      image: "/WorkImgs/img6.jpg",
+      image: "/serviceImgs/serviceImg2.jpg",
     },
     {
       num: "03",
-
       title: "Material & Furniture Curation",
-      image: "/WorkImgs/img6.jpg",
+      image: "/serviceImgs/serviceImg3.jpg",
     },
   ];
 
@@ -30,7 +27,7 @@ export default function Services() {
       <div className="max-w-8xl mx-auto flex flex-col gap-16 md:gap-24">
         {/* Header block */}
 
-        <motion.h1 className="text-[clamp(2.5rem,5vw,4.5rem)] text-start leading-15 font-bold">
+        <motion.h1 className="text-[clamp(2.5rem,5vw,4.5rem)] text-start leading-15 font-semibold">
           End-to-end spatial design & architectural realization
         </motion.h1>
 
@@ -47,7 +44,7 @@ export default function Services() {
                     delay: index * 0.4,
                     ease: [0.25, 1, 0.5, 1],
                   }}
-                  className="w-full h-full relative border "
+                  className="w-full h-full relative "
                 >
                   <Image
                     src={service.image}
@@ -70,7 +67,9 @@ export default function Services() {
                   className="absolute inset-0 bg-white z-10 pointer-events-none"
                 />
               </div>
-              <h3 className="text-sm md:text-md lg:text-lg xl:text-xl 2xl:text-2xl font-normal">{service.title}</h3>
+              <h3 className="text-sm md:text-md lg:text-lg xl:text-xl 2xl:text-2xl">
+                {service.title}
+              </h3>
             </div>
           ))}
         </div>

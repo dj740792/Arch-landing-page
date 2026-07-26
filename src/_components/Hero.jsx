@@ -11,9 +11,9 @@ const images = [
   { src: "/heroImgs/img3.jpg", height: "h-[32vh] md:h-[32vh]" },
   { src: "/heroImgs/img4.jpg", height: "h-[39vh] md:h-[29vh]" },
   { src: "/heroImgs/img5.jpg", height: "h-[37vh] md:h-[27vh]" },
-  { src: "/heroImgs/img3.jpg", height: "h-[32vh] md:h-[32vh]" },
-  { src: "/heroImgs/img4.jpg", height: "h-[39vh] md:h-[29vh]" },
-  { src: "/heroImgs/img5.jpg", height: "h-[37vh] md:h-[27vh]" },
+  { src: "/heroImgs/img6.jpg", height: "h-[32vh] md:h-[32vh]" },
+  { src: "/heroImgs/img7.jpg", height: "h-[39vh] md:h-[29vh]" },
+  { src: "/heroImgs/img8.jpg", height: "h-[37vh] md:h-[27vh]" },
 ];
 
 const Hero = () => {

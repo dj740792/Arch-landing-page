@@ -43,14 +43,16 @@ export default function About() {
             </Link>
           </div>
 
-          <motion.div className="relative overflow-hidden h-70 w-60 xl:w-80 xl:h-80 2xl:h-120 2xl:w-110 ">
-            <Image
-              src="/heroImgs/img4.jpg"
-              alt="Interior architecture with warm light and calm materials"
-              fill
+          <motion.div className="relative overflow-hidden h-70 w-60 lg:w-80 lg:h-80 2xl:h-120 2xl:w-110 ">
+            <video
+              src="/video/about.mp4"
+             loop
+             autoPlay
+             muted={true}
+              
               sizes="(max-width: 768px) 100vw, 560px"
-              className="object-cover"
-              priority
+              className="object-cover aspect-square rounded-sm"
+              
             />
           </motion.div>
         </div>
