@@ -28,32 +28,34 @@ export default function About() {
             </motion.h2>
           ))}
         </div>
-        <div className="flex justify-around md:gap-4  md:items-center">
-          <div className="w-2/3 md:w-1/3 flex flex-col gap-9">
+        <div className="flex justify-around md:gap-4  md:items-center ">
+          <div className="w-2/3 md:w-1/3 flex flex-col gap-9 ">
             <motion.p className=" text-md  md:text-lg lg:text-xl xl:text-2xl 2xl:text-3xl leading-8 font-light">
               In a world overwhelmed by noise, we believe in the power of quiet
               architecture. Raw textures, sun-washed surfaces, and sculptural
               geometry create calm environments that feel thoughtful, elevated,
-              and enduring span
-              Every great build begins with understanding
+              and enduring span Every great build begins with understanding
             </motion.p>
             <Link className="w-full mt-4" href="/about">
-          
-             Our approach
+              Our approach
             </Link>
           </div>
 
-          <motion.div className="relative overflow-hidden h-70 w-60 lg:w-80 lg:h-80 2xl:h-120 2xl:w-110 ">
-            <video
-              src="/video/about.mp4"
-             loop
-             autoPlay
-             muted={true}
-              
-              sizes="(max-width: 768px) 100vw, 560px"
-              className="object-cover aspect-square rounded-sm"
-              
-            />
+          <motion.div className=" rrelative overflow-hidden h-100 w-80 2xl:h-110 2xl:w-80 hidden lg:flex flex-col justify-between">
+            <div className="relative w-full h-full overflow-hidden">
+              <video
+                src="/video/about.mp4"
+                loop
+                autoPlay
+                muted={true}
+                playsInline
+                className="w-full h-full object-cover"
+              />
+            </div>
+            <div className="flex justify-between items-center w-full pt-3 text-md  uppercase tracking-widest">
+              <p >showcase reel</p>
+              <p className="font-light">2026</p>
+            </div>
           </motion.div>
         </div>
       </motion.div>

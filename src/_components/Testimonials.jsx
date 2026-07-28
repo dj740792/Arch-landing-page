@@ -100,7 +100,7 @@ function ProjectCard({ service, index, total, smoothProgress }) {
       className="w-[65vw] md:w-[40vw] flex-none flex flex-col gap-12 group "
     >
       {/* Image Container */}
-      <div className="relative w-full h-[42vh] md:h-[55vh] overflow-hidden rounded-md">
+      <div className="relative w-full h-[42vh] md:h-[55vh] overflow-hidden ">
         <Image
           src={service.image}
           alt={service.title}
