@@ -22,7 +22,14 @@ export default function Navbar() {
     },
   };
 
-
+  const centerVariant = {
+    closed: {
+      opacity: 1,
+    },
+    opened: {
+      opacity: 0,
+    },
+  };
   const bottomVariant = {
     closed: {
       rotate: 0,
@@ -34,10 +41,10 @@ export default function Navbar() {
   };
   const listVarient = {
     closed: {
-      y: "-100vw",
+      x: "100vw",
     },
     opened: {
-      y: "0vw",
+      x: 0,
       transition: {
         ease: "easeIn",
         when: "beforeChildren",
@@ -47,31 +54,31 @@ export default function Navbar() {
   };
   const listItemVariant = {
     closed: {
-      y: 0,
+      x: -10,
       opacity: 0,
     },
     opened: {
-      y: 10,
+      x: 0,
       opacity: 1,
     },
   };
   return (
-    <nav className="w-full  h-15 z-50">
-      <div className="relative flex h-full items-center justify-between px-4 rounded-2xl ">
+    <nav className="w-2/3 md:w-1/3 h-15 z-50 ">
+      <div className="relative flex h-full items-center justify-between px-4 rounded-2xl border border-white/30 bg-white/20 shadow-[0_9px_32px_rgba(0,0,0,0.1)] backdrop-blur-lg">
         {/* LOGO */}
-        <Link href="/" className="text-3xl md:text-4xl   font-bold mr-4">
-         Oasis.
+        <Link href="/" className=" lg:flex text-xl uppercase font-bold mr-4">
+          arch.
         </Link>
 
-        {/* LINKS
-        <div className="hidden md:flex items-center gap-4 text-lg">
+        {/* LINKS */}
+        <div className="hidden md:flex items-center gap-4">
           {links.map((link) => (
             <NavLink link={link} key={link.title} />
           ))}
-        </div> */}
+        </div>
 
         {/* Responsive menu */}
-        <div className=" ml-auto ">
+        <div className="md:hidden ml-auto">
           <button
             className="w-7 h-5 flex flex-col justify-between cursor-pointer z-50 relative"
             onClick={() => setOpen((prev) => !prev)}
@@ -81,7 +88,11 @@ export default function Navbar() {
               variants={topVarient}
               className="w-7 h-1 rounded origin-left bg-black"
             ></motion.div>
-
+            <motion.div
+              animate={open ? "opened" : "closed"}
+              variants={centerVariant}
+              className="w-7 h-1 rounded bg-black"
+            ></motion.div>
             <motion.div
               animate={open ? "opened" : "closed"}
               variants={bottomVariant}
@@ -94,7 +105,7 @@ export default function Navbar() {
               variants={listVarient}
               initial="closed"
               animate="opened"
-              className="absolute top-0 left-0 w-screen h-screen flex flex-col items-center justify-center  text-5xl gap-10 font-semibold bg-white text-black"
+              className="absolute top-0 left-0 w-screen h-screen flex flex-col items-center justify-center  text-5xl gap-10 font-semibold"
             >
               {links.map((link) => (
                 <motion.div variants={listItemVariant} key={link.title}>

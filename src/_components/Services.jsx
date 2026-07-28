@@ -1,79 +1,131 @@
-import React from "react";
-import { motion } from "framer-motion";
+import React, { useRef } from "react";
+import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 import Image from "next/image";
-import { title } from "motion/react-client";
 
-export default function Services() {
-  const services = [
+export default function Works() {
+  const projects = [
     {
-      num: "01",
-      title: "Architecture & Masterplanning",
-      image: "/serviceImgs/serviceImg1.jpg",
+      slug: "amari-pavilion",
+      title: "Amari Pavilion",
+      category: "Hospitality Architecture",
+      year: "2026",
+      image: "/workImgs/workImg1.jpg",
     },
     {
-      num: "02",
-      title: "Interior Architecture",
-      image: "/serviceImgs/serviceImg2.jpg",
+      slug: "the-dune-house",
+      title: "The Dune House",
+      category: "Hospitality Architecture",
+      year: "2026",
+      image: "/workImgs/workImg2.jpg",
     },
+
     {
-      num: "03",
-      title: "Material & Furniture Curation",
-      image: "/serviceImgs/serviceImg3.jpg",
+      slug: "solam-villa",
+      title: "Solām Villa",
+      category: "Hospitality Architecture",
+      year: "2026",
+      image: "/workImgs/workImg3.jpg",
     },
+   
   ];
 
+  const targetRef = useRef(null);
+
+  const { scrollYProgress } = useScroll({
+    target: targetRef,
+  });
+
+  const smoothProgress = useSpring(scrollYProgress, {
+    damping: 25,
+    stiffness: 90,
+    restDelta: 0.001,
+  });
+
+  const x = useTransform(smoothProgress, [0, 1], ["0%", "-58%"]);
+
   return (
-    <section className="w-full py-12 md:py-20 px-6 md:px-12">
-      <div className="max-w-8xl mx-auto flex flex-col gap-16 md:gap-24">
-        {/* Header block */}
-
-        <motion.h1 className="text-[clamp(2.5rem,5vw,4.5rem)] text-start leading-15 font-semibold">
-          End-to-end spatial design & architectural realization
-        </motion.h1>
-
-        <div className="mx-12 grid grid-cols-2 justify-center md:grid-cols-3 gap-4 md:gap-9 items-start">
-          {services.map((service, index) => (
-            <div key={index} className="flex flex-col gap-4 group ">
-              <div className="relative w-full h-60 lg:h-80 xl:h-100  overflow-hidden ">
-                <motion.div
-                  initial={{ y: "-8%" }}
-                  whileInView={{ y: "0%" }}
-                  viewport={{ once: true }}
-                  transition={{
-                    duration: 1.4,
-                    delay: index * 0.4,
-                    ease: [0.25, 1, 0.5, 1],
-                  }}
-                  className="w-full h-full relative "
-                >
-                  <Image
-                    src={service.image}
-                    alt=""
-                    fill
-                    sizes="(max-width: 768px) 50vw, 33vw"
-                    className="object-cover"
-                  />
-                </motion.div>
-
-                <motion.div
-                  initial={{ y: "0%" }}
-                  whileInView={{ y: "100%" }}
-                  viewport={{ once: true }}
-                  transition={{
-                    duration: 1.2,
-                    delay: index * 0.1,
-                    ease: [0.25, 1, 0.5, 1],
-                  }}
-                  className="absolute inset-0 bg-white z-10 pointer-events-none"
-                />
-              </div>
-              <h3 className="text-sm md:text-md lg:text-lg xl:text-xl 2xl:text-2xl">
-                {service.title}
-              </h3>
+    <section ref={targetRef} className="relative h-[550vh]">
+      <div className="sticky top-0 flex h-screen items-center overflow-hidden">
+        <motion.div
+          style={{ x }}
+          className="flex items-center gap-12 md:gap-16 pl-6 md:pl-12 "
+        >
+          <div className="w-[55vw] md:w-[35vw] flex-none flex flex-col  h-[60vh]   pr-6">
+            <div className="flex flex-col gap-10">
+              <h2 className="text-[clamp(2.5rem,6vw,4.5rem)] font-semibold tracking-tight leading-none">
+                Selected work <br />
+                <span className=" font-medium">& explorations</span>
+              </h2>
+              <p className="w-full  text-sm md:text-md lg:text-lg xl:text-xl leading-relaxed  text-[#483b35]">
+                A look at the people, places, and ideas we've had the privilege
+                to shape.
+              </p>
             </div>
+          </div>
+
+          {projects.map((project, index) => (
+            <ProjectCard
+              key={index}
+              project={project}
+              index={index}
+              total={projects.length}
+              smoothProgress={smoothProgress}
+            />
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
+  );
+}
+
+function ProjectCard({ project, index, total, smoothProgress }) {
+  const start = index / (total + 1);
+
+  const y = useTransform(smoothProgress, [start - 0.2, start + 0.05], [120, 0]);
+
+  const scale = useTransform(
+    smoothProgress,
+    [start - 0.2, start + 0.05],
+    [0.94, 1],
+  );
+
+  return (
+    <motion.div
+      style={{
+        y: index === 0 ? 0 : y,
+        scale: index === 0 ? 1 : scale,
+      }}
+      className="w-[85vw] md:w-[50vw] flex-none flex flex-col gap-12 group "
+    >
+      {/* Image Container */}
+      <div className="relative w-full h-[52vh] md:h-[60vh] overflow-hidden rounded-md">
+        <Image
+          src={project.image}
+          alt={project.title}
+          fill
+          sizes="(max-width: 768px) 85vw, 50vw"
+          className="object-cover transition-transform duration-1000 ease-out group-hover:scale-105 cursor-pointer"
+        />
+      </div>
+
+      {/* Meta Bar */}
+      <div className="flex flex-col md:flex-row md:items-end justify-between gap-3 px-1">
+        <div className="flex flex-col gap-1 max-w-md">
+          <h3 className="text-2xl md:text-3xl font-light text-zinc-900 tracking-tight">
+            {project.title}
+          </h3>
+          <p className="text-xs md:text-sm text-zinc-500 font-light">
+            {project.category}
+          </p>
+        </div>
+
+        <a
+          href={project.link}
+          className="text-xs font-mono uppercase tracking-widest text-zinc-800 underline underline-offset-4 hover:text-zinc-500 transition-colors self-start md:self-auto cursor-pointer"
+        >
+          Explore Project ↗
+        </a>
+      </div>
+    </motion.div>
   );
 }
