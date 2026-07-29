@@ -102,10 +102,10 @@ export default function Services() {
                 }}
                 className="flex flex-col gap-2 group"
               >
-                <h3 className="text-2xl md:text-3xl font-semibold tracking-normal  transition-colors">
+                <h3 className="text-xl md:text-3xl font-semibold tracking-normal  transition-colors">
                   {service.title}
                 </h3>
-                <p className="text-md xl:text-xl text-[#695349] font-light leading-relaxed max-w-md">
+                <p className="text-sm xl:text-xl text-[#695349] font-light leading-relaxed max-w-md">
                   {service.description}
                 </p>
               </motion.div>

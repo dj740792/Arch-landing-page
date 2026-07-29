@@ -72,11 +72,11 @@ export default function Works() {
     <motion.section
       ref={sectionRef}
       
-      className="w-full flex flex-col py-14 md:py-28 px-6 md:px-12 overflow-hidden gap-4"
+      className="w-full flex flex-col py-24 md:py-28 px-6 md:px-12 overflow-hidden gap-4"
     >
       {/* SECTION HEADER */}
-      <div className="flex justify-center items-end  pb-6 mb-16 md:mb-24 ">
-        <div className="flex flex-col items-center gap-3">
+      <div className="flex justify-start items-end  pb-6 mb-16 md:mb-24 ">
+        <div className="flex flex-col justify-start gap-2">
           <motion.h1
             initial={{ y: "110%" }}
             animate={{ y: "0%" }}
@@ -84,14 +84,11 @@ export default function Works() {
               duration: 1.2,
               ease: [0.23, 1, 0.32, 1],
             }}
-            className="text-[clamp(3.5rem,8vw,9.5rem)] font-bold"
+            className="text-[clamp(2.5rem,8vw,7.5rem)] font-bold"
           >
             Selected Work
           </motion.h1>
-          <p className="w-full  text-sm md:text-md lg:text-lg xl:text-xl leading-relaxed text-center text-[#483b35]">
-            A look at the people, places, and ideas we've had the privilege to
-            shape.
-          </p>
+         
         </div>
       </div>
 
