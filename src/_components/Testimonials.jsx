@@ -45,7 +45,7 @@ export default function Testimonials() {
   const x = useTransform(smoothProgress, [0, 1], ["0%", "-65%"]);
 
   return (
-    <section ref={targetRef} className="relative h-[550vh]">
+    <section ref={targetRef} className="relative h-[550vh] md:py-32">
       <div className="sticky top-0 flex h-screen items-center overflow-hidden">
         <motion.div
           style={{ x }}

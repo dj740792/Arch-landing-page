@@ -2,47 +2,44 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
 import { useRef, useState, useEffect } from "react";
+import Link from "next/link";
 
 const projects = [
   {
     id: "01",
     title: "Monolith Residence Façade",
-    aspect: "aspect-square",
+    aspect: "h-84 md:h-auto md:aspect-square",
     gridClass: "col-span-12 md:col-span-3 md:col-start-2 md:row-start-1",
-    src: "/workImgs/workImg1.jpg",
-    year:"2025"
+    src:"/workImgs/workImg1.jpg"
   },
   {
     id: "02",
     title: "Echo Point Apartments",
-    aspect: "aspect-[16/9]",
+    aspect: "h-84 md:h-auto md:aspect-[16/9]",
     gridClass: "col-span-12 md:col-span-5 md:col-start-7 md:row-start-1",
-    src: "/workImgs/workImg2.jpg",
-    year:"2026"
+    src:"/workImgs/workImg2.jpg"
   },
   {
     id: "03",
     title: "Sunset Ridge Villas",
-    aspect: "aspect-square",
+    aspect: "h-84 md:h-auto md:aspect-square",
     gridClass: "col-span-12 md:col-span-3 md:col-start-1 md:row-start-2",
-    src: "/workImgs/workImg3.jpg",
-    year:"2025"
+    src:"/workImgs/workImg3.jpg"
   },
   {
     id: "04",
-    title: "Cedar Grove Estates",
-    aspect: "aspect-[4/5]",
+    title: "Cedar Grove Estates",  
+    aspect: "h-84 md:h-auto md:aspect-[4/5]",
     gridClass: "col-span-12 md:col-span-4 md:col-start-5 md:row-start-2",
-    src: "/workImgs/workImg4.jpg",
-    year:"2024"
+    src:"/workImgs/workImg4.jpg"
   },
   {
     id: "05",
     title: "Seabreeze Luxury Suites",
-    aspect: "aspect-square",
-    gridClass:"col-span-12 md:col-span-3 md:col-start-10 md:row-start-2 self-end",
-    src: "/workImgs/workImg5.jpg",
-    year:"2026"
+    aspect: "h-84 md:h-auto md:aspect-square",
+    gridClass:
+      "col-span-12 md:col-span-3 md:col-start-10 md:row-start-2 self-end",
+    src:"/workImgs/workImg5.jpg"
   },
 ];
 
@@ -60,18 +57,18 @@ export default function FeaturedProjects() {
   }, []);
 
   return (
-    <section className="w-full py-12 px-4 md:px-8">
+    <section className="w-full  px-4 md:px-8 py-32 ">
       {/* Header Row */}
       <div className="flex justify-between items-baseline mb-10 border-b pb-4">
-        <h2 className="text-3xl md:text-5xl font-normal tracking-tight">
+        <h2 className="text-4xl md:text-7xl font-normal tracking-tight">
           Featured Projects
         </h2>
-        <a
-          href="/portfolio"
-          className="text-xs md:text-sm font-semibold tracking-widest uppercase underline underline-offset-4"
+        <Link
+          href="/work"
+          className="text-[10px] md:text-sm font-semibold tracking-widest uppercase"
         >
           SEE ALL PORTFOLIO
-        </a>
+        </Link>
       </div>
 
       {/* Grid Container */}
@@ -95,11 +92,11 @@ function ProjectCard({ project, isMobile }) {
   const clipProgress = useTransform(
     scrollYProgress,
     [0, 1],
-    ["inset(100% 0% 0% 0%)", "inset(0% 0% 0% 0%)"],
+    ["inset(0% 0% 100% 0%)", "inset(0% 0% 0% 0%)"],
   );
 
   return (
-    <div ref={itemRef} className={`${project.gridClass} flex flex-col gap-2`}>
+    <div ref={itemRef} className={`${project.gridClass}  flex flex-col gap-2`}>
       <motion.div
         style={{
           clipPath: isMobile ? "none" : clipProgress,
@@ -114,10 +111,14 @@ function ProjectCard({ project, isMobile }) {
           sizes="(max-width: 768px) 100vw, 50vw"
         />
       </motion.div>
-
-      <p className="text-xs md:text-lg font-normal tracking-wide">
-        {project.title}
-      </p>
+      <div className="flex justify-between">
+        <p className="text-md md:text-lg font-normal tracking-wide">
+          {project.title}
+        </p>
+        <p className="text-md md:text-lg font-normal tracking-wide opacity-80">
+          {project.year}
+        </p>
+      </div>
     </div>
   );
 }

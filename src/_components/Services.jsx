@@ -19,6 +19,10 @@ export default function Services() {
       title: "Bespoke Curation",
       description: "Art direction, finish selection, and furniture sourcing.",
     },
+    {
+      title: "Bespoke Curation",
+      description: "Art direction, finish selection, and furniture sourcing.",
+    },
   ];
 
   const ref = useRef(null);
