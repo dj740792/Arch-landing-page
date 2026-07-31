@@ -1,190 +1,123 @@
 "use client";
-import { useEffect, useRef, useState } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
-import Link from "next/link";
+import { useRef, useState, useEffect } from "react";
 
-const featuredWorks = [
+const projects = [
   {
-    slug: "amari-pavilion",
-    title: "Amari Pavilion",
-    category: "Hospitality Architecture",
-    year: "2026",
+    id: "01",
+    title: "Monolith Residence Façade",
+    aspect: "aspect-square",
+    gridClass: "col-span-12 md:col-span-3 md:col-start-2 md:row-start-1",
     src: "/workImgs/workImg1.jpg",
-    height: "700px",
-    width: "2/4vw",
+    year:"2025"
   },
   {
-    slug: "the-dune-house",
-    title: "The Dune House",
-    category: "Residential Design",
-    year: "2025",
+    id: "02",
+    title: "Echo Point Apartments",
+    aspect: "aspect-[16/9]",
+    gridClass: "col-span-12 md:col-span-5 md:col-start-7 md:row-start-1",
     src: "/workImgs/workImg2.jpg",
-    height: "600px",
-    width: "1/4vw",
+    year:"2026"
   },
   {
-    slug: "solam-villa",
-    title: "Solām Villa",
-    category: "Spatial Masterplan",
-    year: "2025",
+    id: "03",
+    title: "Sunset Ridge Villas",
+    aspect: "aspect-square",
+    gridClass: "col-span-12 md:col-span-3 md:col-start-1 md:row-start-2",
     src: "/workImgs/workImg3.jpg",
-    height: "500px",
-    width: "2/4vw",
+    year:"2025"
   },
   {
-    slug: "Bad-hand-coffe",
-    title: "Bad Hand Coffee",
-    category: "Spatial Masterplan",
-    year: "2025",
+    id: "04",
+    title: "Cedar Grove Estates",
+    aspect: "aspect-[4/5]",
+    gridClass: "col-span-12 md:col-span-4 md:col-start-5 md:row-start-2",
     src: "/workImgs/workImg4.jpg",
-    height: "700px",
-    width: "1/4vw",
+    year:"2024"
   },
- 
+  {
+    id: "05",
+    title: "Seabreeze Luxury Suites",
+    aspect: "aspect-square",
+    gridClass:"col-span-12 md:col-span-3 md:col-start-10 md:row-start-2 self-end",
+    src: "/workImgs/workImg5.jpg",
+    year:"2026"
+  },
 ];
 
-export default function Works() {
-  const sectionRef = useRef(null);
+export default function FeaturedProjects() {
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
-    const updateViewport = () => setIsMobile(window.innerWidth < 768);
+    const checkScreen = () => {
+      setIsMobile(window.innerWidth < 1024);
+    };
 
-    updateViewport();
-    window.addEventListener("resize", updateViewport);
-
-    return () => window.removeEventListener("resize", updateViewport);
+    checkScreen();
+    window.addEventListener("resize", checkScreen);
+    return () => window.removeEventListener("resize", checkScreen);
   }, []);
 
-  const { scrollYProgress } = useScroll({
-    target: sectionRef,
-    offset: ["start 0.25", "end 0.25"],
-  });
-
-  const yLeftScroll = useTransform(scrollYProgress, [0, 1], ["0px", "290px"]);
-  const yRightScroll = useTransform(scrollYProgress, [0, 1], ["0px", "-120px"]);
-  const opacity = useTransform(scrollYProgress, [0.85, 1], [1, 0]);
-  const scale = useTransform(scrollYProgress, [0.75, 1], [1, 0.85]);
- 
-
   return (
-    <motion.section
-      ref={sectionRef}
-      
-      className="w-full flex flex-col py-24 md:py-28 px-6 md:px-12 overflow-hidden gap-4"
-    >
-      {/* SECTION HEADER */}
-      <div className="flex justify-start items-end  pb-6 mb-16 md:mb-24 ">
-        <div className="flex flex-col justify-start gap-2">
-          <motion.h1
-            initial={{ y: "110%" }}
-            animate={{ y: "0%" }}
-            transition={{
-              duration: 1.2,
-              ease: [0.23, 1, 0.32, 1],
-            }}
-            className="text-[clamp(2.5rem,8vw,7.5rem)] font-bold"
-          >
-            Selected Work
-          </motion.h1>
-         
-        </div>
+    <section className="w-full py-12 px-4 md:px-8">
+      {/* Header Row */}
+      <div className="flex justify-between items-baseline mb-10 border-b pb-4">
+        <h2 className="text-3xl md:text-5xl font-normal tracking-tight">
+          Featured Projects
+        </h2>
+        <a
+          href="/portfolio"
+          className="text-xs md:text-sm font-semibold tracking-widest uppercase underline underline-offset-4"
+        >
+          SEE ALL PORTFOLIO
+        </a>
       </div>
 
-      {/* COLUMN GRID */}
-      <div className="grid grid-cols-1 md:grid-cols-12 gap-9 md:gap-12 items-start ">
-        {/* LEFT COLUMN */}
-        <motion.div
-          style={{ y: isMobile ? 0 : yLeftScroll, opacity, scale }}
-          className="md:col-span-6 flex flex-col gap-12 md:gap-33"
-        >
-          <WorkCard project={featuredWorks[0]} isMobile={isMobile} />
-          <WorkCard project={featuredWorks[2]} isMobile={isMobile} />
-       
-        </motion.div>
-
-        {/* RIGHT COLUMN */}
-        <motion.div
-          style={{ y: isMobile ? 0 : yRightScroll, opacity, scale }}
-          className="md:col-span-6 flex flex-col gap-12 md:gap-39 md:pt-36"
-        >
-          <WorkCard project={featuredWorks[1]} isMobile={isMobile} />
-          <WorkCard project={featuredWorks[3]} isMobile={isMobile} />
-          
-        </motion.div>
+      {/* Grid Container */}
+      <div className="grid grid-cols-12 gap-x-6 gap-y-20 items-start">
+        {projects.map((project) => (
+          <ProjectCard key={project.id} project={project} isMobile={isMobile} />
+        ))}
       </div>
-      {/* work page nav button */}
-      <Link
-        href="/work"
-        className="flex justify-center  text-2xl mt-4 md:text-3xl font-serif tracking-tight group-hover:translate-x-2 transition-transform duration-300 "
-      >
-        <motion.div
-          className="flex items-center gap-3 cursor-pointer"
-          initial="rest"
-          whileHover="hovered"
-          animate="rest"
-        >
-          <motion.div
-            className="w-8 h-8 rounded-full bg-[#361e13] flex items-center justify-center"
-            variants={{
-              rest: { scale: 0, opacity: 0 },
-              hovered: { scale: 1, opacity: 1 },
-            }}
-            transition={{ duration: 0.25, ease: "easeOut" }}
-          >
-            <span className="text-white text-sm ">↗</span>
-          </motion.div>
-
-          <span className="font-Clash-light text-sm md:text-lg  tracking-wide relative">
-            Explore our works
-            <motion.span
-              className="absolute left-0 -bottom-1 h-0.5 bg-[#361e13]"
-              variants={{
-                rest: { width: "100%" },
-                hovered: { width: "0%" },
-              }}
-              transition={{ duration: 0.3, ease: "easeOut" }}
-            />
-          </span>
-        </motion.div>
-      </Link>
-    </motion.section>
+    </section>
   );
 }
 
-function WorkCard({ project, isMobile }) {
-  if (!project) return null;
+function ProjectCard({ project, isMobile }) {
+  const itemRef = useRef(null);
+
+  const { scrollYProgress } = useScroll({
+    target: itemRef,
+    offset: ["start end", "center center"],
+  });
+
+  const clipProgress = useTransform(
+    scrollYProgress,
+    [0, 1],
+    ["inset(100% 0% 0% 0%)", "inset(0% 0% 0% 0%)"],
+  );
 
   return (
-    <Link href={`/work/${project.slug}`} className="group w-full">
-      {/* Image Card */}
-      <div
-        className="relative w-full overflow-hidden mb-4"
-        style={
-          isMobile
-            ? { width: "100%", height: "320px" }
-            : { maxWidth: project.width, height: project.height }
-        }
+    <div ref={itemRef} className={`${project.gridClass} flex flex-col gap-2`}>
+      <motion.div
+        style={{
+          clipPath: isMobile ? "none" : clipProgress,
+        }}
+        className={`relative w-full ${project.aspect} overflow-hidden`}
       >
         <Image
           src={project.src}
           alt={project.title}
           fill
-          className="object-cover transition-transform duration-700 ease-out group-hover:scale-105 "
+          className="object-cover w-full"
+          sizes="(max-width: 768px) 100vw, 50vw"
         />
-      </div>
-      {/* Meta Bar */}
-      <div className="flex justify-between items-baseline transition-colors">
-        <div className="flex items-baseline gap-3">
-          <h3 className="text-2xl md:text-3xl font-medium tracking-tight">
-            {project.title}
-          </h3>
-        </div>
-        <span className="text-xs md:text-sm font-semibold uppercase tracking-wider opacity-80">
-          {project.year}
-        </span>
-      </div>
-    </Link>
+      </motion.div>
+
+      <p className="text-xs md:text-lg font-normal tracking-wide">
+        {project.title}
+      </p>
+    </div>
   );
 }
