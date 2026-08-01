@@ -1,5 +1,5 @@
 "use client";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, useMotionValueEvent, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
 import { useRef, useState, useEffect } from "react";
 import Link from "next/link";
@@ -7,39 +7,49 @@ import Link from "next/link";
 const projects = [
   {
     id: "01",
+    slug: "monolith-residence-facade",
     title: "Monolith Residence Façade",
     aspect: "h-84 md:h-auto md:aspect-square",
     gridClass: "col-span-12 md:col-span-3 md:col-start-2 md:row-start-1",
-    src:"/workImgs/workImg1.jpg"
+    src: "/workImgs/workImg1.jpg",
+    year: "2025",
   },
   {
     id: "02",
     title: "Echo Point Apartments",
+    slug: "echo-point-apartments",
     aspect: "h-84 md:h-auto md:aspect-[16/9]",
     gridClass: "col-span-12 md:col-span-5 md:col-start-7 md:row-start-1",
-    src:"/workImgs/workImg2.jpg"
+    src: "/workImgs/workImg2.jpg",
+    year: "2026",
   },
   {
     id: "03",
     title: "Sunset Ridge Villas",
+    slug: "sunset-ridge-villas",
     aspect: "h-84 md:h-auto md:aspect-square",
     gridClass: "col-span-12 md:col-span-3 md:col-start-1 md:row-start-2",
-    src:"/workImgs/workImg3.jpg"
+    src: "/workImgs/workImg3.jpg",
+    year: "2025",
   },
   {
     id: "04",
-    title: "Cedar Grove Estates",  
+    title: "Cedar Grove Estates",
     aspect: "h-84 md:h-auto md:aspect-[4/5]",
+    slug: "cedar-grove-estates",
     gridClass: "col-span-12 md:col-span-4 md:col-start-5 md:row-start-2",
-    src:"/workImgs/workImg4.jpg"
+    src: "/workImgs/workImg4.jpg",
+    year: "2026",
   },
   {
     id: "05",
     title: "Seabreeze Luxury Suites",
+    slug: "seabreeze-luxury-suites",
     aspect: "h-84 md:h-auto md:aspect-square",
     gridClass:
       "col-span-12 md:col-span-3 md:col-start-10 md:row-start-2 self-end",
-    src:"/workImgs/workImg5.jpg"
+    src: "/workImgs/workImg5.jpg",
+    year: "2024",
   },
 ];
 
@@ -60,7 +70,7 @@ export default function FeaturedProjects() {
     <section className="w-full  px-4 md:px-8 py-32 ">
       {/* Header Row */}
       <div className="flex justify-between items-baseline mb-10 border-b pb-4">
-        <h2 className="text-4xl md:text-7xl font-normal tracking-tight">
+        <h2 className="text-4xl md:text-7xl font-semibold tracking-tight">
           Featured Projects
         </h2>
         <Link
@@ -83,6 +93,7 @@ export default function FeaturedProjects() {
 
 function ProjectCard({ project, isMobile }) {
   const itemRef = useRef(null);
+  const [revealed, setRevealed] = useState(false)
 
   const { scrollYProgress } = useScroll({
     target: itemRef,
@@ -94,31 +105,38 @@ function ProjectCard({ project, isMobile }) {
     [0, 1],
     ["inset(0% 0% 100% 0%)", "inset(0% 0% 0% 0%)"],
   );
+  useMotionValueEvent(scrollYProgress , "change" , (latest)=>{
+    if(latest >= 1 && !revealed){
+      setRevealed(true)
+    }
+  })
 
   return (
     <div ref={itemRef} className={`${project.gridClass}  flex flex-col gap-2`}>
-      <motion.div
-        style={{
-          clipPath: isMobile ? "none" : clipProgress,
-        }}
-        className={`relative w-full ${project.aspect} overflow-hidden`}
-      >
-        <Image
-          src={project.src}
-          alt={project.title}
-          fill
-          className="object-cover w-full"
-          sizes="(max-width: 768px) 100vw, 50vw"
-        />
-      </motion.div>
-      <div className="flex justify-between">
-        <p className="text-md md:text-lg font-normal tracking-wide">
-          {project.title}
-        </p>
-        <p className="text-md md:text-lg font-normal tracking-wide opacity-80">
-          {project.year}
-        </p>
-      </div>
+      <Link href={`/work/${project.slug} `} className="className=group flex flex-col gap-2 w-full">
+        <motion.div
+          style={{
+            clipPath: isMobile || revealed ? "none" : clipProgress,
+          }}
+          className={`relative w-full ${project.aspect} overflow-hidden`}
+        >
+          <Image
+            src={project.src}
+            alt={project.title}
+            fill
+            className="object-cover w-full"
+            sizes="(max-width: 768px) 100vw, 50vw"
+          />
+        </motion.div>
+        <div className="flex justify-between">
+          <p className="text-md md:text-lg xl:text-xl  tracking-wide font-semibold">
+            {project.title}
+          </p>
+          <p className="text-md md:text-lg tracking-wide font-semibold opacity-70">
+            {project.year}
+          </p>
+        </div>
+      </Link>
     </div>
   );
 }

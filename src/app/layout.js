@@ -1,15 +1,20 @@
 import SmoothScroll from "@/_components/smoothScroll";
-import { Cormorant_Garamond, Lexend_Deca } from "next/font/google";
+import { Aboreto, Cormorant_Garamond, Lato, Lexend_Deca, Noto_Sans, Varta} from "next/font/google";
 import "./globals.css";
 import Navbar from "@/_components/Navbar";
 
 const cormorant = Cormorant_Garamond({
   variable: "--font-cormorant-sans",
   subsets: ["latin"],
+  
 });
 
 const lexend = Lexend_Deca({
   subsets: ["latin"],
+});
+const lato = Aboreto({
+  subsets: ["latin"],
+weight:"400"
 });
 
 
@@ -23,10 +28,10 @@ export default function RootLayout({ children }) {
   return (
     <html
       lang="en"
-      className={`${cormorant.variable}  ${lexend.variable}  h-full antialiased`}
+      className={`${cormorant.variable}  ${lexend.variable} ${lato.variable}  h-full antialiased`}
     >
       <body
-        className={`min-h-full flex  flex-col items-center w-full bg-zinc-950 text-white ${lexend.className}`}
+        className={`min-h-full flex  flex-col items-center w-full  ${lato.className}`}
       >
         <SmoothScroll>
           <div className="fixed top-0 left-0 w-full z-50 pointer-events-none flex justify-center pt-4 px-4">

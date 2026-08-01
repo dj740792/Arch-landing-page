@@ -58,12 +58,12 @@ export default function Services() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, ease: [0.25, 1, 0.5, 1] }}
-            className="text-4xl md:text-5xl font-semibold tracking-tight leading-[1.1]"
+            className="text-4xl md:text-5xl font-bold tracking-tight leading-[1.1]"
           >
             Transforming quiet ideas into physical presence.
           </motion.h2>
 
-          <p className="text-md xl:text-xl font-light leading-relaxed max-w-xl">
+          <p className="text-sm xl:text-xl text-[#695349] font-semibold leading-relaxed max-w-md">
             Our mission is to translate your ambition into tangible spaces. We
             offer a range of specialized spatial design services tailored to
             craft your unique environment.
@@ -88,7 +88,7 @@ export default function Services() {
         {/* RIGHT COL */}
         <div className="md:col-span-1.5 flex flex-col gap-8 lg:gap-14">
           <div className="border-b pb-4">
-            <motion.h1 className="text-4xl md:text-5xl font-semibold tracking-tight leading-[1.1]">
+            <motion.h1 className="text-4xl md:text-5xl font-extrabold tracking-tight leading-[1.1]">
               Our Services
             </motion.h1>
           </div>
@@ -106,10 +106,10 @@ export default function Services() {
                 }}
                 className="flex flex-col gap-2 group"
               >
-                <h3 className="text-xl md:text-3xl font-semibold tracking-normal  transition-colors">
+                <h3 className="text-xl md:text-3xl font-semibold tracking-normal border-b w-3/4 transition-colors">
                   {service.title}
                 </h3>
-                <p className="text-sm xl:text-xl text-[#695349] font-light leading-relaxed max-w-md">
+                <p className="text-sm xl:text-xl text-[#695349] font-semibold leading-relaxed max-w-md">
                   {service.description}
                 </p>
               </motion.div>
