@@ -30,7 +30,7 @@ export default function About() {
         </div>
         <div className="flex justify-around md:gap-4  md:items-center ">
           <div className="w-2/3 md:w-1/3 flex flex-col gap-9 ">
-            <motion.p className=" text-md  md:text-lg lg:text-xl xl:text-xl 2xl:text-2xl leading-8 tracking-wide font-bold text-[#67564f] ">
+            <motion.p className=" text-md  md:text-lg  xl:text-xl 2xl:text-2xl leading-8 tracking-wide font-bold text-[#67564f] ">
               In a world overwhelmed by noise, we believe in the power of quiet
               architecture. Raw textures, sun-washed surfaces, and sculptural
               geometry create calm environments that feel thoughtful, elevated,
@@ -41,7 +41,7 @@ export default function About() {
             </Link>
           </div>
 
-          <motion.div className=" rrelative overflow-hidden h-100 w-80 2xl:h-110 2xl:w-80 hidden lg:flex flex-col justify-between">
+          <motion.div className=" rrelative overflow-hidden h-90 w-80 2xl:h-110 2xl:w-80 hidden lg:flex flex-col justify-between">
             <div className="relative w-full h-full overflow-hidden">
               <video
                 src="/video/about.mp4"
@@ -53,8 +53,8 @@ export default function About() {
               />
             </div>
             <div className="flex justify-between items-center w-full pt-3 text-md  uppercase tracking-widest">
-              <p >showcase reel</p>
-              <p className="font-light">2026</p>
+              <p className="font-semibold">showcase reel</p>
+              <p className="font-semibold opacity-70">2026</p>
             </div>
           </motion.div>
         </div>

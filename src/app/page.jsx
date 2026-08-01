@@ -14,9 +14,8 @@ export default function page() {
       <Hero />
       <About />
       <Services />
-      
-      <Works />
       <Testimonials />
+      <Works />
     </main>
   );
 }
