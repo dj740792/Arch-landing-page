@@ -1,23 +1,21 @@
 import SmoothScroll from "@/_components/smoothScroll";
-import { Aboreto, Cormorant_Garamond, Lato, Lexend_Deca, Noto_Sans, Varta} from "next/font/google";
+import { Aboreto, Arima, Arimo, Cormorant_Garamond, Inter, Lexend_Deca, Libertinus_Math, Raleway, Roboto } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/_components/Navbar";
 
 const cormorant = Cormorant_Garamond({
   variable: "--font-cormorant-sans",
   subsets: ["latin"],
-  
 });
 
-const lexend = Lexend_Deca({
+const lexend = Raleway({
   subsets: ["latin"],
+   weight: "600",
 });
 const lato = Aboreto({
   subsets: ["latin"],
-weight:"400"
+  weight: "400",
 });
-
-
 
 export const metadata = {
   title: "Create Next App",
@@ -31,11 +29,13 @@ export default function RootLayout({ children }) {
       className={`${cormorant.variable}  ${lexend.variable} ${lato.variable}  h-full antialiased`}
     >
       <body
-        className={`min-h-full flex  flex-col items-center w-full  ${lato.className}`}
+        className={`min-h-full flex  flex-col items-center w-full  ${lexend.className}`}
       >
         <SmoothScroll>
           <div className="fixed top-0 left-0 w-full z-50 pointer-events-none flex justify-center pt-4 px-4">
-            <div className="pointer-events-auto flex justify-center items-center w-full "></div>
+            <div className="pointer-events-auto flex justify-center items-center w-full ">
+              <Navbar />
+            </div>
           </div>
           {children}
         </SmoothScroll>

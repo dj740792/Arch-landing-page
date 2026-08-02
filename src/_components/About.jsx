@@ -41,7 +41,7 @@ export default function About() {
             </Link>
           </div>
 
-          <motion.div className=" rrelative overflow-hidden h-90 w-80 2xl:h-110 2xl:w-80 hidden lg:flex flex-col justify-between">
+          <motion.div className=" rrelative overflow-hidden h-90 w-80 2xl:h-110 2xl:w-80 hidden lg:flex flex-col justify-between cursor-pointer">
             <div className="relative w-full h-full overflow-hidden">
               <video
                 src="/video/about.mp4"
@@ -49,7 +49,7 @@ export default function About() {
                 autoPlay
                 muted={true}
                 playsInline
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover "
               />
             </div>
             <div className="flex justify-between items-center w-full pt-3 text-md  uppercase tracking-widest">

@@ -67,18 +67,13 @@ export default function Navbar() {
       <div className="relative flex h-full items-center justify-between px-4 rounded-2xl border border-white/30 bg-white/20 shadow-[0_9px_32px_rgba(0,0,0,0.1)] backdrop-blur-lg">
         {/* LOGO */}
         <Link href="/" className=" lg:flex text-xl uppercase font-bold mr-4">
-          arch.
+          O.
         </Link>
 
-        {/* LINKS */}
-        <div className="hidden md:flex items-center gap-4">
-          {links.map((link) => (
-            <NavLink link={link} key={link.title} />
-          ))}
-        </div>
+        
 
         {/* Responsive menu */}
-        <div className="md:hidden ml-auto">
+        <div className=" ml-auto">
           <button
             className="w-7 h-5 flex flex-col justify-between cursor-pointer z-50 relative"
             onClick={() => setOpen((prev) => !prev)}
