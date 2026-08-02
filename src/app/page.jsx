@@ -4,7 +4,7 @@ import Hero from "@/_components/Hero";
 import Works from "@/_components/Works";
 import Services from "@/_components/Services";
 import Navbar from "@/_components/Navbar";
-import Testimonials from "@/_components/Testimonials";
+import Process from "@/_components/Process";
 
 export default function page() {
   return (
@@ -14,7 +14,7 @@ export default function page() {
       <Hero />
       <About />
       <Services />
-      <Testimonials />
+      <Process />
       <Works />
     </main>
   );

@@ -2,30 +2,30 @@ import React, { useRef } from "react";
 import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 import Image from "next/image";
 
-export default function Testimonials() {
+export default function Process() {
   const services = [
     {
       num: "01",
-      title: "Architecture & Masterplanning",
-      desc: "Site analysis, structural design, and zoning feasibility.",
+      title: "Understanding You",
+      desc: "Our process begins with deep listening. We interpret lifestyle,emotion, and spatial flow.",
       image: "/serviceImgs/serviceImg1.jpg",
     },
     {
       num: "02",
-      title: "Interior Architecture",
-      desc: "Spatial layout, lighting studies, and custom joinery.",
+      title: "Design concept",
+      desc: "Every line, color, and proportion reflects a story - balanced between function and feeling.",
       image: "/serviceImgs/serviceImg2.jpg",
     },
     {
       num: "03",
       title: "Material & Furniture Curation",
-      desc: "Bespoke furniture design, stone sourcing, and styling.",
+      desc: "We curate textures and finishes that define atmosphere and character.",
       image: "/serviceImgs/serviceImg3.jpg",
     },
     {
       num: "04",
-      title: "Material & Furniture Curation",
-      desc: "Bespoke furniture design, stone sourcing, and styling.",
+      title: "Execution & Refinement",
+      desc: "We supervise with focus to ensure the spaces mirrors the design narrative.",
       image: "/serviceImgs/serviceImg3.jpg",
     },
   ];
@@ -54,13 +54,13 @@ export default function Testimonials() {
           <div className="w-[55vw] md:w-[35vw] flex-none flex flex-col  h-[60vh]   pr-6">
             <div className="flex flex-col gap-10">
               <h2 className="text-[clamp(2.5rem,6vw,4.5rem)] font-semibold tracking-tight leading-none uppercase">
-                Concept
+                Our process of
             
                 <br />
-                <span className=" font-medium ">To completion</span>
+                <span className=" font-medium ">forming spaces</span>
               </h2>
               <p className="w-full  text-sm md:text-md lg:text-lg xl:text-xl leading-relaxed  text-[#483b35]">
-                We guide smoothly from idea to built reality.
+                From initial vision to final detail, we approach, each step with precision,collaboration,and calm intention.
               </p>
             </div>
           </div>
