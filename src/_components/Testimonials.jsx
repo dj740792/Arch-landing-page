@@ -46,15 +46,6 @@ export default function Testimonials() {
     return () => clearInterval(timer);
   }, []);
 
-  const handleNext = () => {
-    setCurrentIndex((prev) => (prev + 1) % testimonials.length);
-  };
-
-  const handlePrev = () => {
-    setCurrentIndex(
-      (prev) => (prev - 1 + testimonials.length) % testimonials.length,
-    );
-  };
 
   const current = testimonials[currentIndex];
 
