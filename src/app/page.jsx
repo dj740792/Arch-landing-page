@@ -6,6 +6,7 @@ import Services from "@/_components/Services";
 import Navbar from "@/_components/Navbar";
 import Process from "@/_components/Process";
 import Cta from "@/_components/Cta";
+import Testimonials from "@/_components/Testimonials";
 
 export default function page() {
   return (
@@ -17,6 +18,7 @@ export default function page() {
       <Services />
       <Process />
       <Works />
+      <Testimonials />
       <Cta />
     </main>
   );
