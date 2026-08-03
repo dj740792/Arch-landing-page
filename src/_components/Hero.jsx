@@ -33,7 +33,7 @@ const Hero = () => {
   return (
     <section className="w-full min-h-screen h-[105vh] flex flex-col justify-between pt-28 md:pt-36 overflow-hidden">
       {/* TOP SECTION: HEADING */}
-      <div className="w-full text-center mt-15 md:mt-8 lg:mt-5 overflow-hidden">
+      <div className="w-full text-center mt-15 md:mt-8 lg:mt-18 overflow-hidden">
         <h1 className="flex justify-center items-center tracking-tight leading-none select-none whitespace-nowrap text-[12vw] md:text-[10vw] md:mx-8 font-black">
           {logo.split("").map((letter, index) => (
             <span key={index} className="overflow-hidden inline-block">
@@ -60,10 +60,8 @@ const Hero = () => {
         </h1>
       </div>
 
-   
       <div className="w-full px-6 md:px-12 my-6">
-        {/* Thin divider line matching the design */}
-        <div className="w-full border-t mb-6 md:mb-8" />
+        <div className="w-full border-t mb-6 md:mb-14" />
 
         <div className="flex flex-col lg:justify-between lg:flex-row items-start gap-6 ">
           <div className="md:col-span-3">
@@ -82,7 +80,6 @@ const Hero = () => {
         </div>
       </div>
 
-     
       <div className="relative w-full flex overflow-hidden pb-10 mask-gradient">
         {mounted && (
           <motion.div

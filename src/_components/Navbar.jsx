@@ -9,7 +9,7 @@ const links = [
   { url: "/contact", title: "Contact" },
 ];
 
-export default function Navbar() {
+export default function Navbar({className = "w-6 h-6"}) {
   const [open, setOpen] = useState(false);
 
   const topVarient = {
@@ -67,10 +67,27 @@ export default function Navbar() {
       <div className="relative flex h-full items-center justify-between px-4 rounded-2xl border border-white/30 bg-white/20 shadow-[0_9px_32px_rgba(0,0,0,0.1)] backdrop-blur-lg">
         {/* LOGO */}
         <Link href="/" className=" lg:flex text-xl uppercase font-bold mr-4">
-          O.
+          <svg
+            viewBox="0 0 24 24"
+            className={className}
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M2 21L12 3L22 21M5 16.5H19"
+              stroke="currentColor"
+              strokeWidth="1.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+            <path
+              d="M6 16C8 14.5 10.5 13.5 13 14C15.5 14.5 18 16 20 17"
+              stroke="currentColor"
+              strokeWidth="1.5"
+              strokeLinecap="round"
+            />
+          </svg>
         </Link>
-
-        
 
         {/* Responsive menu */}
         <div className=" ml-auto">

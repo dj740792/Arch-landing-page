@@ -8,25 +8,21 @@ export default function Process() {
       num: "01",
       title: "Understanding You",
       desc: "Our process begins with deep listening. We interpret lifestyle,emotion, and spatial flow.",
-      image: "/serviceImgs/serviceImg1.jpg",
     },
     {
       num: "02",
       title: "Design concept",
       desc: "Every line, color, and proportion reflects a story - balanced between function and feeling.",
-      image: "/serviceImgs/serviceImg2.jpg",
     },
     {
       num: "03",
       title: "Material & Furniture Curation",
       desc: "We curate textures and finishes that define atmosphere and character.",
-      image: "/serviceImgs/serviceImg3.jpg",
     },
     {
       num: "04",
       title: "Execution & Refinement",
       desc: "We supervise with focus to ensure the spaces mirrors the design narrative.",
-      image: "/serviceImgs/serviceImg3.jpg",
     },
   ];
 
@@ -40,27 +36,27 @@ export default function Process() {
     damping: 25,
     stiffness: 90,
     restDelta: 0.001,
-  })
+  });
 
-  const x = useTransform(smoothProgress, [0, 1], ["0%", "-65%"]);
+  const x = useTransform(smoothProgress, [0, 1], ["1%", "-60%"]);
 
   return (
-    <section ref={targetRef} className="relative h-[550vh] md:py-32">
+    <section ref={targetRef} className="relative h-[500vh] md:py-12">
       <div className="sticky top-0 flex h-screen items-center overflow-hidden">
         <motion.div
           style={{ x }}
           className="flex items-center gap-12 md:gap-16 pl-6 md:pl-12 "
         >
-          <div className="w-[55vw] md:w-[35vw] flex-none flex flex-col  h-[60vh]   pr-6">
+          <div className="w-[55vw] md:w-[30vw] flex-none flex flex-col  h-[60vh]   pr-6">
             <div className="flex flex-col gap-10">
               <h2 className="text-[clamp(2.5rem,6vw,4.5rem)] font-semibold tracking-tight leading-none uppercase">
                 Our process of
-            
                 <br />
                 <span className=" font-medium ">forming spaces</span>
               </h2>
               <p className="w-full  text-sm md:text-md lg:text-lg xl:text-xl leading-relaxed  text-[#483b35]">
-                From initial vision to final detail, we approach, each step with precision,collaboration,and calm intention.
+                From initial vision to final detail, we approach each step with
+                precision,collaboration,and calm intention.
               </p>
             </div>
           </div>
@@ -97,30 +93,12 @@ function ProjectCard({ service, index, total, smoothProgress }) {
         y: index === 0 ? 0 : y,
         scale: index === 0 ? 1 : scale,
       }}
-      className="w-[65vw] md:w-[40vw] flex-none flex flex-col gap-12 group "
+      className="w-[65vw] md:w-[30vw] flex-col flex group h-[42vh] lg:h-[45vh] xl:h-[55vh] bg-[#723f27] text-[#f8eee9]"
     >
-      {/* Image Container */}
-      <div className="relative w-full h-[42vh] md:h-[55vh] overflow-hidden ">
-        <Image
-          src={service.image}
-          alt={service.title}
-          fill
-          sizes="(max-width: 768px) 85vw, 50vw"
-          className="object-cover transition-transform duration-1000 ease-out group-hover:scale-105 cursor-pointer"
-        />
-      </div>
-
-      {/* Meta Bar */}
-      <div className="flex flex-col md:flex-row md:items-end justify-between gap-3 px-1">
-        <div className="flex flex-col gap-1 max-w-md">
-          <div><h3 className="text-2xl md:text-3xl font-light text-zinc-900 tracking-tight">
-            {service.title}
-          </h3>
-          <p className="text-xs md:text-sm text-zinc-500 font-light">{service.desc}</p>
-          </div>
-         
-        </div>
-
+      <div className="flex-col flex  mx-6 py-16 lg:py-12  gap-7 lg:gap-10 xl:gap-12 items-start">
+        <h1 className="text-6xl lg:text-7xl xl:text-9xl">{service.num}</h1>
+        <h2 className="text-3xl lg:text-4xl">{service.title}</h2>
+        <p className="text-sm lg:text-lg">{service.desc}</p>
       </div>
     </motion.div>
   );

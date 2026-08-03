@@ -5,6 +5,7 @@ import Works from "@/_components/Works";
 import Services from "@/_components/Services";
 import Navbar from "@/_components/Navbar";
 import Process from "@/_components/Process";
+import Cta from "@/_components/Cta";
 
 export default function page() {
   return (
@@ -16,6 +17,7 @@ export default function page() {
       <Services />
       <Process />
       <Works />
+      <Cta />
     </main>
   );
 }
