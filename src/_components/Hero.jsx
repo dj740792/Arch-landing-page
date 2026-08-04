@@ -27,14 +27,14 @@ const Hero = () => {
     setMounted(true);
   }, []);
 
-  const logo = "Studio OASIS.";
+  const logo = "OASIS.";
   const duplicatedImages = [...images, ...images];
 
   return (
     <section className="w-full min-h-screen h-[105vh] flex flex-col justify-between pt-28 md:pt-36 overflow-hidden">
       {/* TOP SECTION: HEADING */}
       <div className="w-full text-center mt-15 md:mt-8 lg:mt-18 overflow-hidden">
-        <h1 className="flex justify-center items-center tracking-tight leading-none select-none whitespace-nowrap text-[12vw] md:text-[10vw] md:mx-8 font-black">
+        <h1 className="flex justify-center items-center tracking-tight leading-none select-none whitespace-nowrap text-[29vw] md:text-[25vw] lg:text-[23vw] xl:text-[15vw] md:mx-8 font-black">
           {logo.split("").map((letter, index) => (
             <span key={index} className="overflow-hidden inline-block">
               {mounted ? (

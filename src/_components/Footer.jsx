@@ -1,9 +1,81 @@
-import React from 'react'
+"use client";
+import Link from "next/link";
+import { Lato } from "next/font/google";
+
+const numFont = Lato({ subsets: ["latin"], weight: "400" });
 
 export default function Footer() {
+  const pagesLinks = [
+    { label: "Home", href: "/" },
+    { label: "About", href: "/about" },
+    { label: "Works", href: "/work" },
+    { label: "Contact", href: "/contact" },
+  ];
+
   return (
-    <div className='h-[50vh] lg:h-[70vh] w-full bg-[#361e13]'>
-       
-    </div>
-  )
+    <footer className="w-full p-4 sm:p-6 md:p-8  ">
+      <div className="w-full bg-[#361e13] text-[#f8eee9] p-8 md:p-2 flex flex-col justify-between min-h-[80vh] rounded-xl ">
+        <div className="justify-center flex ">
+          <h1 className="text-[25vw] lg:text-[24vw] xl:text-[20vw] leading-none font-bold  tracking-wide uppercase select-none  opacity-90">
+            OASIS.
+          </h1>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-start md:p-12">
+          <div className="md:col-span-5 space-y-6 ">
+            <p className="text-2xl md:text-2xl font-light leading-snug 2xl:text-4xl" >
+              Architecture for facades
+              <br />
+              with presence
+            </p>
+            <div>
+              <Link
+                href="/contact"
+                className="inline-block text-sm font-semibold tracking-wider uppercase  transition-opacity hover:opacity-80 2xl:text-2xl"
+              >
+                LETS CONNECT
+              </Link>
+            </div>
+          </div>
+
+          <div className="md:col-span-7 grid grid-cols-2 sm:grid-cols-3 gap-12 ">
+            <div className="space-y-2 ">
+              <p>
+                <Link href="mailto:info@oasis.com" className="text-xl hover:opacity-80 2xl:text-3xl">
+                  info@oasis.com
+                </Link>
+              </p>
+              <p className={`text-xl ${numFont.className} hover:opacity-80 2xl:text-3xl`}>+123 456 789</p>
+            </div>
+
+            <div className="space-y-2">
+              <ul className="space-y-1">
+                {pagesLinks.map((link) => (
+                  <li key={link.href}>
+                    <Link href={link.href} className="text-2xl 2xl:text-3xl hover:opacity-80">
+                      {link.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="space-y-2 text-xl 2xl:text-3xl">
+              <ul className="space-y-1 ">
+                <li>
+                  <Link href="/privacy" className="hover:opacity-80">
+                    Privacy policy
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/terms" className="hover:opacity-80">
+                    Terms of Service
+                  </Link>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  );
 }
