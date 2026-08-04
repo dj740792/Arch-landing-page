@@ -7,6 +7,7 @@ import Navbar from "@/_components/Navbar";
 import Process from "@/_components/Process";
 import Cta from "@/_components/Cta";
 import Testimonials from "@/_components/Testimonials";
+import Footer from "@/_components/Footer"
 
 export default function page() {
   return (
@@ -20,6 +21,7 @@ export default function page() {
       <Works />
       <Testimonials />
       <Cta />
-    </main>
+      <Footer /> 
+         </main>
   );
 }
