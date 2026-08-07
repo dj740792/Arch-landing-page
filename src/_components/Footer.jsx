@@ -1,6 +1,7 @@
 "use client";
 import Link from "next/link";
 import { Lato } from "next/font/google";
+import { ArrowUpRight } from "lucide-react";
 
 const numFont = Lato({ subsets: ["latin"], weight: "400" });
 
@@ -22,7 +23,7 @@ export default function Footer() {
         </div>
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-start md:p-12">
           <div className="md:col-span-5 space-y-6 ">
-            <p className="text-2xl md:text-2xl font-light leading-snug 2xl:text-4xl" >
+            <p className="text-2xl md:text-2xl font-light leading-snug 2xl:text-3xl" >
               Architecture for facades
               <br />
               with presence
@@ -30,9 +31,9 @@ export default function Footer() {
             <div>
               <Link
                 href="/contact"
-                className="inline-block text-sm font-semibold tracking-wider uppercase  transition-opacity hover:opacity-80 2xl:text-2xl"
+                className="inline-flex text-sm font-semibold tracking-wider uppercase  transition-opacity hover:opacity-80 2xl:text-xl gap-3"
               >
-                LETS CONNECT
+                LETS CONNECT <span> <ArrowUpRight size={25}  /></span>
               </Link>
             </div>
           </div>
@@ -40,18 +41,18 @@ export default function Footer() {
           <div className="md:col-span-7 grid grid-cols-2 sm:grid-cols-3 gap-12 ">
             <div className="space-y-2 ">
               <p>
-                <Link href="mailto:info@oasis.com" className="text-xl hover:opacity-80 2xl:text-3xl">
+                <Link href="mailto:info@oasis.com" className="text-xl hover:opacity-80 2xl:text-2xl">
                   info@oasis.com
                 </Link>
               </p>
-              <p className={`text-xl ${numFont.className} hover:opacity-80 2xl:text-3xl`}>+123 456 789</p>
+              <p className={`text-xl ${numFont.className} hover:opacity-80 2xl:text-2xl`}>+123 456 789</p>
             </div>
 
             <div className="space-y-2">
               <ul className="space-y-1">
                 {pagesLinks.map((link) => (
                   <li key={link.href}>
-                    <Link href={link.href} className="text-2xl 2xl:text-3xl hover:opacity-80">
+                    <Link href={link.href} className="text-2xl  hover:opacity-80">
                       {link.label}
                     </Link>
                   </li>
@@ -59,7 +60,7 @@ export default function Footer() {
               </ul>
             </div>
 
-            <div className="space-y-2 text-xl 2xl:text-3xl">
+            <div className="space-y-2 text-xl 2xl:text-2xl">
               <ul className="space-y-1 ">
                 <li>
                   <Link href="/privacy" className="hover:opacity-80">

@@ -1,5 +1,5 @@
 import SmoothScroll from "@/_components/smoothScroll";
-import { Aboreto, Arima, Arimo, Cormorant_Garamond, Inter, Lexend_Deca, Libertinus_Math, Raleway, Roboto } from "next/font/google";
+import { Aboreto, Arima, Arimo, Cormorant_Garamond, Fjalla_One, Inter, Lexend_Deca, Libertinus_Math, Raleway, Roboto ,Fjord_One} from "next/font/google";
 import "./globals.css";
 import Navbar from "@/_components/Navbar";
 
@@ -33,11 +33,12 @@ export default function RootLayout({ children }) {
       >
         <SmoothScroll>
           <div className="fixed top-0 left-0 w-full z-50 pointer-events-none flex justify-center pt-4 px-4">
-            <div className="pointer-events-auto flex justify-center items-center w-full ">
+            <div className=" pointer-events-auto flex justify-center items-center w-full">
               <Navbar />
             </div>
           </div>
           {children}
+          
         </SmoothScroll>
       </body>
     </html>

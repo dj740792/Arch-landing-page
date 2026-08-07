@@ -3,11 +3,17 @@ import Link from "next/link";
 import { useState } from "react";
 import { easeIn, motion, stagger } from "framer-motion";
 import NavLink from "./Navlinks";
+import { Fjalla_One } from "next/font/google";
 const links = [
   { url: "/about", title: "About" },
   { url: "/work", title: "Works" },
   { url: "/contact", title: "Contact" },
 ];
+
+const fjalla = Fjalla_One({
+  subsets: ["latin"],
+  weight: "400",
+});
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
@@ -66,11 +72,12 @@ export default function Navbar() {
     <nav className="w-2/3 md:w-1/3 h-15 z-50 ">
       <div className="relative flex h-full items-center justify-between px-4 rounded-2xl border border-white/30 bg-white/20 shadow-[0_9px_32px_rgba(0,0,0,0.1)] backdrop-blur-lg">
         {/* LOGO */}
-        <Link href="/" className=" lg:flex text-xl uppercase font-bold mr-4">
+        <Link
+          href="/"
+          className={` lg:flex text-xl uppercase font-bold mr-4 ${fjalla.className}`}
+        >
           Oasis.
         </Link>
-
-        
 
         {/* Responsive menu */}
         <div className=" ml-auto">
