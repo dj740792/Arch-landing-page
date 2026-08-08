@@ -2,7 +2,7 @@ import React from 'react'
 
 export default function FaqSection() {
   return (
-    <div>
+    <div className='h-screen w-full'>
       
     </div>
   )

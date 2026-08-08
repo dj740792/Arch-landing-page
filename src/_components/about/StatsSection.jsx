@@ -1,71 +1,66 @@
-"use client";
-import { motion } from "framer-motion";
-
 export default function StatsSection() {
   const stats = [
     {
-      label: "Projects",
-      detail: "When a concept passes the filter, its executed to perfection",
-      number: "100+",
+      id: "01",
+      value: "200+",
+      label: "Executed Projects",
+      description: "From initial concept sketches to monolith structural completion.",
     },
     {
-      label: "Client Retention Rate",
-      detail:
-        "It's always an honor to offer our continuous services to our clients for their future works",
-      number: "89%",
+      id: "02",
+      value: "89%",
+      label: "Client Retention",
+      description: "Long-term architectural partnerships built on execution and trust.",
     },
     {
-      label: "Cities and Beyond",
-      detail:
-        "Our design driven team continues to stretch our footprint further",
-      number: "30+",
+      id: "03",
+      value: "30+",
+      label: "Cities Covered",
+      description: "Expanding our design footprint across international borders.",
     },
   ];
 
   return (
-    <section className="w-full  py-10  md:py-32 px-6 md:px-12 ">
-      <div className="max-w-8xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-16 items-start ">
-        <div className="md:col-span-6  ">
-          <motion.h2
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, ease: [0.25, 1, 0.5, 1] }}
-            className="text-4xl lg:text-5xl  xl:text-7xl font-bold  leading-[1.1] tracking-wide"
+    <section className="w-full px-4  py-16 md:py-32 md:px-28">
+     
+      <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 md:mb-24 gap-6 md:gap-8">
+        <div>
+          <span className="text-xs xl:text-sm  font-bold tracking-widest uppercase block mb-2 md:mb-3 opacity-80">
+            Our results
+          </span>
+          <h2 className="text-3xl   lg:text-4xl xl:text-6xl font-extrabold tracking-tight uppercase leading-tight md:leading-none">
+            REAL RESULTS WE ARE <br className="hidden sm:block" />
+            PROUD TO SHARE
+          </h2>
+        </div>
+        <p className="text-sm lg:text-lg xl:text-xl font-semibold max-w-md leading-relaxed md:leading-snug">
+          Every figure represents spaces shaped, precision engineering, and lasting architectural identity.
+        </p>
+      </div>
+
+      {/* Stats Grid */}
+      <div className="grid grid-cols-12 gap-x-6 gap-y-10 md:gap-y-12">
+        {stats.map((stat) => (
+          <div
+            key={stat.id}
+            className="col-span-12 md:col-span-4 border-l md:border-l-2 xl:border-l-3 pl-4  md:pl-8 flex flex-col justify-between"
           >
-            Real Results We Are <br />
-            Proud To Share
-          </motion.h2>
-        </div>
-
-        <div className="md:col-span-6 flex flex-col divide-y border-b ">
-          {stats.map((stat, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{
-                duration: 0.8,
-                delay: index * 0.15,
-                ease: [0.25, 1, 0.5, 1],
-              }}
-              className="py-6 sm:py-8 grid grid-cols-12 gap-4 items-center"
-            >
-              <div className="col-span-12 sm:col-span-4 text-md lg:text-lg  font-semibold uppercase tracking-wide ">
+            <div>
+              <span className="text-xs sm:text-sm md:text-base font-mono font-bold block mb-1 md:mb-2 opacity-80">
+                [{stat.id}]
+              </span>
+              <p className="text-3xl   lg:text-5xl xl:text-7xl  font-black tracking-tighter leading-none mb-3 md:mb-4">
+                {stat.value}
+              </p>
+              <p className="text-xl   lg:text-3xl font-bold tracking-wide uppercase mb-2 md:mb-3">
                 {stat.label}
-              </div>
-
-              <div className="col-span-8 sm:col-span-5 text-md lg:text-lg leading-relaxed ">
-                {stat.detail}
-              </div>
-
-              <div className="col-span-4 sm:col-span-3 text-right text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight">
-                {stat.number}
-              </div>
-            </motion.div>
-          ))}
-        </div>
+              </p>
+              <p className="text-xs sm:text-sm md:text-lg font-semibold leading-relaxed">
+                {stat.description}
+              </p>
+            </div>
+          </div>
+        ))}
       </div>
     </section>
   );
