@@ -11,8 +11,8 @@ import { useRef, useState, useEffect } from "react";
 const teamMembers = [
   {
     id: "01",
-    name: "Aarav Sharma",
-    role: "Lead Architect",
+    name: "Rhea Kapoor",
+    role: "Founder & CEO",
     src: "/teamImgs/img1.jpg",
     gridClass: "col-span-12 md:col-span-3 md:col-start-2 md:row-start-1",
   },
@@ -25,21 +25,21 @@ const teamMembers = [
   },
   {
     id: "03",
-    name: "Rhea Kapoor",
+    name: "Aarav Sharma",
     role: "Principal Designer",
     src: "/teamImgs/img3.jpg",
     gridClass: "col-span-12 md:col-span-3 md:col-start-10 md:row-start-2",
   },
   {
     id: "04",
-    name: "Devansh Verma",
+    name: "Tara Joshi",
     role: "Structural Engineer",
     src: "/teamImgs/img4.jpg",
     gridClass: "col-span-12 md:col-span-3 md:col-start-1 md:row-start-3",
   },
   {
     id: "05",
-    name: "Tara Joshi",
+    name: "Devansh Verma",
     role: "3D Visualizer",
     src: "/teamImgs/img5.jpg",
     gridClass: "col-span-12 md:col-span-3 md:col-start-4 md:row-start-3",
@@ -64,18 +64,69 @@ export default function TeamSection() {
     return () => window.removeEventListener("resize", checkScreen);
   }, []);
 
-  return(
-      <section className="w-full px-4 md:px-12 py-24 ">
-        
+  return (
+    <section className="w-full px-4  py-20 lg:py-25 xl:py-30 md:px-20">
+      <div className="mb-20 flex flex-col justify-center items-center text-center">
+        <span className="text-xs lg:text-lg font-semibold tracking-wide uppercase opacity-80 block mb-2">
+          Meet the team
+        </span>
+        <h2 className="text-3xl lg:text-6xl xl:text-7xl font-bold tracking-wide max-w-4xl ">
+          The people that makes all these possible
+        </h2>
+      </div>
 
+      <div className="grid grid-cols-12 gap-x-6 gap-y-12 items-start">
+        {teamMembers.map((member) => (
+          <TeamCard key={member.id} member={member} isMobile={isMobile} />
+        ))}
+      </div>
+    </section>
+  );
+}
 
+function TeamCard({ member, isMobile }) {
+  const itemRef = useRef(null);
+  const [revealed, setRevealed] = useState(false);
 
-      </section>
+  const { scrollYProgress } = useScroll({
+    target: itemRef,
+    offset: ["start end", "center center"],
+  });
 
+  const clipProgress = useTransform(
+    scrollYProgress,
+    [0, 1],
+    ["inset(0% 0% 100% 0%)", "inset(0% 0% 0% 0%)"],
+  );
+  useMotionValueEvent(scrollYProgress, "change", (latest) => {
+    if (latest >= 1 && !revealed) {
+      setRevealed(true);
+    }
+  });
 
-
-
-  )
-
-
+  return (
+    <div
+      ref={itemRef}
+      className={`${member.gridClass} flex flex-col gap-2 w-full`}
+    >
+      <motion.div
+        style={{
+          clipPath: isMobile || revealed ? "none" : clipProgress,
+        }}
+        className="relative w-full aspect-square overflow-hidden "
+      >
+        <Image
+          src={member.src}
+          alt={member.name}
+          fill
+          className="object-cover w-full"
+          sizes="(max-width: 768px) 100vw, 25vw"
+        />
+      </motion.div>
+      <div className="flex justify-between items-center">
+        <p className="text-md md:text-md xl:text-xl  tracking-wide font-semibold">{member.name}</p>
+        <p className="text-sm md:text-sm xl:text-lg tracking-wide font-semibold opacity-70">{member.role}</p>
+      </div>
+    </div>
+  );
 }
