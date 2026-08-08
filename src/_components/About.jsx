@@ -1,22 +1,20 @@
 "use client";
-import React from "react";
 import { motion } from "framer-motion";
-import Image from "next/image";
 import Link from "next/link";
 
 export default function About() {
   const heading = [
-    "We design atmospheres, not just buildings our work is defined by material honesty and a deep respect for nature.",
+    "We  design  atmospheres, not just buildings our work is defined by material honesty and a deep respect for nature.",
   ];
 
   return (
-    <section className="w-full h-screen flex items-center justify-center py-16 px-6">
+    <section className="w-full h-screen flex items-center justify-center py-16 px-4">
       <motion.div className=" w-full flex flex-col gap-12">
-        <div className="md:w-3/4 leading-[1.1] md:px-12">
+        <div className="md:w-3/4 leading-[1.1]  md:px-12">
           {heading.map((line, index) => (
             <motion.h2
               key={index}
-              className="text-[clamp(2.5rem,5vw,4.2rem)] font-bold "
+              className="text-[clamp(2.5rem,5vw,4.2rem)] font-bold tracking-wider leading-none "
             >
               {line.split(" ").map((word, wordIndex) => {
                 return (
