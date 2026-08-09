@@ -23,18 +23,17 @@ const stats = [
   },
 ];
 
-// Parent container variant to trigger staggered children
+
 const containerVariants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.2, // Delay between each card's entrance
+      staggerChildren: 0.2, 
     },
   },
 };
 
-// Child card variant for upward slide and fade-in
 const cardVariants = {
   hidden: { opacity: 0, y: 40 },
   visible: {
@@ -42,20 +41,17 @@ const cardVariants = {
     y: 0,
     transition: {
       duration: 0.6,
-      ease: [0.215, 0.61, 0.355, 1], // Smooth cubic-bezier
+      ease: [0.215, 0.61, 0.355, 1], 
     },
   },
 };
 
 export default function StatsSection() {
   return (
-    <section className="w-full px-4 py-16 md:py-32 md:px-20">
-      {/* Header Row */}
+    <section className="w-full px-4 py-16 md:py-39 md:px-20">
+    
       <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 md:mb-24 gap-6 md:gap-8">
         <div>
-          <span className="text-xs xl:text-sm font-bold tracking-widest uppercase block mb-2 md:mb-3 opacity-80">
-            Our results
-          </span>
           <h2 className="text-3xl lg:text-4xl xl:text-6xl font-extrabold tracking-tight uppercase leading-tight md:leading-none">
             REAL RESULTS WE ARE <br className="hidden sm:block" />
             PROUD TO SHARE
@@ -66,7 +62,7 @@ export default function StatsSection() {
         </p>
       </div>
 
-      {/* Animated Stats Grid */}
+   
       <motion.div
         variants={containerVariants}
         initial="hidden"
@@ -81,9 +77,6 @@ export default function StatsSection() {
             className="col-span-12 md:col-span-4 border-l md:border-l-2 xl:border-l-3 pl-4 md:pl-8 flex flex-col justify-between"
           >
             <div>
-              <span className="text-xs sm:text-sm md:text-base font-mono font-bold block mb-1 md:mb-2 opacity-80">
-                [{stat.id}]
-              </span>
               <p className="text-3xl lg:text-5xl xl:text-7xl font-black tracking-tighter leading-none mb-3 md:mb-4">
                 {stat.value}
               </p>
