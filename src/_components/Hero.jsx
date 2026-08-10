@@ -63,21 +63,8 @@ const Hero = () => {
       <div className="w-full px-6 md:px-12 my-6">
         <div className="w-full border-t mb-6 md:mb-14" />
 
-        <div className="flex flex-col lg:justify-between lg:flex-row items-start gap-6 ">
-          <div className="md:col-span-3">
-            <p className="text-sm lg:text-lg md:text-sm leading-snug font-semibold  ">
-              Interior design <br />
-              for hospitality
-            </p>
-          </div>
-
-          <div className="md:col-span-6 ">
-            <p className="text-md md:text-lg lg:text-xl leading-relaxed font-semibold max-w-xl mx-auto ">
-              We design quiet, deliberate spaces that strip away the noise to
-              honor the relationship between raw material and human movement.
-            </p>
-          </div>
-        </div>
+       
+        
       </div>
 
       <div className="relative w-full flex overflow-hidden pb-10 mask-gradient">
