@@ -105,7 +105,7 @@ export default function HeroSection() {
         >
           <div className="w-full lg:w-5/12 flex flex-col gap-6">
             <h2 className="text-4xl sm:text-5xl lg:text-6xl font-light tracking-tight leading-tight">
-              OASIS <br /> The Studio
+              OASIS -<br /> The Studio
             </h2>
             <p className="text-lg sm:text-xl lg:text-2xl  leading-relaxed text-[#483b35] opacity-90 max-w-lg">
               At the heart of OASIS is a belief in intentional spaces—crafting
@@ -135,14 +135,13 @@ export default function HeroSection() {
                 </svg>
               </div>
 
-              <div className=" flex flex-col justify-start gap-3 ">
+              <div className=" flex flex-col justify-between gap-4 ">
                 <h3 className="text-xl sm:text-3xl lg:text-5xl font-medium tracking-tight">
                   Our Team
                 </h3>
+                <span className="w-full border-b border-[#f8eee9]/60 pb-6"></span>
                 <p className="text-sm lg:text-base leading-relaxed text-[#f8eee9]/80 font-light">
-                  At our core, we operate less like a conventional firm and more
-                  like a family. That trust, shared passion, and genuine bond
-                  directly shape how we design together every day.
+                 Driven by family values, OASIS crafts thoughtful architecture through genuine, shared passion.
                 </p>
               </div>
             </div>
@@ -164,12 +163,13 @@ export default function HeroSection() {
                 </svg>
               </div>
 
-              <div className=" flex flex-col justify-start gap-3 ">
+              <div className=" flex flex-col justify-between gap-4 ">
                 <h3 className="text-xl sm:text-3xl lg:text-5xl font-medium tracking-tight">
                   Our Vision
                 </h3>
+                <span className="w-full border-b border-[#f8eee9]/60 pb-6"></span>
                 <p className="text-sm lg:text-base leading-relaxed text-[#f8eee9]/80 font-light">
-                  Founded in Delhi, OASIS creates warm, modern spaces where
+                   OASIS creates warm, modern spaces where
                   clean design meets everyday comfort.
                 </p>
               </div>
