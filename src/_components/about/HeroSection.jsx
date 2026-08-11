@@ -1,5 +1,5 @@
 "use client";
-import { motion} from "framer-motion";
+import { motion } from "framer-motion";
 import Image from "next/image";
 import { useRef, useState, useEffect } from "react";
 import { Fjalla_One } from "next/font/google";
@@ -18,9 +18,6 @@ export default function HeroSection() {
 
   const logo = "Our Journey";
   const containerRef = useRef(null);
-
-  
-
 
   return (
     <section className="w-full min-h-screen flex px-8 py-12 lg:py-24 lg:px-16 pt-38">
@@ -57,7 +54,7 @@ export default function HeroSection() {
           </h1>
         </div>
 
-        <motion.div className="w-full md:w-1/2 mt-12  lg:mt-12 ml-auto flex flex-col  gap-8 md:gap-12 border-l pl-3 lg:p-9">
+        <motion.div className="w-full md:w-1/2 mt-12  lg:mt-12 ml-auto flex flex-col  gap-8 md:gap-12 border-l pl-3 lg:p-9 tracking-wide">
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -83,8 +80,8 @@ export default function HeroSection() {
           </motion.p>
         </motion.div>
 
-        <div className="relative z-10 mt-24 lg:mt-12 w-full flex  gap-3">
-          <motion.div className=" w-full md:w-1/3 relative h-[60vh] lg:h-[70vh]  xl:h-[90vh]">
+        <div className="relative  mt-24 lg:mt-12 w-full flex flex-col md:flex-row gap-5 ">
+          <motion.div className=" w-full md:w-1/3 relative h-[60vh] lg:h-[70vh]  xl:h-[80vh]">
             <Image
               src="/teamImgs/img7.jpg"
               alt="OASIS architectural interior"
@@ -94,20 +91,47 @@ export default function HeroSection() {
               sizes="(max-width: 768px) 100vw, 50vw"
             />
           </motion.div>
-          {/* 
-          <motion.div
-            style={{ y: yRight }}
-            className=" w-full md:w-1/3 relative h-[60vh] lg:h-[70vh]  xl:h-screen"
-          >
+
+
+          <div className=" w-full md:w-1/3 relative h-[60vh] lg:h-[70vh]  xl:h-[80vh]  lg:p-7 flex flex-col justify-around lg:justify-between self-center">
+            <div className="mt-8 xl:space-y-2">
+              <span className="text-xs xl:text-lg uppercase tracking-widest opacity-60  pb-2 inline-block">
+                Our Core Bond
+              </span>
+              <h3 className="text-2xl sm:text-3xl lg:text-4xl font-medium tracking-tight uppercase ">
+                Shared Passion. <br />
+                Collective Precision.
+              </h3>
+              <p className="text-md xl:text-xl opacity-90  leading-relaxed  pt-2">
+                Great architecture isn't made by isolated blueprints—it's built
+                through deep personal trust. Our studio functions like a family,
+                where candid dialogue, shared curiosity, and genuine human
+                connection directly shape every space we design.
+              </p>
+            </div>
+
+            <div className="xl:space-y-2">
+              <p className="text-2xl sm:text-3xl xl:text-4xl font-medium  tracking-tight uppercase ">
+                Our Mission
+              </p>
+              <p className="text-md xl:text-xl opacity-90  leading-relaxed  pt-2 ">
+                “To craft human-centered environments that balance clarity,
+                warmth, and climate responsibility—leaving a permanent sense of
+                place.”
+              </p>
+            </div>
+          </div>
+
+          <motion.div className="w-3/5 md:w-1/5 relative h-[20vh] lg:h-[30vh] self-end xl:h-[40vh] md:ml-auto">
             <Image
-              src="/teamImgs/img8.jpg"
+              src="/teamImgs/img9.jpg"
               alt="OASIS architectural landscape"
               fill
               priority
               className="object-cover"
               sizes="(max-width: 768px) 100vw, 50vw"
             />
-          </motion.div> */}
+          </motion.div>
         </div>
       </motion.div>
     </section>
