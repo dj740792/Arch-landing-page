@@ -7,8 +7,8 @@ export default function page() {
   return (
     <main className="w-full">
       <HeroSection />
-      <TeamSection />
       <StatsSection />
+      <TeamSection />
       <FaqSection />
     </main>
   );

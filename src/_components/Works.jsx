@@ -1,9 +1,15 @@
 "use client";
-import { motion, useMotionValueEvent, useScroll, useTransform } from "framer-motion";
+import {
+  motion,
+  useMotionValueEvent,
+  useScroll,
+  useTransform,
+} from "framer-motion";
 import Image from "next/image";
 import { useRef, useState, useEffect } from "react";
 import Link from "next/link";
-
+import { Lato } from "next/font/google";
+const numFont = Lato({ subsets: ["latin"], weight: "400" });
 const projects = [
   {
     id: "01",
@@ -12,7 +18,7 @@ const projects = [
     aspect: "h-84 md:h-auto md:aspect-square",
     gridClass: "col-span-12 md:col-span-3 md:col-start-2 md:row-start-1",
     src: "/workImgs/workImg1.jpg",
-    year: "2025",
+    year: "2024",
   },
   {
     id: "02",
@@ -21,35 +27,36 @@ const projects = [
     aspect: "h-84 md:h-auto md:aspect-[16/9]",
     gridClass: "col-span-12 md:col-span-5 md:col-start-7 md:row-start-1",
     src: "/workImgs/workImg2.jpg",
-    year: "2026",
-  },
-  {
-    id: "03",
-    title: "Sunset Ridge Villas",
-    slug: "sunset-ridge-villas",
-    aspect: "h-84 md:h-auto md:aspect-square",
-    gridClass: "col-span-12 md:col-span-3 md:col-start-1 md:row-start-2",
-    src: "/workImgs/workImg3.jpg",
     year: "2025",
   },
   {
-    id: "04",
-    title: "Cedar Grove Estates",
-    aspect: "h-84 md:h-auto md:aspect-[4/5]",
-    slug: "cedar-grove-estates",
-    gridClass: "col-span-12 md:col-span-4 md:col-start-5 md:row-start-2",
-    src: "/workImgs/workImg4.jpg",
+    id: "03",
+    title: "Seabreeze Luxury Suites",
+    slug: "seabreeze-luxury-suites",
+
+    aspect: "h-84 md:h-auto md:aspect-square",
+    gridClass: "col-span-12 md:col-span-3 md:col-start-1 md:row-start-2",
+    src: "/workImgs/workImg3.jpg",
     year: "2026",
   },
   {
+    id: "04",
+    title: "Bad Hand Coffee",
+    aspect: "h-84 md:h-auto md:aspect-[4/5]",
+    slug: "bad-hand-coffee",
+    gridClass: "col-span-12 md:col-span-4 md:col-start-5 md:row-start-2",
+    src: "/workImgs/workImg4.jpg",
+    year: "2024",
+  },
+  {
     id: "05",
-    title: "Seabreeze Luxury Suites",
-    slug: "seabreeze-luxury-suites",
+    title: "Sunset Ridge Villas",
+    slug: "sunset-ridge-villas",
     aspect: "h-84 md:h-auto md:aspect-square",
     gridClass:
       "col-span-12 md:col-span-3 md:col-start-10 md:row-start-2 self-end",
     src: "/workImgs/workImg5.jpg",
-    year: "2024",
+    year: "2025",
   },
 ];
 
@@ -93,7 +100,7 @@ export default function FeaturedProjects() {
 
 function ProjectCard({ project, isMobile }) {
   const itemRef = useRef(null);
-  const [revealed, setRevealed] = useState(false)
+  const [revealed, setRevealed] = useState(false);
 
   const { scrollYProgress } = useScroll({
     target: itemRef,
@@ -105,15 +112,18 @@ function ProjectCard({ project, isMobile }) {
     [0, 1],
     ["inset(0% 0% 100% 0%)", "inset(0% 0% 0% 0%)"],
   );
-  useMotionValueEvent(scrollYProgress , "change" , (latest)=>{
-    if(latest >= 1 && !revealed){
-      setRevealed(true)
+  useMotionValueEvent(scrollYProgress, "change", (latest) => {
+    if (latest >= 1 && !revealed) {
+      setRevealed(true);
     }
-  })
+  });
 
   return (
     <div ref={itemRef} className={`${project.gridClass}  flex flex-col gap-2`}>
-      <Link href={`/work/${project.slug} `} className="className=group flex flex-col gap-2 w-full">
+      <Link
+        href={`/work/${project.slug} `}
+        className="className=group flex flex-col gap-2 w-full"
+      >
         <motion.div
           style={{
             clipPath: isMobile || revealed ? "none" : clipProgress,
@@ -132,7 +142,9 @@ function ProjectCard({ project, isMobile }) {
           <p className="text-md md:text-lg xl:text-xl  tracking-wide font-semibold">
             {project.title}
           </p>
-          <p className="text-md md:text-lg tracking-wide font-semibold opacity-70">
+          <p
+            className={`text-md md:text-lg tracking-wide font-semibold opacity-70 ${numFont.className}`}
+          >
             {project.year}
           </p>
         </div>

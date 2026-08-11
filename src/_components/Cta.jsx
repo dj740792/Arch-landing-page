@@ -79,7 +79,7 @@ export default function Cta({ text = "Tell us your story" }) {
       ref={containerRef}
       className="relative w-full min-h-screen h-[105vh] flex flex-col items-center justify-between py-28 md:py-36 overflow-hidden"
     >
-      <div className="absolute inset-0 pointer-events-none hidden md:block">
+      <div className="absolute inset-0 pointer-events-none block">
         {images.map((img, idx) => (
           <FloatingCard
             key={idx}

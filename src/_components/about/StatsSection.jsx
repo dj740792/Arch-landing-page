@@ -1,9 +1,10 @@
 "use client";
-
+import { Lato } from "next/font/google";
 import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
 import React, { useRef } from "react";
 
+const numFont = Lato({ subsets: ["latin"], weight: "400" });
 const stats = [
   {
     id: "01",
@@ -102,7 +103,7 @@ export default function StatsSection() {
             className="col-span-12 md:col-span-4 border-l md:border-l-2 xl:border-l-3 pl-4 md:pl-8 flex flex-col justify-between"
           >
             <div>
-              <p className="text-3xl lg:text-5xl xl:text-7xl font-black tracking-tighter leading-none mb-3 md:mb-4">
+              <p className={`text-3xl lg:text-5xl xl:text-7xl font-black tracking-wide leading-none mb-3 md:mb-4 ${numFont.className}`}>
                 {stat.value}
               </p>
               <p className="text-xl lg:text-3xl font-bold tracking-wide uppercase mb-2 md:mb-3">
@@ -117,15 +118,14 @@ export default function StatsSection() {
       </motion.div>
 
       <div className="w-full pt-3 lg:pt-8  overflow-hidden">
-        <div className="flex flex-col justify-between items-center text-center  mb-12 md:mb-24 gap-6 md:gap-8">
+        <div className="flex flex-col justify-start items-start lg:justify-between lg:items-center lg:text-center  mb-12 md:mb-24 gap-6 md:gap-8">
           <div>
             <h2 className="text-4xl lg:text-5xl xl:text-6xl font-extrabold tracking-tight uppercase leading-tight md:leading-none">
               OUR CLIENTS
             </h2>
           </div>
-          <p className="text-md lg:text-lg xl:text-2xl font-semibold max-w-xl leading-relaxed ">
-            Trusted by some of the region's most recognised names across real
-            estate, finance, F&B, and government .
+          <p className="text-md lg:text-lg xl:text-2xl font-semibold max-w-xl leading-relaxed opacity-80">
+            Trusted by some of the region's most recognised names across real estate, hospitality, retail, and public design.
           </p>
         </div>
 
@@ -139,7 +139,7 @@ export default function StatsSection() {
                 key={i}
                 className="flex items-center gap-12 sm:gap-16 shrink-0"
               >
-                <div className="relative w-40 h-16 lg:w-45 lg:h-20 opacity-60 hover:opacity-100 transition-opacity hover:filter-[invert(20%)_sepia(38%)_saturate(1180%)_hue-rotate(334deg)_brightness(92%)_contrast(88%)]">
+                <div className="relative w-40 h-16 lg:w-45 lg:h-20 opacity-60 hover:opacity-100 transition-opacity hover:filter-[invert(14%)_sepia(38%)_saturate(1180%)_hue-rotate(334deg)_brightness(92%)_contrast(88%)]">
                   <Image
                     src={brand.src}
                     alt={brand.name}
