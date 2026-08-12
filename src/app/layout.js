@@ -1,17 +1,5 @@
 import SmoothScroll from "@/_components/smoothScroll";
-import {
-  Aboreto,
-  Arima,
-  Arimo,
-  Cormorant_Garamond,
-  Fjalla_One,
-  Inter,
-  Lexend_Deca,
-  Libertinus_Math,
-  Raleway,
-  Roboto,
-  Fjord_One,
-} from "next/font/google";
+import { Aboreto, Cormorant_Garamond, Raleway } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/_components/Navbar";
 import Footer from "@/_components/Footer";
