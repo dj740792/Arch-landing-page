@@ -95,10 +95,8 @@ export default function HeroSection() {
 
           <div className=" w-full md:w-1/3 relative h-[60vh] lg:h-[70vh]  xl:h-[80vh]  lg:p-7 flex flex-col justify-around lg:justify-between self-center">
             <div className="mt-8 xl:space-y-2">
-              <span className="text-xs xl:text-lg uppercase tracking-widest opacity-60  pb-2 inline-block">
-                Our Core Bond
-              </span>
-              <h3 className="text-2xl sm:text-3xl lg:text-4xl font-medium tracking-tight uppercase ">
+             
+              <h3 className="text-3xl lg:text-4xl font-medium tracking-tight uppercase ">
                 Shared Passion. <br />
                 Collective Precision.
               </h3>
@@ -106,25 +104,25 @@ export default function HeroSection() {
                 Great architecture isn't made by isolated blueprints—it's built
                 through deep personal trust. Our studio functions like a family,
                 where candid dialogue, shared curiosity, and genuine human
-                connection directly shape every space we design.
+                connection directly shape every space we design
               </p>
             </div>
 
             <div className="xl:space-y-2">
-              <p className="text-2xl sm:text-3xl xl:text-4xl font-medium  tracking-tight uppercase ">
+              <p className="text-3xl xl:text-4xl font-medium  tracking-tight uppercase ">
                 Our Mission
               </p>
               <p className="text-md xl:text-xl opacity-90  leading-relaxed  pt-2 ">
-                “To craft human-centered environments that balance clarity,
+                To craft human-centered environments that balance clarity,
                 warmth, and climate responsibility—leaving a permanent sense of
-                place.”
+                place
               </p>
             </div>
           </div>
 
           <motion.div className="w-3/5 md:w-1/5 relative h-[20vh] lg:h-[30vh] self-end xl:h-[40vh] md:ml-auto">
             <Image
-              src="/teamImgs/img9.jpg"
+              src="/teamImgs/img8.jpg"
               alt="OASIS architectural landscape"
               fill
               priority

@@ -40,7 +40,7 @@ const teamMembers = [
   {
     id: "05",
     name: "Devansh Verma",
-    role: "3D Visualizer",
+    role: "CAD Operator",
     src: "/teamImgs/img5.jpg",
     gridClass: "col-span-12 md:col-span-3 md:col-start-4 md:row-start-3",
   },

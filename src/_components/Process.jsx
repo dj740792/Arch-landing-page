@@ -100,10 +100,10 @@ export default function Process() {
         >
           <div className="w-[55vw] md:w-[30vw] flex-none flex flex-col h-[60vh] pr-6">
             <div className="flex flex-col gap-10">
-              <h2 className="text-[clamp(2.5rem,6vw,4.5rem)] font-semibold tracking-tight leading-none uppercase">
-                Our process of
-                <br />
-                <span className="font-medium">forming spaces</span>
+              <h2 className="text-[clamp(2.5rem,6vw,3.5rem)] font-semibold tracking-tight leading-none uppercase">
+                Our process <br />of forming spaces
+                
+              
               </h2>
               <p className="w-full text-sm md:text-md lg:text-lg xl:text-xl leading-relaxed text-[#483b35]">
                 From initial vision to final detail, we approach each step with

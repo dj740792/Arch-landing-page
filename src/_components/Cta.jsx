@@ -7,32 +7,32 @@ import { ArrowUpRight } from "lucide-react";
 
 const images = [
   {
-    src: "/heroImgs/img1.jpg",
+    src: "/ctaImgs/ctaImg1.jpg",
     className: "top-[6%] left-[12%] w-[12vw] h-[12vw] max-w-[150px] max-h-[150px]",
     yRange: ["0px", "100px"],
   },
   {
-    src: "/heroImgs/img2.jpg",
+    src: "/ctaImgs/ctaImg2.jpg",
     className: "top-[4%] right-[10%] w-[14vw] h-[14vw] max-w-[180px] max-h-[180px]",
     yRange: ["0px", "200px"],
   },
   {
-    src: "/heroImgs/img3.jpg",
+    src: "/ctaImgs/ctaImg5.jpg",
     className: "top-[38%] left-[4%] w-[11vw] h-[11vw] max-w-[140px] max-h-[140px]",
     yRange: ["0px", "200px"],
   },
   {
-    src: "/heroImgs/img4.jpg",
+    src: "/ctaImgs/ctaImg3.jpg",
     className: "top-[58%] right-[8%] w-[13vw] h-[13vw] max-w-[160px] max-h-[160px]",
     yRange: ["0px", "-100px"],
   },
   {
-    src: "/heroImgs/img5.jpg",
+    src: "/ctaImgs/ctaImg4.jpg",
     className: "bottom-[6%] left-[24%] w-[13vw] h-[13vw] max-w-[160px] max-h-[160px]",
     yRange: ["0px", "-200px"],
   },
   {
-    src: "/heroImgs/img1.jpg",
+    src: "/ctaImgs/ctaImg6.jpg",
     className: "bottom-[2%] left-[50%] -translate-x-1/2 w-[11vw] h-[11vw] max-w-[130px] max-h-[130px]",
     yRange: ["0px", "-100px"],
   },

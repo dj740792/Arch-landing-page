@@ -31,7 +31,7 @@ export default function Footer() {
             <div>
               <Link
                 href="/contact"
-                className="inline-flex text-sm font-semibold tracking-wider uppercase  transition-opacity hover:opacity-80 2xl:text-xl gap-3"
+                className="inline-flex text-sm font-semibold tracking-wider uppercase  transition-opacity hover:opacity-70 2xl:text-xl gap-3"
               >
                 LETS CONNECT <span> <ArrowUpRight size={25}  /></span>
               </Link>
@@ -41,18 +41,18 @@ export default function Footer() {
           <div className="md:col-span-7 grid grid-cols-2 sm:grid-cols-3 gap-12 ">
             <div className="space-y-2 ">
               <p>
-                <Link href="mailto:info@oasis.com" className="text-xl hover:opacity-80 2xl:text-2xl">
+                <Link href="mailto:info@oasis.com" className="text-xl hover:opacity-70 2xl:text-2xl">
                   info@oasis.com
                 </Link>
               </p>
-              <p className={`text-xl ${numFont.className} hover:opacity-80 2xl:text-2xl`}>+123 456 789</p>
+              <p className={`text-xl ${numFont.className} hover:opacity-70 2xl:text-2xl`}>+123 456 789</p>
             </div>
 
             <div className="space-y-2">
               <ul className="space-y-1">
                 {pagesLinks.map((link) => (
                   <li key={link.href}>
-                    <Link href={link.href} className="text-2xl  hover:opacity-80">
+                    <Link href={link.href} className="text-2xl  hover:opacity-70">
                       {link.label}
                     </Link>
                   </li>
@@ -63,12 +63,12 @@ export default function Footer() {
             <div className="space-y-2 text-xl 2xl:text-2xl">
               <ul className="space-y-1 ">
                 <li>
-                  <Link href="/privacy" className="hover:opacity-80">
+                  <Link href="/privacy" className="hover:opacity-70">
                     Privacy policy
                   </Link>
                 </li>
                 <li>
-                  <Link href="/terms" className="hover:opacity-80">
+                  <Link href="/terms" className="hover:opacity-70">
                     Terms of Service
                   </Link>
                 </li>
