@@ -93,8 +93,8 @@ export default function HeroSection() {
           </motion.div>
 
 
-          <div className=" w-full md:w-1/3 relative h-[60vh] lg:h-[70vh]  xl:h-[80vh]  lg:p-7 flex flex-col justify-around lg:justify-between self-center">
-            <div className="mt-8 xl:space-y-2">
+          <div className=" w-full md:w-1/3 relative h-[60vh] lg:h-[70vh]  xl:h-[80vh]  md:p-7 flex flex-col justify-around md:justify-between self-center">
+            <div className="mt-8 md:space-y-2">
              
               <h3 className="text-3xl lg:text-4xl font-medium tracking-tight uppercase ">
                 Shared Passion. <br />
@@ -108,7 +108,7 @@ export default function HeroSection() {
               </p>
             </div>
 
-            <div className="xl:space-y-2">
+            <div className="md:space-y-2">
               <p className="text-3xl xl:text-4xl font-medium  tracking-tight uppercase ">
                 Our Mission
               </p>

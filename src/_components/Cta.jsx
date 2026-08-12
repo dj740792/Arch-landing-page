@@ -119,7 +119,7 @@ export default function Cta({ text = "Tell us your story" }) {
           <motion.div initial="initial" whileHover="hovered" className="mt-10">
             <Link
               href="/contact"
-              className="cursor-pointer flex items-center bg-[#361e13] text-[#f8eee9] scale-75 sm:scale-100"
+              className="cursor-pointer flex items-center bg-[#361e13] text-[#f8eee9] scale-100"
             >
               <div className="px-8 py-5 overflow-hidden">
                 <div

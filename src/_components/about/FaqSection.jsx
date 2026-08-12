@@ -48,13 +48,13 @@ export default function FaqSection({ text = "Let's Connect" }) {
             <h2 className="text-4xl  xl:text-6xl font-extrabold tracking-tight uppercase leading-tight md:leading-none">
               frequently asked questions
             </h2>
-            <p className="text-sm lg:text-lg xl:text-xl font-semibold max-w-md leading-relaxed md:leading-snug opacity-80">
+            <p className="text-sm lg:text-lg xl:text-xl font-semibold max-w-md leading-relaxed md:leading-snug opacity-90">
               A few questions asked to us about how we work and what to expect
             </p>
           </div>
 
           <div className="bg-[#723f27]/3 p-6 max-w-md rounded-xl border border-[#723f27]/10 space-y-6">
-            <p className="text-md font-medium">
+            <p className="text-md md:text-lg xl:text-xl font-medium">
               Feel free to reach out whenever you have more questions.
             </p>
 

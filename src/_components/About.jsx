@@ -1,7 +1,7 @@
 "use client";
 import { motion } from "framer-motion";
 import Link from "next/link";
-
+import { ArrowUpRight } from "lucide-react";
 export default function About() {
   const heading = [
     "We  design  atmospheres, not just buildings our work is defined by material honesty and a deep respect for nature.",
@@ -27,15 +27,22 @@ export default function About() {
           ))}
         </div>
         <div className="flex justify-around md:gap-4  md:items-center ">
-          <div className="w-2/3 md:w-1/3 flex flex-col gap-9 ">
-            <motion.p className=" text-md  md:text-lg  xl:text-xl 2xl:text-2xl leading-8 tracking-wide font-bold text-[#67564f] ">
+          <div className="w-2/3 md:w-1/3 flex flex-col gap-9">
+            <motion.p className="text-lg md:text-lg xl:text-xl 2xl:text-2xl leading-8 tracking-wide font-bold text-[#67564f]">
               In a world overwhelmed by noise, we believe in the power of quiet
               architecture. Raw textures, sun-washed surfaces, and sculptural
               geometry create calm environments that feel thoughtful, elevated,
-              and enduring span Every great build begins with understanding
+              and enduring. Every great build begins with understanding.
             </motion.p>
-            <Link className="w-full mt-4" href="/about">
-              Our Journey
+
+            <Link
+              href="/about"
+              className="w-fit self-start group inline-flex items-center justify-between gap-6 px-6 py-3 bg-[#361e13] text-[#f8eee9] rounded-md text-base sm:text-lg font-medium tracking-wide transition-all duration-300 "
+            >
+              <span>Our Journey</span>
+              <div className="w-8 h-8 rounded-full bg-[#f8eee9] text-[#361e13] flex items-center justify-center transition-transform duration-300 group-hover:rotate-45">
+                <ArrowUpRight size={18} />
+              </div>
             </Link>
           </div>
 
