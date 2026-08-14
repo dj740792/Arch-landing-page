@@ -139,7 +139,7 @@ export default function FaqSection({ text = "Let's Connect" }) {
             </motion.div>
           </div>
         </div>
-{/* Right sec */}
+       
         <div className="w-full md:w-1/2 flex flex-col divide-y border-b ">
           {faqs.map((faq) => {
             const isOpen = openId === faq.id;
@@ -148,7 +148,7 @@ export default function FaqSection({ text = "Let's Connect" }) {
               <div key={faq.id} className="py-6 sm:py-8">
                 <button
                   onClick={() => openFaq(faq.id)}
-                  className="w-full flex items-start justify-between gap-6 text-left group"
+                  className="w-full flex items-start justify-between gap-6 text-left group cursor-pointer"
                 >
                   <div className="flex items-start gap-4 sm:gap-6">
                     <h3 className="text-lg sm:text-xl lg:text-2xl font-light tracking-tight uppercase  transition-opacity">

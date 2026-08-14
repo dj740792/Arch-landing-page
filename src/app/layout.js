@@ -1,8 +1,6 @@
-import SmoothScroll from "@/_components/smoothScroll";
 import { Aboreto, Cormorant_Garamond, Raleway } from "next/font/google";
 import "./globals.css";
-import Navbar from "@/_components/Navbar";
-import Footer from "@/_components/Footer";
+import MainLayout from "@/_components/MainLayout";
 
 const cormorant = Cormorant_Garamond({
   variable: "--font-cormorant-sans",
@@ -32,17 +30,7 @@ export default function RootLayout({ children }) {
       <body
         className={`min-h-full flex  flex-col items-center w-full  ${lexend.className}`}
       >
-        <SmoothScroll>
-          <div className="fixed top-0 left-0 w-full z-50 pointer-events-none flex justify-center pt-4 px-4">
-            <div className="pointer-events-auto flex justify-center items-center w-full">
-              <Navbar />
-            </div>
-          </div>
-
-          <main className="w-full grow">{children}</main>
-
-          <Footer />
-        </SmoothScroll>
+        <MainLayout>{children}</MainLayout>
       </body>
     </html>
   );
