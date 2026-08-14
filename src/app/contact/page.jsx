@@ -1,11 +1,42 @@
+"use client";
+
 import Image from "next/image";
+import { useState, useRef } from "react";
+import emailjs from '@emailjs/browser';
 
 export default function ContactPage() {
+  const [success, setSuccess] = useState(false);
+  const [error, setError] = useState(false);
+
+  const form = useRef();
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+    setError(false);
+    setSuccess(false);
+
+    emailjs
+      .sendForm(
+        process.env.NEXT_PUBLIC_SERVICE_ID,
+        process.env.NEXT_PUBLIC_TEMPLATE_ID,
+        form.current,
+        process.env.NEXT_PUBLIC_PUBLIC_KEY
+      )
+      .then(
+        () => {
+          setSuccess(true);
+          form.current.reset();
+        },
+        (err) => {
+          console.error("EmailJS Error:", err);
+          setError(true);
+        }
+      );
+  };
+
   return (
     <section className="w-full min-h-screen pt-28 sm:pt-36 pb-16 px-6 lg:px-16 flex items-center justify-center">
       <div className="w-full max-w-375 flex flex-col lg:flex-row gap-12 lg:gap-16 items-center justify-between">
-        
-        {/* LEFT COLUMN: FORM */}
         <div className="w-full lg:w-1/2 flex flex-col justify-center items-start space-y-7">
           <div className="space-y-2">
             <h1 className="text-3xl md:text-4xl lg:text-5xl xl:text-7xl font-bold tracking-tight">
@@ -17,7 +48,12 @@ export default function ContactPage() {
             </p>
           </div>
 
-          <form className="space-y-9 pt-8 w-full">
+          {/* form */}
+          <form
+            onSubmit={sendEmail}
+            ref={form}
+            className="space-y-9 pt-8 w-full"
+          >
             <div className="space-y-1.5">
               <label className="text-md lg:text-xl font-semibold uppercase tracking-wider block">
                 Full Name
@@ -25,6 +61,7 @@ export default function ContactPage() {
               <input
                 type="text"
                 name="user_name"
+                required
                 placeholder="Enter your name"
                 className="w-full text-sm border-b border-current/20 pb-2 lg:text-lg focus:outline-none bg-transparent placeholder:opacity-40"
               />
@@ -37,6 +74,7 @@ export default function ContactPage() {
               <input
                 type="email"
                 name="user_email"
+                required
                 placeholder="Enter your email"
                 className="w-full text-sm border-b border-current/20 pb-2 lg:text-lg focus:outline-none bg-transparent placeholder:opacity-40"
               />
@@ -61,24 +99,24 @@ export default function ContactPage() {
               <input
                 type="text"
                 name="project_scope"
+                required
                 placeholder="Tell us about your project..."
                 className="w-full text-sm border-b border-current/20 pt-10 pb-2 lg:text-lg focus:outline-none bg-transparent placeholder:opacity-40"
               />
             </div>
 
-            <div className="w-full flex justify-center pt-6">
-              <button
+            <div className="w-full flex flex-col items-center justify-center pt-6 gap-3">
+             <button
                 type="submit"
                 className="w-1/2 cursor-pointer py-5 bg-[#361e13] text-[#f8eee9] font-semibold text-md lg:text-xl transition-colors hover:bg-[#25140d]"
               >
-                Lets Connect
+                {success ? "Sent" : error ? "Error, Try Again" : "Lets Connect"}
               </button>
             </div>
           </form>
         </div>
 
-        {/* RIGHT COLUMN: SHARP IMAGE */}
-        <div className="w-full lg:w-1/2 relative md:h-150 xl:h-187.5  overflow-hidden hidden md:block">
+        <div className="w-full lg:w-1/2 relative md:h-150 xl:h-187.5 overflow-hidden hidden md:block">
           <Image
             src="/ctaImgs/ctaImg6.jpg"
             alt="OASIS Project showcase"
@@ -88,7 +126,6 @@ export default function ContactPage() {
             sizes="(max-width: 1024px) 100vw, 50vw"
           />
         </div>
-
       </div>
     </section>
   );
