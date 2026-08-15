@@ -7,11 +7,11 @@ const cormorant = Cormorant_Garamond({
   variable: "--font-cormorant-sans",
   subsets: ["latin"],
 });
-const newYork = localFont({
-  src: "./_fonts/Amoria.otf",
-  variable: "--font-custom",
-  display: "swap",
-});
+// const newYork = localFont({
+//   src: "./_fonts/Amoria.otf",
+//   variable: "--font-custom",
+//   display: "swap",
+// });
 const lexend = Raleway({
   subsets: ["latin"],
   weight: "600",
@@ -30,7 +30,7 @@ export default function RootLayout({ children }) {
   return (
     <html
       lang="en"
-      className={`${cormorant.variable}  ${lexend.variable} ${lato.variable} ${newYork.variable} h-full antialiased`}
+      className={`${cormorant.variable}  ${lexend.variable} ${lato.variable}  h-full antialiased`}
     >
       <body
         className={`min-h-full flex  flex-col items-center w-full  ${lexend.className}`}
