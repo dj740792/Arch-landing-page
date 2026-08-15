@@ -1,123 +1,174 @@
 "use client";
+
 import Link from "next/link";
 import { useState } from "react";
-import { easeIn, motion, stagger } from "framer-motion";
-import NavLink from "./Navlinks";
+import { AnimatePresence, motion } from "framer-motion";
 import { Fjalla_One } from "next/font/google";
-const links = [
-  { url: "/about", title: "About" },
-  { url: "/work", title: "Works" },
-  { url: "/contact", title: "Contact" },
-];
+
 
 const fjalla = Fjalla_One({
   subsets: ["latin"],
   weight: "400",
 });
 
+const links = [
+  {
+    url: "/about",
+    title: "About",
+  },
+  {
+    url: "/work",
+    title: "Works",
+  },
+  {
+    url: "/contact",
+    title: "Contact",
+  },
+];
+
 export default function Navbar() {
   const [open, setOpen] = useState(false);
 
-  const topVarient = {
+  const menuLinks = {
     closed: {
-      rotate: 0,
-    },
-    opened: {
-      rotate: 40,
-      backgroundColor: "rgb(0, 0, 0)",
-    },
-  };
-
-  const centerVariant = {
-    closed: {
-      opacity: 1,
-    },
-    opened: {
-      opacity: 0,
-    },
-  };
-  const bottomVariant = {
-    closed: {
-      rotate: 0,
-    },
-    opened: {
-      rotate: -40,
-      backgroundColor: "rgb(0, 0, 0)",
-    },
-  };
-  const listVarient = {
-    closed: {
-      x: "100vw",
-    },
-    opened: {
-      x: 0,
       transition: {
-        ease: "easeIn",
-        when: "beforeChildren",
-        staggerChildren: 0.1,
+        staggerChildren: 0.09,
+      },
+    },
+
+    opened: {
+      transition: {
+        staggerChildren: 0.09,
+        delayChildren: 0.45,
       },
     },
   };
-  const listItemVariant = {
+
+  const menuLink = {
     closed: {
-      x: -10,
+      y: 80,
       opacity: 0,
     },
     opened: {
-      x: 0,
+      y: 0,
       opacity: 1,
+      transition: {
+        duration: 0.7,
+        ease: [0.22, 1, 0.36, 1],
+      },
     },
   };
   return (
-    <nav className="w-2/3 md:w-1/3 h-15 z-50 ">
-      <div className="relative flex h-full items-center justify-between px-4 rounded-2xl border border-white/30 bg-white/20 shadow-[0_9px_32px_rgba(0,0,0,0.1)] backdrop-blur-lg">
-        {/* LOGO */}
-        <Link
-          href="/"
-          className={` lg:flex text-xl uppercase font-bold mr-4 ${fjalla.className}`}
-        >
-          Oasis.
-        </Link>
+    <>
+      <nav className="fixed top-5 left-1/2 -translate-x-1/2 z-100 w-2/3 md:w-1/3 h-15">
+        <div className="relative flex h-full items-center justify-between px-4 rounded-2xl border border-white/30 bg-white/20 shadow-[0_9px_32px_rgba(0,0,0,0.1)] backdrop-blur-lg">
+          {/* LOGO */}
 
-        {/* Responsive menu */}
-        <div className=" ml-auto">
-          <button
-            className="w-7 h-5 flex flex-col justify-between cursor-pointer z-50 relative"
-            onClick={() => setOpen((prev) => !prev)}
+          <Link
+            href="/"
+            onClick={() => setOpen(false)}
+            className={`text-xl uppercase font-bold ${open ? "text-[#f6f0ec]" : "text-[#361e13]"} ${fjalla.className}`}
           >
-            <motion.div
+            Oasis.
+          </Link>
+
+          {/* HAMBURGER */}
+
+          <button
+            type="button"
+            aria-label={open ? "Close menu" : "Open menu"}
+            aria-expanded={open}
+            onClick={() => setOpen((prev) => !prev)}
+            className="relative z-110 w-7 h-5 flex flex-col justify-center cursor-pointer"
+          >
+            <motion.span
               animate={open ? "opened" : "closed"}
-              variants={topVarient}
-              className="w-7 h-1 rounded origin-left bg-black"
-            ></motion.div>
-            <motion.div
+              variants={{
+                closed: {
+                  rotate: 0,
+                  y: -5,
+                },
+
+                opened: {
+                  rotate: 45,
+                  y: 0,
+                },
+              }}
+              transition={{
+                duration: 0.3,
+                ease: "easeInOut",
+              }}
+              className={`absolute w-7 h-1 rounded-full transition-colors duration-300 ${
+                open ? "bg-[#f6f0ec]" : "bg-[#361e13]"
+              }`}
+            />
+
+            <motion.span
               animate={open ? "opened" : "closed"}
-              variants={centerVariant}
-              className="w-7 h-1 rounded bg-black"
-            ></motion.div>
-            <motion.div
-              animate={open ? "opened" : "closed"}
-              variants={bottomVariant}
-              className="w-7 h-1 rounded bg-black origin-left"
-            ></motion.div>
+              variants={{
+                closed: {
+                  rotate: 0,
+                  y: 5,
+                },
+
+                opened: {
+                  rotate: -45,
+                  y: 0,
+                },
+              }}
+              transition={{
+                duration: 0.3,
+                ease: "easeInOut",
+              }}
+              className={`absolute w-7 h-1 rounded-full transition-colors duration-300 ${
+                open ? "bg-[#f6f0ec]" : "bg-[#361e13]"
+              }`}
+            />
           </button>
-          {/* menu list */}
-          {open && (
-            <motion.div
-              variants={listVarient}
-              initial="closed"
-              animate="opened"
-              className="absolute top-0 left-0 w-screen h-screen flex flex-col items-center justify-center  text-5xl gap-10 font-semibold"
-            >
-              {links.map((link) => (
-                <motion.div variants={listItemVariant} key={link.title}>
-                  <Link href={link.url}>{link.title}</Link>
-                </motion.div>
-              ))}
-            </motion.div>
-          )}
         </div>
-      </div>
-    </nav>
+      </nav>
+
+      <AnimatePresence>
+        {open && (
+          <motion.div
+            initial={{
+              y: "-100%",
+            }}
+            animate={{
+              y: "0%",
+            }}
+            exit={{
+              y: "100%",
+            }}
+            transition={{
+              duration: 0.8,
+              ease: [0.76, 0, 0.24, 1],
+            }}
+            className="fixed top-0 left-0 right-0 bottom-0 z-90 bg-[#361e13]"
+          >
+            <div className="w-full h-full flex items-center justify-center">
+              <motion.div
+                variants={menuLinks}
+                initial="closed"
+                animate="opened"
+                className="group/links flex flex-col items-center gap-4"
+              >
+                {links.map((link) => (
+                  <motion.div key={link.title} variants={menuLink}>
+                    <Link
+                      href={link.url}
+                      onClick={() => setOpen(false)}
+                      className="text-[#f6f0ec] text-6xl md:text-8xl uppercase font-medium transition-opacity duration-300 group-hover/links:opacity-40 hover:opacity-100!"
+                    >
+                      {link.title}
+                    </Link>
+                  </motion.div>
+                ))}
+              </motion.div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </>
   );
 }

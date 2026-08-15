@@ -11,11 +11,12 @@ export default function MainLayout({ children }) {
 
   return (
     <SmoothScroll>
-      <div className="fixed top-0 left-0 w-full z-50 pointer-events-none flex justify-center pt-4 px-4">
-        <div className="pointer-events-auto flex justify-center items-center w-full">
+
+      <header className="fixed top-0 left-0 w-full z-50 pointer-events-none flex justify-center pt-4 px-4">
+        <div className="pointer-events-auto w-full flex justify-center">
           <Navbar />
         </div>
-      </div>
+      </header>
 
       <main className="w-full grow">{children}</main>
 

@@ -2,7 +2,9 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { Aboreto, Mukta, Raleway, Cormorant_Garamond, Bebas_Neue, Fjalla_One } from "next/font/google";
+import { Fjalla_One } from "next/font/google";
+
+
 
 const lexend = Fjalla_One({
   subsets: ["latin"],
@@ -34,7 +36,9 @@ const Hero = () => {
     <section className="w-full min-h-screen h-[105vh] flex flex-col justify-between pt-28 md:pt-36 overflow-hidden">
       {/* TOP SECTION: HEADING */}
       <div className="w-full text-center mt-15 md:mt-8 lg:mt-18 overflow-hidden">
-        <h1 className={`flex justify-center items-center tracking-wider leading-none select-none whitespace-nowrap text-[29vw] md:text-[25vw] lg:text-[23vw] xl:text-[14vw] md:mx-8 font-black ${lexend.className}`}>
+        <h1
+          className={`flex justify-center items-center tracking-wider leading-none select-none whitespace-nowrap text-[29vw] md:text-[25vw] lg:text-[23vw] xl:text-[14vw] md:mx-8 font-black ${lexend.className}`}
+        >
           {logo.split("").map((letter, index) => (
             <span key={index} className="overflow-hidden inline-block">
               {mounted ? (
@@ -62,9 +66,6 @@ const Hero = () => {
 
       <div className="w-full px-6 md:px-12 my-6">
         <div className="w-full border-t mb-6 md:mb-14" />
-
-       
-        
       </div>
 
       <div className="relative w-full flex overflow-hidden pb-10 mask-gradient">
