@@ -35,7 +35,7 @@ export default function FeaturedProjects() {
           href="/work"
           className="text-[10px] md:text-sm xl:text-lg font-semibold tracking-widest uppercase"
         >
-          SEE ALL PORTFOLIO
+          See more works
         </Link>
       </div>
 

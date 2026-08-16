@@ -5,13 +5,8 @@ import { Fjalla_One, Lato, Trykker } from "next/font/google";
 import { useState, useRef, useEffect } from "react";
 import { projects } from "@/_data/projects";
 import Image from "next/image";
-import { h3 } from "motion/react-client";
 
 const numFont = Lato({ subsets: ["latin"], weight: "400" });
-const fjalla = Fjalla_One({
-  subsets: ["latin"],
-  weight: "400",
-});
 
 const lexend = Fjalla_One({
   subsets: ["latin"],
@@ -26,9 +21,10 @@ export default function WorkPage() {
   }, []);
 
   const logo = "Our Projects";
+  const exitLogo = "Always Building";
   const containerRef = useRef(null);
   return (
-    <section className="w-full min-h-screen flex px-8 py-12 lg:py-24 lg:px-16 pt-38 ">
+    <section className="w-full min-h-screen flex flex-col px-8 py-12 lg:py-24 lg:px-16 pt-38 gap-22">
       <motion.div
         ref={containerRef}
         className="w-full  gap-4 md:gap-8 lg:gap-12 md:px-4 "
@@ -60,7 +56,7 @@ export default function WorkPage() {
               </span>
             ))}
           </h1>
-          <p className="text-md md:text-lg xl:text-xl font-normal leading-relaxed max-w-lg xl:max-w-xl opacity-80">
+          <p className="text-md md:text-lg xl:text-xl font-normal leading-relaxed max-w-xl opacity-80">
             A collection of digital experiences, custom web development, and
             interface designs built for performance.
           </p>
@@ -86,7 +82,7 @@ export default function WorkPage() {
                   alt=""
                   fill
                   sizes="(max-widht:768px)100vw , 50vw"
-                  className="object-cover w-full h-full "
+                  className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-700 ease-out"
                 />
               </Link>
 
@@ -104,6 +100,7 @@ export default function WorkPage() {
           ))}
         </div>
       </motion.div>
+      
     </section>
   );
 }
