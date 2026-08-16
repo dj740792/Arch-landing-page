@@ -9,6 +9,7 @@ import Image from "next/image";
 import { useRef, useState, useEffect } from "react";
 import Link from "next/link";
 import { Lato } from "next/font/google";
+
 const numFont = Lato({ subsets: ["latin"], weight: "400" });
 const projects = [
   {
@@ -75,7 +76,7 @@ export default function FeaturedProjects() {
 
   return (
     <section className="w-full  px-4 md:px-8 py-32 ">
-      {/* Header Row */}
+   
       <div className="flex justify-between items-baseline mb-10  pb-8">
         <h2 className="text-4xl md:text-7xl font-semibold tracking-tight">
           Featured Projects
@@ -88,7 +89,7 @@ export default function FeaturedProjects() {
         </Link>
       </div>
 
-      {/* Grid Container */}
+      
       <div className="grid grid-cols-12 gap-x-6 gap-y-20 items-start">
         {projects.map((project) => (
           <ProjectCard key={project.id} project={project} isMobile={isMobile} />

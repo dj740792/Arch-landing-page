@@ -28,7 +28,7 @@ export default function About() {
         </div>
         <div className="flex justify-around md:gap-4  md:items-center ">
           <div className="w-2/3 md:w-1/3 flex flex-col gap-9">
-            <motion.p className="text-lg md:text-lg xl:text-xl 2xl:text-2xl leading-8 tracking-wide font-bold text-[#67564f]">
+            <motion.p className="text-lg md:text-lg xl:text-xl 2xl:text-2xl leading-8 tracking-wide font-bold opacity-90">
               In a world overwhelmed by noise, we believe in the power of quiet
               architecture. Raw textures, sun-washed surfaces, and sculptural
               geometry create calm environments that feel thoughtful, elevated,

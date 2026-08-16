@@ -5,7 +5,6 @@ import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { Fjalla_One } from "next/font/google";
 
-
 const fjalla = Fjalla_One({
   subsets: ["latin"],
   weight: "400",
@@ -15,14 +14,17 @@ const links = [
   {
     url: "/about",
     title: "About",
+    image: "/ctaImgs/ctaImg3.jpg",
   },
   {
     url: "/work",
     title: "Works",
+    image: "/ctaImgs/ctaImg1.jpg",
   },
   {
     url: "/contact",
     title: "Contact",
+    image: "/ctaImgs/ctaImg2.jpg",
   },
 ];
 
@@ -154,13 +156,40 @@ export default function Navbar() {
                 className="group/links flex flex-col items-center gap-4"
               >
                 {links.map((link) => (
-                  <motion.div key={link.title} variants={menuLink}>
+                  <motion.div
+                    key={link.title}
+                    variants={menuLink}
+                    className="group relative"
+                  >
                     <Link
                       href={link.url}
                       onClick={() => setOpen(false)}
                       className="text-[#f6f0ec] text-6xl md:text-8xl uppercase font-medium transition-opacity duration-300 group-hover/links:opacity-40 hover:opacity-100!"
                     >
                       {link.title}
+                      <motion.div
+                        initial={{
+                          opacity: 0,
+                          scale: 0.8,
+                          y: 20,
+                        }}
+                        whileHover={{
+                          opacity: 1,
+                          scale: 1,
+                          y: 0,
+                        }}
+                        transition={{
+                          duration: 0.4,
+                          ease: [0.22, 1, 0.36, 1],
+                        }}
+                        className="pointer-events-none absolute left-full top-1/2 ml-8 -translate-y-1/2 w-56 h-72 overflow-hidden rounded-xl"
+                      >
+                        <img
+                          src={link.image}
+                          alt=""
+                          className="w-full h-full object-cover"
+                        />
+                      </motion.div>
                     </Link>
                   </motion.div>
                 ))}
