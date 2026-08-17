@@ -23,11 +23,11 @@ const titleContainerVariants = {
 };
 
 const letterVariants = {
-  hidden: { y: "140%" },
+  hidden: { y: "110%" },
   visible: {
     y: "0%",
     transition: {
-      duration: 1.2,
+      duration: 0.7,
       ease: [0.23, 1, 0.32, 1],
     },
   },
@@ -152,7 +152,7 @@ export default function ProjectPage({ params: paramsPromise }) {
         </motion.p>
       </div>
 
-      <div className="relative w-full aspect-video overflow-hidden mb-20">
+      <div className="relative w-full aspect-video overflow-hidden mb-10 md:mb-20">
         <Image
           src={project.src}
           alt={project.title}
@@ -167,7 +167,7 @@ export default function ProjectPage({ params: paramsPromise }) {
         {project.gallery.map((imgSrc, index) => (
           <div
             key={index}
-            className="relative w-full aspect-4/3 overflow-hidden"
+            className="relative w-full aspect-4/2 md:aspect-4/3 overflow-hidden"
           >
             <Image
               src={imgSrc}

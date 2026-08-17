@@ -25,7 +25,7 @@ const letterVariants = {
   visible: {
     y: "0%",
     transition: {
-      duration: 1.2,
+      duration: 0.8,
       ease: [0.13, 1, 0.22, 1],
     },
   },
@@ -108,10 +108,7 @@ export default function HeroSection() {
           >
             {logo.split("").map((letter, index) => (
               <span key={index} className="inline-block ">
-                <motion.span
-                  variants={letterVariants}
-                  className="inline-block"
-                >
+                <motion.span variants={letterVariants} className="inline-block">
                   {letter === " " ? "\u00A0" : letter}
                 </motion.span>
               </span>
@@ -152,13 +149,7 @@ export default function HeroSection() {
         </div>
 
         <div className="relative mt-24 lg:mt-12 w-full flex flex-col md:flex-row gap-5">
-          <motion.div
-            variants={imageVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-50px" }}
-            className="w-full md:w-1/3 relative h-[60vh] lg:h-[70vh] xl:h-[80vh] overflow-hidden"
-          >
+          <motion.div className="w-full md:w-1/3 relative h-[60vh] lg:h-[70vh] xl:h-[80vh]">
             <Image
               src="/teamImgs/img7.jpg"
               alt="OASIS architectural interior"
@@ -251,13 +242,7 @@ export default function HeroSection() {
             </div>
           </div>
 
-          <motion.div
-            variants={imageVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-50px" }}
-            className="w-3/5 md:w-1/5 relative h-[20vh] lg:h-[30vh] self-end xl:h-[40vh] md:ml-auto overflow-hidden"
-          >
+          <motion.div className="w-3/5 md:w-1/5 relative h-[30vh] lg:h-[30vh] self-end xl:h-[40vh] md:ml-auto">
             <Image
               src="/teamImgs/img8.jpg"
               alt="OASIS architectural landscape"

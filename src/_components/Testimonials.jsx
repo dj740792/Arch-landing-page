@@ -51,12 +51,15 @@ export default function Testimonials() {
 
   return (
     <section className="w-full py-20 px-6 md:px-12 lg:px-16">
-      <div className="max-w-8xl mx-auto flex flex-col lg:flex-row gap-10 lg:gap-16 items-center">
-        <div className="hidden lg:block w-full lg:w-1/2 relative h-165 overflow-hidden  shrink-0">
-          <img
+      <div className="max-w-8xl mx-auto flex flex-col md:flex-row gap-10 lg:gap-16 items-center">
+        <div className="hidden md:block w-full md:w-1/2 relative h-125 lg:h-150 overflow-hidden  shrink-0">
+          <Image
             src="/testimonialImgs/testiImg5.jpg"
             alt="Interior showcase"
-            className="w-full h-full object-cover "
+            fill
+            sizes="(max-width: 1024px) 100vw, 50vw"
+            priority
+            className="object-cover"
           />
         </div>
 
@@ -83,11 +86,13 @@ export default function Testimonials() {
                 </p>
 
                 <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-sm overflow-hidden bg-zinc-200 shrink-0">
-                    <img
+                  <div className="relative w-12 h-12 rounded-sm overflow-hidden bg-zinc-200 shrink-0">
+                   <Image
                       src={current.avatar}
                       alt={current.name}
-                      className="w-full h-full object-cover"
+                      fill
+                      sizes="48px"
+                      className="object-cover"
                     />
                   </div>
                   <div>

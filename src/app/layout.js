@@ -1,17 +1,14 @@
 import { Aboreto, Cormorant_Garamond, Raleway } from "next/font/google";
 import "./globals.css";
 import MainLayout from "@/_components/MainLayout";
-import localFont from "next/font/local";
+import ScrollToTop from "@/_components/ScrollToTop";
+
 
 const cormorant = Cormorant_Garamond({
   variable: "--font-cormorant-sans",
   subsets: ["latin"],
 });
-// const newYork = localFont({
-//   src: "./_fonts/Amoria.otf",
-//   variable: "--font-custom",
-//   display: "swap",
-// });
+
 const lexend = Raleway({
   subsets: ["latin"],
   weight: "600",
@@ -35,6 +32,7 @@ export default function RootLayout({ children }) {
       <body
         className={`min-h-full flex  flex-col items-center w-full  ${lexend.className}`}
       >
+        <ScrollToTop />
         <MainLayout>{children}</MainLayout>
       </body>
     </html>

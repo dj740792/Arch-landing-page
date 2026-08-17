@@ -2,6 +2,8 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
+
+
 export default function About() {
   const heading = [
     "We  design  atmospheres, not just buildings our work is defined by material honesty and a deep respect for nature.",
@@ -46,7 +48,7 @@ export default function About() {
             </Link>
           </div>
 
-          <motion.div className=" rrelative overflow-hidden h-90 w-80 2xl:h-110 2xl:w-80 hidden lg:flex flex-col justify-between cursor-pointer">
+          <motion.div className=" relative overflow-hidden h-90 w-80 2xl:h-110 2xl:w-80 hidden md:flex flex-col justify-between cursor-pointer">
             <div className="relative w-full h-full overflow-hidden">
               <video
                 src="/video/about.mp4"

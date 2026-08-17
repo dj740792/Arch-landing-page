@@ -116,7 +116,7 @@ export default function ContactPage() {
           </form>
         </div>
 
-        <div className="w-full lg:w-1/2 relative md:h-150 xl:h-187.5 overflow-hidden hidden md:block">
+        <div className="w-full lg:w-1/2 relative lg:h-150 xl:h-187.5 overflow-hidden hidden lg:block">
           <Image
             src="/ctaImgs/ctaImg6.jpg"
             alt="OASIS Project showcase"

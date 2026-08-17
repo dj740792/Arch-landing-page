@@ -84,7 +84,7 @@ export default function Services() {
             alt="Interior design details showing spatial depth"
             fill
             className="object-cover"
-            sizes="(max-width: 768px) 100vw, 30vw"
+            sizes="(max-width: 768px) 100vw, 40vw"
           />
         </motion.div>
         {/* RIGHT COL */}
@@ -108,10 +108,10 @@ export default function Services() {
                 }}
                 className="flex flex-col gap-2 group"
               >
-                <h3 className="text-xl md:text-2xl xl:text-3xl font-semibold tracking-normal  transition-colors">
+                <h3 className="text-xl  lg:text-2xl xl:text-3xl font-semibold tracking-normal  transition-colors">
                   {service.title}
                 </h3>
-                <p className="text-sm xl:text-xl text-[#695349] font-semibold leading-relaxed max-w-md">
+                <p className="text-sm xl:text-xl opacity-80 font-semibold leading-relaxed max-w-md">
                   {service.description}
                 </p>
               </motion.div>

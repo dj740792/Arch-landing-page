@@ -1,8 +1,7 @@
 "use client";
-
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { Fjalla_One, Lato } from "next/font/google";
+import { Fjalla_One, Lato, Trykker } from "next/font/google";
 import { useState, useRef, useEffect } from "react";
 import { projects } from "@/_data/projects";
 import Image from "next/image";
@@ -14,143 +13,80 @@ const lexend = Fjalla_One({
   weight: "400",
 });
 
-const titleContainerVariants = {
-  hidden: { opacity: 1 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.03,
-      delayChildren: 0.1,
-    },
-  },
-};
-
-const letterVariants = {
-  hidden: { y: "140%" },
-  visible: {
-    y: "0%",
-    transition: {
-      duration: 1.2,
-      ease: [0.13, 1, 0.22, 1],
-    },
-  },
-};
-
-const descContainerVariants = {
-  hidden: { opacity: 1 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.015,
-      delayChildren: 0.5,
-    },
-  },
-};
-
-const descWordVariants = {
-  hidden: { y: "120%", opacity: 0 },
-  visible: {
-    y: "0%",
-    opacity: 1,
-    transition: {
-      duration: 0.8,
-      ease: [0.13, 1, 0.22, 1],
-    },
-  },
-};
-
 export default function WorkPage() {
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
     setMounted(true);
-    if (typeof window !== "undefined") {
-      window.history.scrollRestoration = "manual";
-      window.scrollTo(0, 0);
-    }
-
-    return () => {
-      if (typeof window !== "undefined") {
-        window.history.scrollRestoration = "auto";
-      }
-    };
   }, []);
 
   const logo = "Our Projects";
-  const descText =
-    "A collection of digital experiences, custom web development, and interface designs built for performance.";
-  const descWords = descText.split(" ");
   const containerRef = useRef(null);
-
   return (
     <section className="w-full min-h-screen flex flex-col px-8 py-12 lg:py-24 lg:px-16 pt-38 gap-22">
       <motion.div
         ref={containerRef}
-        className="w-full gap-4 md:gap-8 lg:gap-12 md:px-4"
+        className="w-full  gap-4 md:gap-8 lg:gap-12 md:px-4 "
       >
-        <div className="w-full flex flex-col lg:flex-row text-center lg:text-start items-center mt-4 justify-between md:mt-3 lg:mt-18 gap-8 lg:gap-12">
-          <motion.h1
-            variants={titleContainerVariants}
-            initial="hidden"
-            animate={mounted ? "visible" : "hidden"}
-            className={`flex justify-start items-center tracking-tight leading-none select-none whitespace-nowrap text-[16vw] md:text-[12vw] lg:text-[10vw] h-[19vh] xl:text-[9vw] xl:h-[23vh] md:mx-4 ${lexend.className}`}
+        <div className="w-full flex flex-col lg:flex-row text-center lg:text-start items-center  mt-4 justify-between md:mt-3 lg:mt-18 overflow-hidden lg:gap-12 ">
+          <h1
+            className={`flex justify-start items-center tracking-tight leading-none select-none whitespace-nowrap text-[16vw] md:text-[12vw] lg:text-[10vw] h-[19vh] xl:text-[9vw] xl:h-[23vh] md:mx-4  ${lexend.className}`}
           >
             {logo.split("").map((letter, index) => (
-              <span key={index} className="inline-block ">
-                <motion.span variants={letterVariants} className="inline-block">
-                  {letter === " " ? "\u00A0" : letter}
-                </motion.span>
+              <span key={index} className=" inline-block">
+                {mounted ? (
+                  <motion.span
+                    initial={{ y: "140%" }}
+                    animate={{ y: "0%" }}
+                    transition={{
+                      duration: 0.9,
+                      ease: [0.13, 1, 0.22, 1],
+                      delay: index * 0.02,
+                    }}
+                    className="inline-block"
+                  >
+                    {letter === " " ? "\u00A0" : letter}
+                  </motion.span>
+                ) : (
+                  <span className="inline-block">
+                    {letter === " " ? "\u00A0" : letter}
+                  </span>
+                )}
               </span>
             ))}
-          </motion.h1>
-
-          <motion.p
-            variants={descContainerVariants}
-            initial="hidden"
-            animate={mounted ? "visible" : "hidden"}
-            className="text-md md:text-lg xl:text-xl font-normal leading-relaxed max-w-xl opacity-80 flex flex-wrap justify-center lg:justify-start gap-x-[0.25em] gap-y-1"
-          >
-            {descWords.map((word, idx) => (
-              <span key={idx} className="inline-flex overflow-hidden">
-                <motion.span
-                  variants={descWordVariants}
-                  className="inline-block"
-                >
-                  {word}
-                </motion.span>
-              </span>
-            ))}
-          </motion.p>
+          </h1>
+          <p className="text-md md:text-lg xl:text-xl font-normal leading-relaxed max-w-xl opacity-80">
+            A collection of digital experiences, custom web development, and
+            interface designs built for performance.
+          </p>
         </div>
 
+        {/* project section */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-14 mt-22">
-          {projects.map((project, index) => (
+          {projects.map((project) => (
             <motion.div
               key={project.id}
               initial={{ opacity: 0, y: 40 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{
-                duration: 0.7,
-                delay: 0.8 + index * 0.12,
-                ease: [0.22, 1, 0.36, 1],
-              }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+              viewport={{ once: true, margin: "-50px" }}
               className="group cursor-pointer flex flex-col"
             >
               <Link
                 href={`/work/${project.slug}`}
-                className="block overflow-hidden relative w-full aspect-16/10"
+                className="block overflow-hidden relative w-full aspect-16/10 "
               >
                 <Image
                   src={project.src}
-                  alt={project.title}
+                  alt=""
                   fill
-                  sizes="(max-width: 768px) 100vw, 50vw"
+                  sizes="(max-widht:768px)100vw , 50vw"
                   className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-700 ease-out"
                 />
               </Link>
 
               <div className="flex justify-between mt-4">
-                <p className="text-md md:text-lg xl:text-xl tracking-wide font-semibold">
+                <p className="text-md md:text-lg xl:text-xl  tracking-wide font-semibold">
                   {project.title}
                 </p>
                 <p
@@ -163,6 +99,7 @@ export default function WorkPage() {
           ))}
         </div>
       </motion.div>
+      
     </section>
   );
 }
