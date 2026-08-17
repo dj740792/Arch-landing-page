@@ -9,6 +9,62 @@ const lexend = Fjalla_One({
   weight: "400",
 });
 
+const titleContainerVariants = {
+  hidden: { opacity: 1 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.03,
+      delayChildren: 0.1,
+    },
+  },
+};
+
+const letterVariants = {
+  hidden: { y: "140%" },
+  visible: {
+    y: "0%",
+    transition: {
+      duration: 1.2,
+      ease: [0.13, 1, 0.22, 1],
+    },
+  },
+};
+
+const paragraphVariants = {
+  hidden: { opacity: 1 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.012,
+      delayChildren: 0.1,
+    },
+  },
+};
+
+const wordVariants = {
+  hidden: { y: "120%", opacity: 0 },
+  visible: {
+    y: "0%",
+    opacity: 1,
+    transition: {
+      duration: 0.8,
+      ease: [0.13, 1, 0.22, 1],
+    },
+  },
+};
+
+const imageVariants = {
+  hidden: { clipPath: "inset(100% 0% 0% 0%)" },
+  visible: {
+    clipPath: "inset(0% 0% 0% 0%)",
+    transition: {
+      duration: 1.2,
+      ease: [0.13, 1, 0.22, 1],
+    },
+  },
+};
+
 export default function HeroSection() {
   const [mounted, setMounted] = useState(false);
 
@@ -19,69 +75,90 @@ export default function HeroSection() {
   const logo = "Our Journey";
   const containerRef = useRef(null);
 
+  const text1 =
+    "We began with a simple question: how does a structure make you feel? From that first line on paper to the final monolith standing against the sky, OASIS was created to weave geometry with emotion. We build spaces that breathe, endure, and offer a permanent sense of place.";
+  const text2 =
+    "Founded in 2022 in New Delhi, OASIS creates warm, modern spaces where clean design meets everyday comfort.";
+
+  const card1Heading = ["Shared", "Passion.", "Collective", "Precision."];
+  const card1Text =
+    "Great architecture isn't made by isolated blueprints—it's built through deep personal trust. Our studio functions like a family, where candid dialogue, shared curiosity, and genuine human connection directly shape every space we design";
+
+  const card2Heading = ["Our", "Mission"];
+  const card2Text =
+    "To craft human-centered environments that balance clarity, warmth, and climate responsibility—leaving a permanent sense of place";
+
+  const text1Words = text1.split(" ");
+  const text2Words = text2.split(" ");
+  const card1Words = card1Text.split(" ");
+  const card2Words = card2Text.split(" ");
+
   return (
     <section className="w-full min-h-screen flex px-8 py-12 lg:py-24 lg:px-16 pt-38">
       <motion.div
         ref={containerRef}
-        className="w-full flex flex-col gap-4 md:gap-8 lg:gap-12 md:px-4 "
+        className="w-full flex flex-col gap-4 md:gap-8 lg:gap-12 md:px-4"
       >
-        <div className="w-full text-start mt-4  md:mt-3 lg:mt-18 overflow-hidden ">
-          <h1
-            className={`  flex justify-start items-center tracking-tight leading-none select-none whitespace-nowrap text-[16vw] md:text-[12vw] lg:text-[10vw] h-[19vh] xl:text-[9vw] xl:h-[23vh] md:mx-4  ${lexend.className}`}
+        <div className="w-full text-start mt-4 md:mt-3 lg:mt-18 overflow-hidden">
+          <motion.h1
+            variants={titleContainerVariants}
+            initial="hidden"
+            animate={mounted ? "visible" : "hidden"}
+            className={`flex justify-start items-center tracking-tight leading-none select-none whitespace-nowrap text-[16vw] md:text-[12vw] lg:text-[10vw] h-[19vh] xl:text-[9vw] xl:h-[23vh] md:mx-4  ${lexend.className}`}
           >
             {logo.split("").map((letter, index) => (
-              <span key={index} className=" inline-block">
-                {mounted ? (
-                  <motion.span
-                    initial={{ y: "140%" }}
-                    animate={{ y: "0%" }}
-                    transition={{
-                      duration: 1.2,
-                      ease: [0.13, 1, 0.22, 1],
-                      delay: index * 0.03,
-                    }}
-                    className="inline-block"
-                  >
-                    {letter === " " ? "\u00A0" : letter}
-                  </motion.span>
-                ) : (
-                  <span className="inline-block">
-                    {letter === " " ? "\u00A0" : letter}
-                  </span>
-                )}
+              <span key={index} className="inline-block ">
+                <motion.span
+                  variants={letterVariants}
+                  className="inline-block"
+                >
+                  {letter === " " ? "\u00A0" : letter}
+                </motion.span>
               </span>
             ))}
-          </h1>
+          </motion.h1>
         </div>
 
-        <motion.div className="w-full md:w-1/2 mt-12  lg:mt-12 ml-auto flex flex-col  gap-8 md:gap-12 border-l pl-3 lg:p-9 tracking-wide">
+        <div className="w-full md:w-1/2 mt-12 lg:mt-12 ml-auto flex flex-col gap-8 md:gap-12 border-l pl-3 lg:p-9 tracking-wide">
           <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, ease: [0.25, 1, 0.5, 1] }}
-            className="text-lg md:text-xl xl:text-2xl font-normal leading-relaxed"
+            variants={paragraphVariants}
+            initial="hidden"
+            animate={mounted ? "visible" : "hidden"}
+            className="text-lg md:text-xl xl:text-2xl font-normal leading-relaxed flex flex-wrap gap-x-[0.25em] gap-y-1"
           >
-            We began with a simple question: how does a structure make you feel?
-            From that first line on paper to the final monolith standing against
-            the sky, OASIS was created to weave geometry with emotion. We build
-            spaces that breathe, endure, and offer a permanent sense of place.
+            {text1Words.map((word, idx) => (
+              <span key={idx} className="inline-flex overflow-hidden">
+                <motion.span variants={wordVariants} className="inline-block">
+                  {word}
+                </motion.span>
+              </span>
+            ))}
           </motion.p>
 
           <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, ease: [0.25, 1, 0.5, 1], delay: 0.1 }}
-            className="text-lg md:text-xl xl:text-2xl font-normal leading-relaxed opacity-80"
+            variants={paragraphVariants}
+            initial="hidden"
+            animate={mounted ? "visible" : "hidden"}
+            className="text-lg md:text-xl xl:text-2xl font-normal leading-relaxed opacity-80 flex flex-wrap gap-x-[0.25em] gap-y-1"
           >
-            Founded in 2022 in New Delhi, OASIS creates warm, modern spaces
-            where clean design meets everyday comfort.
+            {text2Words.map((word, idx) => (
+              <span key={idx} className="inline-flex overflow-hidden">
+                <motion.span variants={wordVariants} className="inline-block">
+                  {word}
+                </motion.span>
+              </span>
+            ))}
           </motion.p>
-        </motion.div>
+        </div>
 
-        <div className="relative  mt-24 lg:mt-12 w-full flex flex-col md:flex-row gap-5 ">
-          <motion.div className=" w-full md:w-1/3 relative h-[60vh] lg:h-[70vh]  xl:h-[80vh]">
+        <div className="relative mt-24 lg:mt-12 w-full flex flex-col md:flex-row gap-5">
+          <motion.div
+            variants={imageVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px" }}
+            className="w-full md:w-1/3 relative h-[60vh] lg:h-[70vh] xl:h-[80vh] overflow-hidden"
+          >
             <Image
               src="/teamImgs/img7.jpg"
               alt="OASIS architectural interior"
@@ -92,35 +169,95 @@ export default function HeroSection() {
             />
           </motion.div>
 
-
-          <div className=" w-full md:w-1/3 relative h-[60vh] lg:h-[70vh]  xl:h-[80vh]  md:p-7 flex flex-col justify-around md:justify-between self-center">
+          <div className="w-full md:w-1/3 relative h-[60vh] lg:h-[70vh] xl:h-[80vh] md:p-7 flex flex-col justify-around md:justify-between self-center">
             <div className="mt-8 md:space-y-2">
-             
-              <h3 className="text-3xl lg:text-4xl font-medium tracking-tight uppercase ">
-                Shared Passion. <br />
-                Collective Precision.
-              </h3>
-              <p className="text-md xl:text-xl opacity-90  leading-relaxed  pt-2">
-                Great architecture isn't made by isolated blueprints—it's built
-                through deep personal trust. Our studio functions like a family,
-                where candid dialogue, shared curiosity, and genuine human
-                connection directly shape every space we design
-              </p>
+              <motion.h3
+                variants={paragraphVariants}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, margin: "-50px" }}
+                className="text-3xl lg:text-4xl font-medium tracking-tight uppercase flex flex-wrap gap-x-[0.25em]"
+              >
+                {card1Heading.map((word, idx) => (
+                  <span key={idx} className="inline-flex overflow-hidden">
+                    <motion.span
+                      variants={letterVariants}
+                      className="inline-block"
+                    >
+                      {word}
+                    </motion.span>
+                  </span>
+                ))}
+              </motion.h3>
+
+              <motion.p
+                variants={paragraphVariants}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, margin: "-50px" }}
+                className="text-md xl:text-xl opacity-90 leading-relaxed pt-2 flex flex-wrap gap-x-[0.25em] gap-y-1"
+              >
+                {card1Words.map((word, idx) => (
+                  <span key={idx} className="inline-flex overflow-hidden">
+                    <motion.span
+                      variants={wordVariants}
+                      className="inline-block"
+                    >
+                      {word}
+                    </motion.span>
+                  </span>
+                ))}
+              </motion.p>
             </div>
 
             <div className="md:space-y-2">
-              <p className="text-3xl xl:text-4xl font-medium  tracking-tight uppercase ">
-                Our Mission
-              </p>
-              <p className="text-md xl:text-xl opacity-90  leading-relaxed  pt-2 ">
-                To craft human-centered environments that balance clarity,
-                warmth, and climate responsibility—leaving a permanent sense of
-                place
-              </p>
+              <motion.p
+                variants={paragraphVariants}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, margin: "-50px" }}
+                className="text-3xl xl:text-4xl font-medium tracking-tight uppercase flex flex-wrap gap-x-[0.25em]"
+              >
+                {card2Heading.map((word, idx) => (
+                  <span key={idx} className="inline-flex overflow-hidden">
+                    <motion.span
+                      variants={letterVariants}
+                      className="inline-block"
+                    >
+                      {word}
+                    </motion.span>
+                  </span>
+                ))}
+              </motion.p>
+
+              <motion.p
+                variants={paragraphVariants}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, margin: "-50px" }}
+                className="text-md xl:text-xl opacity-90 leading-relaxed pt-2 flex flex-wrap gap-x-[0.25em] gap-y-1"
+              >
+                {card2Words.map((word, idx) => (
+                  <span key={idx} className="inline-flex overflow-hidden">
+                    <motion.span
+                      variants={wordVariants}
+                      className="inline-block"
+                    >
+                      {word}
+                    </motion.span>
+                  </span>
+                ))}
+              </motion.p>
             </div>
           </div>
 
-          <motion.div className="w-3/5 md:w-1/5 relative h-[20vh] lg:h-[30vh] self-end xl:h-[40vh] md:ml-auto">
+          <motion.div
+            variants={imageVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px" }}
+            className="w-3/5 md:w-1/5 relative h-[20vh] lg:h-[30vh] self-end xl:h-[40vh] md:ml-auto overflow-hidden"
+          >
             <Image
               src="/teamImgs/img8.jpg"
               alt="OASIS architectural landscape"
