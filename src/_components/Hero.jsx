@@ -19,13 +19,13 @@ const lexend = Fjalla_One({
 
 const images = [
   { src: "/heroImgs/img1.jpg", height: "h-[40vh] md:h-[30vh]" },
-  { src: "/heroImgs/img2.jpg", height: "h-[36vh] md:h-[26vh]" },
-  { src: "/heroImgs/img3.jpg", height: "h-[32vh] md:h-[32vh]" },
+  { src: "/photos/restraunt/restraunt2.jpg", height: "h-[36vh] md:h-[26vh]" },
+  { src: "/photos/lounge/lounge3.jpg", height: "h-[32vh] md:h-[32vh]" },
   { src: "/heroImgs/img4.jpg", height: "h-[39vh] md:h-[29vh]" },
-  { src: "/heroImgs/img5.jpg", height: "h-[37vh] md:h-[27vh]" },
+  { src: "/photos/pavillion/pavillion1.jpg", height: "h-[37vh] md:h-[27vh]" },
   { src: "/heroImgs/img6.jpg", height: "h-[32vh] md:h-[32vh]" },
   { src: "/heroImgs/img7.jpg", height: "h-[39vh] md:h-[29vh]" },
-  { src: "/heroImgs/img8.jpg", height: "h-[37vh] md:h-[27vh]" },
+  { src: "/photos/villa/villa3.jpg", height: "h-[37vh] md:h-[27vh]" },
 ];
 
 const Hero = () => {
@@ -86,7 +86,7 @@ const Hero = () => {
           </h1>
         </motion.div>
       </div>
-      
+
       <div className="relative w-full flex overflow-hidden pb-10 mask-gradient">
         {mounted && (
           <motion.div

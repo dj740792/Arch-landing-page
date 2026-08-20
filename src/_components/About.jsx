@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { useRef } from "react";
 import { useInView } from "framer-motion";
 import Link from "next/link";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, X } from "lucide-react";
 
 const textContainerVariants = {
   hidden: { opacity: 1 },
@@ -30,6 +30,9 @@ const wordVariants = {
 
 export default function About() {
   const headingRef = useRef(null);
+  const dialogRef = useRef(null);
+  const modalVideoRef = useRef(null);
+
   const isInView = useInView(headingRef, { once: true, amount: 0.3 });
 
   const heading =
@@ -39,9 +42,26 @@ export default function About() {
     "In a world overwhelmed by noise, we believe in the power of quiet architecture. Raw textures, sun-washed surfaces, and sculptural geometry create calm environments that feel thoughtful, elevated, and enduring. Every great build begins with understanding.";
   const paragraphWords = paragraph.split(/\s+/);
 
+  const handleOpenVideo = () => {
+    if (dialogRef.current && modalVideoRef.current) {
+      dialogRef.current.showModal();
+      modalVideoRef.current.currentTime = 0;
+      modalVideoRef.current.muted = false;
+      modalVideoRef.current.play();
+    }
+  };
+
+  const handleCloseVideo = () => {
+    if (dialogRef.current && modalVideoRef.current) {
+      modalVideoRef.current.pause();
+      modalVideoRef.current.muted = true;
+      dialogRef.current.close();
+    }
+  };
+
   return (
     <section className="w-full h-screen flex items-center justify-center py-16 px-4">
-      <motion.div className=" w-full flex flex-col gap-12">
+      <motion.div className="w-full flex flex-col gap-12">
         <div
           ref={headingRef}
           className="md:max-w-7xl leading-[1.3] md:px-12 overflow-hidden"
@@ -71,7 +91,8 @@ export default function About() {
             ))}
           </motion.h2>
         </div>
-        <div className="flex justify-around md:gap-4  md:items-center ">
+
+        <div className="flex justify-around md:gap-4 md:items-center">
           <div className="w-2/3 md:w-1/3 flex flex-col gap-9">
             <motion.p
               variants={textContainerVariants}
@@ -91,7 +112,7 @@ export default function About() {
 
             <Link
               href="/about"
-              className="w-fit self-start group inline-flex items-center justify-between gap-6 px-6 py-3 bg-[#361e13] text-[#f8eee9] rounded-md text-base sm:text-lg font-medium tracking-wide transition-all duration-300 "
+              className="w-fit self-start group inline-flex items-center justify-between gap-6 px-6 py-3 bg-[#361e13] text-[#f8eee9] rounded-md text-base sm:text-lg font-medium tracking-wide transition-all duration-300"
             >
               <span>Our Journey</span>
               <div className="w-8 h-8 rounded-full bg-[#f8eee9] text-[#361e13] flex items-center justify-center transition-transform duration-300 group-hover:rotate-45">
@@ -100,24 +121,53 @@ export default function About() {
             </Link>
           </div>
 
-          <motion.div className=" relative overflow-hidden h-90 w-80 2xl:h-110 2xl:w-80 hidden md:flex flex-col justify-between cursor-pointer">
+          <motion.div
+            onClick={handleOpenVideo}
+            className="relative overflow-hidden h-90 w-80 2xl:h-110 2xl:w-80 hidden md:flex flex-col justify-between cursor-pointer group"
+          >
             <div className="relative w-full h-full overflow-hidden">
               <video
                 src="/video/about.mp4"
                 loop
                 autoPlay
-                muted={true}
+                muted
                 playsInline
-                className="w-full h-full object-cover "
+                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
               />
             </div>
-            <div className="flex justify-between items-center w-full pt-3 text-md  uppercase tracking-widest">
+            <div className="flex justify-between items-center w-full pt-3 text-md uppercase tracking-widest">
               <p className="font-semibold">showcase reel</p>
               <p className="font-semibold opacity-70">2026</p>
             </div>
           </motion.div>
         </div>
       </motion.div>
+
+      <dialog
+        ref={dialogRef}
+        onClick={handleCloseVideo}
+        className="fixed inset-0 m-auto bg-transparent p-0 border-none outline-none backdrop:bg-black/85 backdrop:backdrop-blur-sm max-w-5xl w-full overflow-visible shadow-none border-0"
+      >
+        <div
+          onClick={(e) => e.stopPropagation()}
+          className="relative w-full aspect-video overflow-hidden shadow-2xl bg-black"
+        >
+          <button
+            onClick={handleCloseVideo}
+            className="absolute top-4 right-4 z-20 w-10 h-10 rounded-full bg-black/60 text-white hover:bg-white hover:text-black flex items-center justify-center transition-colors border border-white/20"
+          >
+            <X size={20} />
+          </button>
+
+          <video
+            ref={modalVideoRef}
+            src="/video/about.mp4"
+            controls
+            playsInline
+            className="w-full h-full object-cover"
+          />
+        </div>
+      </dialog>
     </section>
   );
 }
