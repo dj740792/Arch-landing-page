@@ -54,16 +54,6 @@ const wordVariants = {
   },
 };
 
-const imageVariants = {
-  hidden: { clipPath: "inset(100% 0% 0% 0%)" },
-  visible: {
-    clipPath: "inset(0% 0% 0% 0%)",
-    transition: {
-      duration: 1.2,
-      ease: [0.13, 1, 0.22, 1],
-    },
-  },
-};
 
 export default function HeroSection() {
   const [mounted, setMounted] = useState(false);

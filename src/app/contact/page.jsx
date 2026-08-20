@@ -1,8 +1,10 @@
 "use client";
 
 import Image from "next/image";
+import { Lato } from "next/font/google";
 import { useState, useRef } from "react";
 import emailjs from '@emailjs/browser';
+const numFont = Lato({ subsets: ["latin"], weight: "400" });
 
 export default function ContactPage() {
   const [success, setSuccess] = useState(false);
@@ -63,7 +65,7 @@ export default function ContactPage() {
                 name="user_name"
                 required
                 placeholder="Enter your name"
-                className="w-full text-sm border-b border-current/20 pb-2 lg:text-lg focus:outline-none bg-transparent placeholder:opacity-40"
+                className={`${numFont.className} w-full text-sm border-b border-current/20 pb-2 lg:text-lg focus:outline-none bg-transparent placeholder:opacity-40`}
               />
             </div>
 
@@ -76,7 +78,7 @@ export default function ContactPage() {
                 name="user_email"
                 required
                 placeholder="Enter your email"
-                className="w-full text-sm border-b border-current/20 pb-2 lg:text-lg focus:outline-none bg-transparent placeholder:opacity-40"
+                className={`${numFont.className} w-full text-sm border-b border-current/20 pb-2 lg:text-lg focus:outline-none bg-transparent placeholder:opacity-40`}
               />
             </div>
 
@@ -88,7 +90,7 @@ export default function ContactPage() {
                 type="text"
                 name="user_contact"
                 placeholder="Enter your contact"
-                className="w-full text-sm border-b border-current/20 pb-2 lg:text-lg focus:outline-none bg-transparent placeholder:opacity-40"
+                className={`${numFont.className} font-bold w-full text-sm border-b border-current/20 pb-2 lg:text-lg focus:outline-none bg-transparent placeholder:opacity-40`}
               />
             </div>
 
