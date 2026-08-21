@@ -32,7 +32,7 @@ Ensure you have Node.js 18+ installed on your system.
 ### Installation
 
 1. Clone the repository:
-   git clone https://github.com/your-username/oasis-architecture.git
+   git clone https://github.com/dj740792/Oasis-website
    cd oasis-architecture
 
 2. Install dependencies:
@@ -55,13 +55,3 @@ Ensure you have Node.js 18+ installed on your system.
 
 4. View in browser:
    Open http://localhost:3000 to see the application running locally.
-
----
-
-## Deployment
-
-The easiest way to deploy this project is via the Vercel Platform.
-
-1. Push your code to GitHub / GitLab / Bitbucket.
-2. Import the project into Vercel.
-3. Deploy directly with standard Next.js build settings.
