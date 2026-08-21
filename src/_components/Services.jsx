@@ -47,7 +47,7 @@ export default function Services() {
   const height = useTransform(
     scrollYProgress,
     [0, 0.5],
-    isMobile ? ["0vh", "60vh"] : ["0vh", "80vh"],
+    isMobile ? ["0vh", "60vh"] : ["0vh", "90vh"],
   );
 
   return (
@@ -111,7 +111,7 @@ export default function Services() {
                 <h3 className="text-xl  lg:text-3xl font-semibold tracking-normal  transition-colors">
                   {service.title}
                 </h3>
-                <p className="text-sm lg:text-md xl:text-xl opacity-80 font-semibold leading-relaxed max-w-md">
+                <p className="text-sm lg:text-lg opacity-80 font-semibold leading-relaxed max-w-md">
                   {service.description}
                 </p>
               </motion.div>
