@@ -6,15 +6,18 @@ import ScrollToTop from "@/_components/ScrollToTop";
 const cormorant = Cormorant_Garamond({
   variable: "--font-cormorant-sans",
   subsets: ["latin"],
+   display:"swap"
 });
 
 const lexend = Raleway({
   subsets: ["latin"],
   weight: "600",
+  display:"swap"
 });
 const lato = Aboreto({
   subsets: ["latin"],
   weight: "400",
+   display:"swap"
 });
 
 export const metadata = {

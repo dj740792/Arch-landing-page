@@ -128,6 +128,8 @@ export default function About() {
             <div className="relative w-full h-full overflow-hidden rounded-none">
               <video
                 src="/video/about.mp4"
+                preload="none"
+
                 loop
                 autoPlay
                 muted
@@ -154,6 +156,7 @@ export default function About() {
         >
           <button
             onClick={handleCloseVideo}
+            aria-label="close video modal"
             className="absolute top-4 right-4 z-20 w-10 h-10 rounded-full bg-black/60 text-white hover:bg-white hover:text-black flex items-center justify-center transition-colors border border-white/20"
           >
             <X size={20} />
