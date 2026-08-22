@@ -21,7 +21,7 @@ const images = [
   { src: "/heroImgs/img1.jpg", height: "h-[40vh] md:h-[30vh]" },
   { src: "/photos/restraunt/restraunt2.jpg", height: "h-[36vh] md:h-[26vh]" },
   { src: "/photos/lounge/lounge3.jpg", height: "h-[32vh] md:h-[32vh]" },
-  { src: "/heroImgs/img4.jpg", height: "h-[39vh] md:h-[29vh]" },
+  { src: "/heroImgs/img9.jpg", height: "h-[39vh] md:h-[29vh]" },
   { src: "/photos/pavillion/pavillion1.jpg", height: "h-[37vh] md:h-[27vh]" },
   { src: "/heroImgs/img6.jpg", height: "h-[32vh] md:h-[32vh]" },
   { src: "/heroImgs/img7.jpg", height: "h-[39vh] md:h-[29vh]" },
