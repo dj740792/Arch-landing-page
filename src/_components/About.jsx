@@ -60,11 +60,11 @@ export default function About() {
   };
 
   return (
-    <section className="w-full min-h-screen flex items-center justify-center py-20 px-4 md:px-8">
-      <motion.div className="w-full max-w-7xl flex flex-col gap-12 my-auto pt-20 md:pt-0">
+    <section className="w-full min-h-screen flex items-center justify-center py-16 px-4">
+      <motion.div className="w-full flex flex-col gap-12 mt-32 mb-40 md:mt-0">
         <div
           ref={headingRef}
-          className="w-full md:max-w-7xl leading-[1.3] md:px-12 overflow-hidden"
+          className="md:max-w-7xl leading-[1.3] md:px-12 overflow-hidden"
         >
           <motion.h2 className="lg:text-6xl md:text-5xl text-3xl font-bold tracking-wider leading-none flex flex-wrap gap-y-1">
             {headingWords.map((word, wordIndex) => (
@@ -92,9 +92,8 @@ export default function About() {
           </motion.h2>
         </div>
 
-        <div className="flex flex-col md:flex-row justify-between items-center md:items-start gap-12 md:gap-8 md:px-12">
-     
-          <div className="w-full md:w-1/2 lg:w-5/12 flex flex-col gap-9">
+        <div className="flex justify-center lg:justify-around md:flex-row md:gap-4 gap-12 flex-col items-center">
+          <div className="w-full sm:w-2/3 md:w-1/3 flex flex-col gap-9">
             <motion.p
               variants={textContainerVariants}
               initial="hidden"
@@ -122,42 +121,40 @@ export default function About() {
             </Link>
           </div>
 
-         
           <motion.div
             onClick={handleOpenVideo}
-            className="w-full max-w-sm md:w-80 relative overflow-hidden flex flex-col justify-between cursor-pointer group"
+            className="relative overflow-hidden w-80 h-90 2xl:h-110 2xl:w-80 flex flex-col justify-between cursor-pointer group rounded-none"
           >
-            <div className="relative w-full aspect-4/5 overflow-hidden rounded-sm">
+            <div className="relative w-full h-full overflow-hidden rounded-none">
               <video
                 src="/video/about.mp4"
                 loop
                 autoPlay
                 muted
                 playsInline
-                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 rounded-none"
               />
             </div>
             <div className="flex justify-between items-center w-full pt-3 text-md uppercase tracking-widest">
-              <p className="font-semibold text-xs md:text-sm">showcase reel</p>
-              <p className="font-semibold text-xs md:text-sm opacity-70">2026</p>
+              <p className="font-semibold text-xs md:text-md">showcase reel</p>
+              <p className="font-semibold text-xs md:text-md opacity-70">2026</p>
             </div>
           </motion.div>
         </div>
       </motion.div>
 
-     
       <dialog
         ref={dialogRef}
         onClick={handleCloseVideo}
-        className="fixed inset-0 m-auto bg-transparent p-4 border-none outline-none backdrop:bg-black/85 backdrop:backdrop-blur-sm max-w-5xl w-full overflow-visible shadow-none border-0"
+        className="fixed inset-0 m-auto bg-transparent p-0 border-none outline-none backdrop:bg-black/85 backdrop:backdrop-blur-sm max-w-5xl w-full overflow-visible shadow-none border-0 rounded-none"
       >
         <div
           onClick={(e) => e.stopPropagation()}
-          className="relative w-full aspect-video overflow-hidden shadow-2xl bg-black rounded-lg"
+          className="relative w-full aspect-video overflow-hidden shadow-2xl bg-black rounded-none"
         >
           <button
             onClick={handleCloseVideo}
-            className="absolute top-4 right-4 z-20 w-10 h-10 rounded-full bg-black/60 text-white hover:bg-white hover:text-black flex items-center justify-center transition-colors border border-white/20 cursor-pointer"
+            className="absolute top-4 right-4 z-20 w-10 h-10 rounded-full bg-black/60 text-white hover:bg-white hover:text-black flex items-center justify-center transition-colors border border-white/20"
           >
             <X size={20} />
           </button>
@@ -167,7 +164,7 @@ export default function About() {
             src="/video/about.mp4"
             controls
             playsInline
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover rounded-none"
           />
         </div>
       </dialog>
