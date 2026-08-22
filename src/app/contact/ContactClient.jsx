@@ -42,11 +42,10 @@ export default function ContactClient() {
         <div className="w-full lg:w-1/2 flex flex-col justify-center items-start space-y-7">
           <div className="space-y-2">
             <h1 className="text-3xl md:text-4xl lg:text-5xl xl:text-7xl font-bold tracking-tight">
-              We'd love to help
+             START A CONVERSATION
             </h1>
             <p className="text-sm lg:text-xl opacity-80 leading-relaxed max-w-md">
-              Tell us a bit about your project, and we'll get back to you with a
-              custom proposal tailored to your needs.
+             Have a project in mind?
             </p>
           </div>
 

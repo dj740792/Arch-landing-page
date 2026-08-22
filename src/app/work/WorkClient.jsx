@@ -58,8 +58,7 @@ export default function WorkClient() {
             ))}
           </h1>
           <p className="text-md md:text-lg xl:text-xl font-normal leading-relaxed max-w-xl opacity-80">
-            A collection of digital experiences, custom web development, and
-            interface designs built for performance.
+           A selection of spaces shaped around material, atmosphere and the way people experience them.
           </p>
         </div>
 
