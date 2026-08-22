@@ -4,9 +4,14 @@ import TeamSection from "@/_components/about/TeamSection";
 import FaqSection from "@/_components/about/FaqSection";
 
 export const metadata = {
-  title: "About",
-  description: "Get to know more about Oasis.",
-  keywords: ["about", "about us", "journey", "stats"],
+  title: "About ",
+  description:
+    "Learn about Oasis and our approach to quiet architecture, raw textures, and enduring environmental spaces.",
+  openGraph: {
+    title: "About Our Studio | studio Oasis",
+    description:
+      "Learn about Oasis and our approach to quiet architecture, raw textures, and enduring environmental spaces.",
+  },
 };
 
 export default function page() {

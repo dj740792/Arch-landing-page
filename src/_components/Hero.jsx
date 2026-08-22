@@ -85,8 +85,11 @@ const Hero = () => {
             ))}
           </h1>
         </motion.div>
-      </div>
 
+        <div className="w-full px-6 md:px-12 my-6 ">
+          <div className="w-full border-t mb-6 md:mb-14" />
+        </div>
+      </div>
       <div className="relative w-full flex overflow-hidden pb-10 mask-gradient">
         {mounted && (
           <motion.div
